@@ -1,0 +1,500 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Manufacturing AX Report [2025-06-21]</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                .header {
+                    text-align: center;
+                    border-bottom: 3px solid #0066cc;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 4px solid #28a745;
+                }
+                .language-selector {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background: white;
+                    border-radius: 25px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    padding: 5px;
+                }
+                .language-btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    margin: 0 2px;
+                }
+                .language-btn.active {
+                    background: #0066cc;
+                    color: white;
+                }
+                .language-btn:not(.active) {
+                    background: transparent;
+                    color: #666;
+                }
+                .language-btn:hover {
+                    background: #0066cc;
+                    color: white;
+                }
+                .lang-ko { display: block; }
+                .lang-en { display: none; }
+                .language-en .lang-ko { display: none; }
+                .language-en .lang-en { display: block; }
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .container { padding: 20px; }
+                    .language-selector {
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="language-selector">
+                <button class="language-btn active" onclick="switchLanguage('ko')" id="btn-ko">한국어</button>
+                <button class="language-btn" onclick="switchLanguage('en')" id="btn-en">English</button>
+            </div>
+            
+            <div class="container">
+                <div class="header">
+                    <h1 style="color: #0066cc; margin: 0; font-size: 2.5em;">
+                        🏭 <span class="lang-ko">제조업 AX 리포트</span><span class="lang-en">Manufacturing AX Report</span>
+                    </h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.2em; color: #666;">
+                        <span class="lang-ko">제조업 AI 전환 리포트 [2025-06-21]</span>
+                        <span class="lang-en">Manufacturing AI Transformation Report [2025-06-21]</span>
+                    </p>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center;">
+                        🤖 <span class="lang-ko" style="margin-left: 8px;">AI 참고</span>
+                        <span class="lang-en" style="margin-left: 8px;">AI Disclosure</span>
+                    </h3>
+                    <div style="font-size: 14px; line-height: 1.6; color: #856404;">
+                        <p style="margin: 8px 0;">
+                            <span class="lang-ko">
+                                이 리포트는 AI로 자동 생성되었습니다. 다음 모델들이 사용되었습니다:
+                            </span>
+                            <span class="lang-en">
+                                This report was automatically generated using AI. The following models were used:
+                            </span>
+                        </p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>
+                                - Claude (claude-sonnet-4-20250514)<br>- ChatGPT (o4-mini)<br>- Gemini (gemini-2.5-pro-preview-06-05)
+                            </li>
+                        </ul>
+                        <p style="margin: 8px 0; font-size: 13px;">
+                            <span class="lang-ko">
+                                AI 생성 콘텐츠의 정확성을 위해 전문가 검토를 권장합니다.
+                            </span>
+                            <span class="lang-en">
+                                Expert review is recommended for accuracy of AI-generated content.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2 style="color: #28a745; margin-top: 0;">
+                        <span class="lang-ko">📋 주요 인사이트</span>
+                        <span class="lang-en">📋 Key Insights</span>
+                    </h2>
+                    <div style="font-size: 16px; line-height: 1.8;">
+                        <div class="lang-ko"><h3 style="color: #0066cc; margin: 15px 0 10px 0;">제조업 AI 전환(AX) 핵심 트렌드 분석 요약</h3><br><br>제조업 AI 전환(AX) 분석 결과, AI는 단편적 기술 도입을 넘어 제조 가치사슬 전반을 혁신하는 핵심 동력으로 부상하고 있습니다. 특히 다음과 같은 주요 트렌드와 인사이트에 주목할 필요가 있습니다.<br><br>가장 중요한 트렌드는 <strong>'디지털 스레드 최적화'와 '디지털 트윈'의 고도화</strong>입니다. 이는 AI가 제품 설계부터 생산, 유통, 서비스에 이르는 전 과정을 데이터로 완벽히 연결하고, 가상 세계에 구현된 디지털 트윈을 통해 현실의 공장을 시뮬레이션하며 최적의 운영 방안을 도출하는 단계에 이르렀음을 의미합니다. 이를 통해 제조업 전문가들은 생산성을 극대화하고, 예측 기반의 유지보수로 다운타임을 최소화할 수 있습니다.<br><br>또한, <strong>'프롬프트 엔지니어링'을 통한 '데이터 기반 의사결정'의 대중화</strong>가 눈에 띕니다. 이제는 데이터 과학자가 아니더라도 현장 관리자나 엔지니어가 자연어(일상 언어)로 AI에게 질문하고 필요한 데이터를 분석하여 즉각적인 인사이트를 얻는 것이 가능해졌습니다. 이는 신속하고 정확한 현장 문제 해결 능력을 크게 향상시킬 것입니다.<br><br>장기적인 관점에서는 <strong>'AI 거버넌스'와 'AI 인프라'의 중요성</strong>이 강조됩니다. AI 기술의 책임감 있고 안정적인 운영을 위한 정책 및 관리 체계(거버넌스) 구축은 성공적인 AX의 필수 전제조건입니다. 더불어, 방대한 AI 연산을 뒷받침할 고효율 'AI 데이터센터'나 '액침냉각' 같은 차세대 인프라에 대한 고민도 함께 시작해야 할 시점입니다.</div>
+                        <div class="lang-en"><h3 style="color: #0066cc; margin: 15px 0 10px 0;">Summary of Core Trends in AI Transformation (AX) for Manufacturing</h3><br><br>Analysis of AI Transformation (AX) in manufacturing indicates that AI is emerging as a key driver, revolutionizing the entire manufacturing value chain beyond mere fragmented technology adoption. In particular, attention should be paid to the following key trends and insights:<br><br>The most important trend is the <strong>advancement of 'Digital Thread Optimization' and 'Digital Twin'</strong>. This signifies that AI has reached a stage where it can perfectly connect the entire process, from product design to production, distribution, and service, with data, and simulate real-world factories through digital twins implemented in a virtual world to derive optimal operational solutions. Through this, manufacturing experts can maximize productivity and minimize downtime with predictive maintenance.<br><br>Furthermore, the <strong>popularization of 'data-driven decision-making' through 'Prompt Engineering'</strong> is notable. Now, even without being data scientists, field managers or engineers can ask AI questions in natural language (everyday language) and analyze necessary data to gain immediate insights. This will significantly enhance rapid and accurate on-site problem-solving capabilities.<br><br>From a long-term perspective, the <strong>importance of 'AI Governance' and 'AI Infrastructure'</strong> is emphasized. Establishing policies and management systems (governance) for the responsible and stable operation of AI technology is an essential prerequisite for successful AX. Additionally, it is also time to start considering next-generation infrastructure, such as high-efficiency 'AI Data Centers' and 'immersion cooling', to support vast AI computations.</div>
+                    </div>
+                </div>
+                
+                
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #0066cc; margin-bottom: 15px;">
+            <span class="lang-ko">📊 분석 통계</span>
+            <span class="lang-en">📊 Analysis Statistics</span>
+        </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <strong>
+                            <span class="lang-ko">총 분석 항목:</span>
+                            <span class="lang-en">Total Analysis Items:</span>
+                        </strong> 7<br>
+                        <strong>
+                            <span class="lang-ko">평균 점수:</span>
+                            <span class="lang-en">Average Score:</span>
+                        </strong> 6.3/10<br>
+                        <strong>
+                            <span class="lang-ko">최고 점수:</span>
+                            <span class="lang-en">Max Score:</span>
+                        </strong> 8.0/10
+                    </div>
+                    <div>
+                        <strong>
+                            <span class="lang-ko">고가치 (8점 이상):</span>
+                            <span class="lang-en">High Value (8+):</span>
+                        </strong> 2<br>
+                        <strong>
+                            <span class="lang-ko">중간가치 (5-7점):</span>
+                            <span class="lang-en">Medium Value (5-7):</span>
+                        </strong> 4<br>
+                        <strong>
+                            <span class="lang-ko">최저 점수:</span>
+                            <span class="lang-en">Min Score:</span>
+                        </strong> 4.7/10
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div style="margin: 15px 0;">
+                <strong>
+                    <span class="lang-ko">소스 통계:</span>
+                    <span class="lang-en">Source Statistics:</span>
+                </strong><br>
+                <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>Web: 7<span class='lang-ko'>개</span><span class='lang-en'> items</span></span>
+            </div>
+            
+                
+                <h2 style="color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
+                    <span class="lang-ko">📄 상세 분석 결과</span>
+                    <span class="lang-en">📄 Detailed Analysis Results</span>
+                </h2>
+                
+                
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                1. Deloitte AI Institute - AI Insights | Deloitte US
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 97.3%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                ai 거버넌스
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.deloitte.com/us/AIInstitute" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.deloitte.com/us/AIInstitute
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 8.0 - 
+                <span class="lang-ko">딜로이트의 포괄적인 AI 전환(AX) 접근법을 통해 제조업 실무진이 얻을 수 있는 핵심 통찰: 1) 생성형 AI의 전략적 도입을 위한 13가지 지속가능한 성장 요소 프레임워크, 2) 신뢰할 수 있는 AI 거버넌스 체계 구축의 중요성, 3) 데이터를 전략적 자산으로 활용하는 방법론, 4) AI 에이전트(Zora AI)를 통한 디지털 워크포스 구현 사례, 5) 73개 고임팩트 AI 활용 사례를 통한 실무 적용 가이드라인. 특히 74%의 기업이 이미 GenAI 이니셔티브를 달성했다는 벤치마킹 데이터는 제조업체들의 AI 전환 전략 수립에 중요한 참고자료가 됨.</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                2. Dot Ai: Home
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                디지털 스레드 최적화
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://daic.ai/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://daic.ai/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 8.0 - 
+                <span class="lang-ko">Dot AI는 제조업 물류 및 공급망 관리에서 AI 기반 자산 추적 솔루션을 통해 디지털 전환을 실현하고 있습니다. 특히 엣지 정확도를 갖춘 AI 데이터, 클라우드 기반 예측 분석, 그리고 차세대 IoT 기술(ZiM)을 통해 실시간 자산 가시성과 운영 효율성을 크게 향상시키고 있습니다. 이는 제조업체들이 공급망 리스크를 완화하고 운영비용을 절감하면서도 더욱 민첩하고 탄력적인 운영을 구축할 수 있는 구체적인 방법론을 제시합니다.</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                3. Artificial Intelligence (AI): What it is and why it matters | SAS
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.7/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.4%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                디지털 트윈
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.sas.com/en_us/insights/analytics/what-is-artificial-intelligence.html" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.sas.com/en_us/insights/analytics/what-is-artificial-intelligence.htm...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 6.0 - 
+                <span class="lang-ko">이 콘텐츠는 AI의 기본 개념과 산업 전반의 적용 사례를 포괄적으로 다루고 있으며, 특히 제조업에서의 IoT 데이터 분석, 디지털 트윈 기술, 그리고 생성형 AI 도입의 중요성을 강조합니다. 제조업 실무진에게는 AI 전환 전략 수립 시 고려해야 할 핵심 요소들(신뢰할 수 있는 AI, 데이터 중심 접근법, 인간-AI 협업)에 대한 기본적인 이해를 제공하지만, 구체적인 구현 방법론이나 실무적 가이드라인은 제한적입니다.</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                4. OpenAI - Wikipedia
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.7/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.1%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                프롬프트 엔지니어링, 데이터 기반 의사결정
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://en.wikipedia.org/wiki/OpenAI" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://en.wikipedia.org/wiki/OpenAI
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 7.0 - 
+                <span class="lang-ko">제조업 AI 전환을 위한 실무 교육 프로그램의 구체적인 커리큘럼과 접근 방식을 제시합니다. 특히 생성형 AI 도구 활용, 프롬프트 엔지니어링, 데이터 기반 의사결정 도구 등 실무진이 바로 적용할 수 있는 스킬 개발에 중점을 둔 점이 주목할 만합니다. 공급망 관리, 재고 관리 등 제조업 핵심 영역에서의 AI 활용 사례도 포함되어 있어 제조업 AX 추진 시 참고할 만한 교육 프레임워크를 제공합니다.</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                5. 중앙대병원, ‘서비스로봇 실증사업’’ 선정돼 척추 수술 로봇 도입
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 5.3/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 77.8%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                액침냉각, ai 데이터센터
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://sports.khan.co.kr/article/202506220621003?pt=nv" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://sports.khan.co.kr/article/202506220621003?pt=nv
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 2.0 - 
+                <span class="lang-ko">제목과 내용이 완전히 불일치하는 문제가 있습니다. 제목은 중앙대병원의 척추 수술 로봇 도입에 관한 것이지만, 실제 내용은 SK그룹의 AI 데이터센터 및 에너지 솔루션에 관한 것입니다. 내용 자체는 AI 인프라와 에너지 관리에 대한 유용한 정보를 담고 있으나, 제조업 AX보다는 IT 인프라 및 에너지 산업에 더 관련성이 높습니다.</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                6. Edge AI and Vision Alliance: Home
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 5.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 89.3%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                openai, ai 에이전트
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.edge-ai-vision.com/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.edge-ai-vision.com/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 5.0 - 
+                <span class="lang-ko">OpenAI의 전략과 기술 발전 현황을 통해 제조업 AI 전환의 방향성을 간접적으로 파악할 수 있으나, 제조업 특화 사례나 구체적인 적용 방안은 부족함. GPT 모델의 API 활용, AI 에이전트 기술, 그리고 대규모 AI 인프라 투자 동향은 제조업 AX 전략 수립에 참고할 만한 정보를 제공함.</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                7. The music industry is building the tech to hunt down AI songs | The ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 4.7/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 61.8%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                None
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.theverge.com/ai-artificial-intelligence/686767/music-industry-ai-song-detection-tracking-licensing" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.theverge.com/ai-artificial-intelligence/686767/music-industry-ai-son...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+            <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong>CLAUDE:</strong> 3.0 - 
+                <span class="lang-ko">음악 산업의 AI 콘텐츠 탐지 및 추적 기술 개발 사례를 통해 제조업에서도 AI 생성 콘텐츠나 데이터의 출처 추적, 메타데이터 태깅, 파이프라인 통합 탐지 시스템 등의 접근법을 참고할 수 있음. 특히 사후 대응보다는 사전 예방적 인프라 구축의 중요성과 AI 기술을 억제하기보다는 통제 가능한 형태로 활용하는 전략적 전환이 인상적임</span>
+                <span class="lang-en">The approach of the Deloitte AI Institute presents a comprehensive framework applicable even in AI transformation within the manufacturing sector. Specifically, the core involves utilizing generative AI (GenAI) to promote design, productivity, and scalability, and establishing a 'trusted AI' governance system to manage ethical and regulatory risks. Data should be treated as a 'product,' integrating and utilizing quality, distribution, and supply chain data. Furthermore, the AI capabilities of all employees must be enhanced through in-house training programs like 'Academy for AI.' By expanding pilots enterprise-wide through 13 expansion factors and clear ROI measurement metrics, and by collaborating with technology partners such as NVIDIA to develop smart manufacturing solutions, a competitive advantage can be maintained.</span>
+            </div>
+            
+            </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #e9ecef; border-radius: 8px;">
+                    <p style="margin: 0; color: #666;">
+                        <span class="lang-ko">
+                            생성 시간: 2025년 06월 22일 06시 44분
+                        </span>
+                        <span class="lang-en">
+                            Generated at: 2025-06-22 06:44
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <script>
+                function switchLanguage(lang) {
+                    // 언어 버튼 상태 변경
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.getElementById('btn-' + lang).classList.add('active');
+                    
+                    // body 클래스 변경으로 언어 콘텐츠 토글
+                    document.body.className = lang === 'en' ? 'language-en' : '';
+                    
+                    // 로컬 스토리지에 선택된 언어 저장
+                    localStorage.setItem('selectedLanguage', lang);
+                }
+                
+                // 페이지 로드 시 저장된 언어 설정 복원
+                document.addEventListener('DOMContentLoaded', function() {
+                    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+                    switchLanguage(savedLang);
+                });
+            </script>
+        </body>
+        </html>
+        
