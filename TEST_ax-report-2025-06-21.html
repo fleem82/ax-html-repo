@@ -1,0 +1,534 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Manufacturing AX Report [2025-06-21]</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                .header {
+                    text-align: center;
+                    border-bottom: 3px solid #0066cc;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 4px solid #28a745;
+                }
+                .language-selector {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background: white;
+                    border-radius: 25px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    padding: 5px;
+                }
+                .language-btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    margin: 0 2px;
+                }
+                .language-btn.active {
+                    background: #0066cc;
+                    color: white;
+                }
+                .language-btn:not(.active) {
+                    background: transparent;
+                    color: #666;
+                }
+                .language-btn:hover {
+                    background: #0066cc;
+                    color: white;
+                }
+                .lang-ko { display: block; }
+                .lang-en { display: none; }
+                .language-en .lang-ko { display: none; }
+                .language-en .lang-en { display: block; }
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .container { padding: 20px; }
+                    .language-selector {
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="language-selector">
+                <button class="language-btn active" onclick="switchLanguage('ko')" id="btn-ko">한국어</button>
+                <button class="language-btn" onclick="switchLanguage('en')" id="btn-en">English</button>
+            </div>
+            
+            <div class="container">
+                <div class="header">
+                    <h1 style="color: #0066cc; margin: 0; font-size: 2.5em;">
+                        🏭 <span class="lang-ko">제조업 AX 리포트</span><span class="lang-en">Manufacturing AX Report</span>
+                    </h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.2em; color: #666;">
+                        <span class="lang-ko">제조업 AI 전환 리포트 [2025-06-21]</span>
+                        <span class="lang-en">Manufacturing AI Transformation Report [2025-06-21]</span>
+                    </p>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center;">
+                        🤖 <span class="lang-ko" style="margin-left: 8px;">AI 참고</span>
+                        <span class="lang-en" style="margin-left: 8px;">AI Disclosure</span>
+                    </h3>
+                    <div style="font-size: 14px; line-height: 1.6; color: #856404;">
+                        <p style="margin: 8px 0;">
+                            <span class="lang-ko">
+                                이 리포트는 AI로 자동 생성되었습니다. 다음 모델들이 사용되었습니다:
+                            </span>
+                            <span class="lang-en">
+                                This report was automatically generated using AI. The following models were used:
+                            </span>
+                        </p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>
+                                - Claude (claude-sonnet-4-20250514)<br>- ChatGPT (o4-mini)<br>- Gemini (gemini-2.5-pro-preview-06-05)
+                            </li>
+                        </ul>
+                        <p style="margin: 8px 0; font-size: 13px;">
+                            <span class="lang-ko">
+                                AI 생성 콘텐츠의 정확성을 위해 전문가 검토를 권장합니다.
+                            </span>
+                            <span class="lang-en">
+                                Expert review is recommended for accuracy of AI-generated content.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2 style="color: #28a745; margin-top: 0;">
+                        <span class="lang-ko">📋 주요 인사이트</span>
+                        <span class="lang-en">📋 Key Insights</span>
+                    </h2>
+                    <div style="font-size: 16px; line-height: 1.8;">
+                        <div class="lang-ko"><h4 style="color: #333; margin: 10px 0 5px 0;">제조 AI 전환(AX) 동향 분석 결과 요약</h4><br><br>본 분석은 제조 산업의 최신 AI 전환(AX) 트렌드와 핵심 동향을 파악하기 위해 진행되었습니다.<br><br>분석 결과, AI가 단편적인 공정 개선을 넘어 비즈니스 모델을 '재창조'하는 핵심 동력으로 부상하고 있음이 확인되었습니다. 주요 트렌드는 다음과 같습니다.<br><br>1.  <strong>공장 운영의 지능화:</strong> <strong>디지털 트윈</strong>(현실의 기계나 장비 등을 가상 세계에 구현하는 기술)과 <strong>스마트 팩토리</strong>를 통해 공장 전체를 통합적으로 관리하고 최적화하려는 움직임이 가속화되고 있습니다. 이는 전사적 차원의 생산성 혁신을 목표로 합니다.<br>2.  <strong>공급망 효율 극대화:</strong> <strong>AI 예측 분석</strong>을 수요 예측 및 재고 관리에 적용하여 비용을 절감하고 운영 효율을 높이는 사례가 중요한 흐름으로 자리 잡았습니다.<br>3.  <strong>설계 및 R&D 혁신:</strong> <strong>생성형 AI</strong>를 맞춤형 반도체 설계와 같은 고부가가치 영역에 활용하여 개발 기간을 단축하고 생산성을 획기적으로 높이려는 새로운 시도가 나타나고 있습니다.<br><br>이러한 동향은 AI가 생산성 향상과 비용 절감을 넘어, 제품 설계 혁신까지 이끌 수 있는 큰 기회를 제공함을 시사합니다. 하지만 성공적인 AI 전환을 위해서는 전사적 차원의 명확한 전략과 전문 인력 확보가 중요한 과제로 남습니다. 향후 제조 기업들은 AI를 단순 기술 도입이 아닌, 비즈니스 경쟁력 강화를 위한 핵심 전략으로 삼고 장기적인 관점에서 접근해야 할 것입니다.</div>
+                        <div class="lang-en"><h4 style="color: #333; margin: 10px 0 5px 0;">Summary of Manufacturing AI Transformation (AX) Trend Analysis Results</h4><br><br>This analysis was conducted to identify the latest AI transformation (AX) trends and key developments within the manufacturing industry.<br><br>The analysis confirms that AI is emerging as a key driving force for 'recreating' business models, moving beyond fragmented process improvements. The main trends are as follows:<br><br>1.  <strong>Intelligentization of Factory Operations:</strong> The acceleration of efforts to comprehensively manage and optimize entire factories through <strong>Digital Twins</strong> (technology that implements real-world machines or equipment in a virtual world) and <strong>Smart Factories</strong> is observed. This aims for enterprise-wide productivity innovation.<br>2.  <strong>Maximizing Supply Chain Efficiency:</strong> The application of <strong>AI Predictive Analytics</strong> to demand forecasting and inventory management, thereby reducing costs and increasing operational efficiency, has become a significant trend.<br>3.  <strong>Design and R&D Innovation:</strong> New attempts are emerging to dramatically shorten development periods and increase productivity by utilizing <strong>Generative AI</strong> in high-value-added areas such as customized semiconductor design.<br><br>These trends suggest that AI offers significant opportunities to drive product design innovation, beyond just productivity improvement and cost reduction. However, clear enterprise-wide strategies and the securing of specialized personnel remain crucial challenges for a successful AI transformation. In the future, manufacturing companies should approach AI not merely as a technology adoption but as a core strategy for strengthening business competitiveness, and from a long-term perspective.</div>
+                    </div>
+                </div>
+                
+                
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #0066cc; margin-bottom: 15px;">
+            <span class="lang-ko">📊 분석 통계</span>
+            <span class="lang-en">📊 Analysis Statistics</span>
+        </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <strong>
+                            <span class="lang-ko">총 분석 항목:</span>
+                            <span class="lang-en">Total Analysis Items:</span>
+                        </strong> 6<br>
+                        <strong>
+                            <span class="lang-ko">평균 점수:</span>
+                            <span class="lang-en">Average Score:</span>
+                        </strong> 5.9/10<br>
+                        <strong>
+                            <span class="lang-ko">최고 점수:</span>
+                            <span class="lang-en">Max Score:</span>
+                        </strong> 8.0/10
+                    </div>
+                    <div>
+                        <strong>
+                            <span class="lang-ko">고가치 (8점 이상):</span>
+                            <span class="lang-en">High Value (8+):</span>
+                        </strong> 1<br>
+                        <strong>
+                            <span class="lang-ko">중간가치 (5-7점):</span>
+                            <span class="lang-en">Medium Value (5-7):</span>
+                        </strong> 2<br>
+                        <strong>
+                            <span class="lang-ko">최저 점수:</span>
+                            <span class="lang-en">Min Score:</span>
+                        </strong> 4.0/10
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div style="margin: 15px 0;">
+                <strong>
+                    <span class="lang-ko">소스 통계:</span>
+                    <span class="lang-en">Source Statistics:</span>
+                </strong><br>
+                <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>Web: 6<span class='lang-ko'>개</span><span class='lang-en'> items</span></span>
+            </div>
+            
+                
+                <h2 style="color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
+                    <span class="lang-ko">📄 상세 분석 결과</span>
+                    <span class="lang-en">📄 Detailed Analysis Results</span>
+                </h2>
+                
+                
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                1. 액센츄어, AI 시대 맞춰 성장 모델 재편…&quot;재창조 서비스(Reinvention Servic...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 97.3%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                제조 ai, 디지털 트윈, 스마트 팩토리, ai 데이터센터
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.aitimes.kr/news/articleView.html?idxno=35354" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.aitimes.kr/news/articleView.html?idxno=35354
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 8.0 - 
+                    <span class="lang-ko">울산 AI DC를 축으로 제조 AI, 디지털 트윈, 스마트 팩토리를 구현해 제조업 혁신을 가속화하며, AWS·NVIDIA·MS 등 글로벌 파트너와 대규모 투자를 통해 AI 생태계 경쟁력을 강화한다</span>
+                    <span class="lang-en">With Ulsan AI DC as its hub, we accelerate innovation in the manufacturing industry by implementing Manufacturing AI, Digital Twin, and Smart Factory, and strengthen the competitiveness of the AI ecosystem through large-scale investments with global partners such as AWS, NVIDIA, and MS.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>GEMINI:</strong> 9.0 - 
+                    <span class="lang-ko">제조업 AI 전환(AX)은 단순히 개별 공장에 솔루션을 도입하는 것을 넘어, 국가 및 산업단지 차원의 거대 인프라 구축이 선행되어야 한다는 점을 시사한다. SK그룹의 울산 AI 데이터센터 구축 사례는 성공적인 AX를 위해 반도체(HBM), 통신(데이터센터 운영), 에너지 등 그룹사의 핵심 역량을 총결집하고, AWS와 같은 글로벌 빅테크와의 협력을 통해 개방형 'AI 생태계'를 조성하는 것이 얼마나 중요한지 보여주는 전략적 청사진이다. 이는 미래 제조업 경쟁력이 AI 인프라 확보에 달려있음을 명확히 한다.</span>
+                    <span class="lang-en">Manufacturing AI Transformation (AX) suggests that it goes beyond simply introducing solutions to individual factories and necessitates the prior establishment of large-scale infrastructure at the national and industrial complex levels. The case of SK Group's Ulsan AI data center construction is a strategic blueprint demonstrating how crucial it is for successful AX to integrate the core capabilities of its group companies, such as semiconductors (HBM), telecommunications (data center operation), and energy, and to create an open 'AI ecosystem' through cooperation with global big tech companies like AWS. This clearly indicates that the future competitiveness of manufacturing depends on securing AI infrastructure.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 7.0 - 
+                    <span class="lang-ko">SK그룹의 AI 데이터센터 구축을 통한 제조업 혁신 전략은 반도체, 통신, 에너지 등 그룹 계열사의 통합 역량을 활용한 제조 AI 생태계 구축 모델을 제시합니다. 특히 울산 AI DC가 디지털 트윈과 스마트 팩토리 구현의 핵심 인프라로 활용되어 제조업 디지털 전환을 가속화하는 접근법이 주목할 만합니다.</span>
+                    <span class="lang-en">SK Group's manufacturing innovation strategy, through the establishment of AI data centers, presents a model for building a manufacturing AI ecosystem that utilizes the integrated capabilities of the group's affiliates, including semiconductors, telecommunications, and energy. Particularly noteworthy is the approach where the Ulsan AI DC is utilized as core infrastructure for the implementation of digital twins and smart factories, accelerating manufacturing digital transformation.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                2. AI technology could save Icelandic fishing industry billions - Iceland ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.7/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.4%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                재고 최적화, ai 예측 분석, 수요 예측
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://icelandmonitor.mbl.is/news/news/2025/06/21/ai_technology_could_save_icelandic_fishing_industry/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://icelandmonitor.mbl.is/news/news/2025/06/21/ai_technology_could_save_icel...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 7.0 - 
+                    <span class="lang-ko">AI 예측 분석을 통해 수요 예측, 재고 관리, 물류 최적화, 의사결정 인텔리전스를 구현하여 공급망의 민첩성·효율성·탄력성을 향상시키고, AI 거버넌스·데이터 공유 협력·인력 재교육을 통한 성공적 디지털 전환 전략을 제시한다.</span>
+                    <span class="lang-en">Through AI predictive analytics, by implementing demand forecasting, inventory management, logistics optimization, and decision intelligence to enhance the agility, efficiency, and resilience of the supply chain, and through AI governance, data sharing cooperation, and workforce retraining, a successful digital transformation strategy is presented.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>GEMINI:</strong> 9.0 - 
+                    <span class="lang-ko">AI 기반 예측 분석은 더 이상 선택이 아닌 공급망 관리의 필수적인 경쟁 우위 요소입니다. 성공적인 AI 전환(AX)은 기술 도입을 넘어 데이터 거버넌스, 부문 간 협업, 인력 개발을 포함하는 포괄적인 전략을 요구합니다. 초기 도입 기업들은 이미 물류비용 15% 감소, 재고량 35% 감축 등 상당한 정량적 성과를 입증했으나, 공식적인 AI 전략을 보유한 공급망 조직은 23%에 불과하여 시장 선점의 기회가 여전히 큰 것으로 나타났습니다.</span>
+                    <span class="lang-en">AI-based predictive analytics is no longer an option but an essential competitive advantage in supply chain management. Successful AI transformation (AX) requires a comprehensive strategy that goes beyond technology adoption, encompassing data governance, cross-functional collaboration, and workforce development. While early adopters have already demonstrated significant quantitative achievements, such as a 15% reduction in logistics costs and a 35% decrease in inventory levels, only 23% of supply chain organizations possess a formal AI strategy, indicating that the opportunity for market preemption remains substantial.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 7.0 - 
+                    <span class="lang-ko">공급망 관리에서 AI 예측 분석이 핵심 경쟁 우위 요소로 자리잡고 있으며, 수요 예측, 재고 관리, 물류 최적화 등 구체적인 적용 영역에서 상당한 성과를 보이고 있습니다. 특히 AI 도입 초기 기업들이 물류비용 15% 감소, 재고량 35% 감소, 서비스 전달 65% 개선이라는 정량적 성과를 달성했다는 점이 주목할 만합니다. 다만 공급망 조직의 23%만이 공식적인 AI 전략을 보유하고 있어 전략적 접근의 필요성이 크다는 점도 시사하는 바가 큽니다.</span>
+                    <span class="lang-en">AI predictive analytics is establishing itself as a key competitive advantage factor in supply chain management, showing significant results in specific application areas such as demand forecasting, inventory management, and logistics optimization. Notably, companies in the early stages of AI adoption have achieved quantitative results such as a 15% reduction in logistics costs, a 35% reduction in inventory, and a 65% improvement in service delivery. However, the fact that only 23% of supply chain organizations possess a formal AI strategy strongly suggests a great need for a strategic approach.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                3. Apple Plans To Use Generative AI To Supercharge Custom Chip ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 97.3%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                생성형 ai, 생산성 향상, 맞춤형 실리콘
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://wccftech.com/apple-to-use-generative-ai-for-custom-chip-design/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://wccftech.com/apple-to-use-generative-ai-for-custom-chip-design/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 7.0 - 
+                    <span class="lang-ko">Apple이 생성형 AI를 칩 개발 전 과정에 통합해 설계 생산성을 대폭 향상시키고, EDA 업체와 협력해 맞춤형 실리콘 경쟁력을 강화한다는 점</span>
+                    <span class="lang-en">Apple integrates generative AI throughout the entire chip development process to significantly improve design productivity and collaborates with EDA companies to strengthen its customized silicon competitiveness.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>GEMINI:</strong> 8.0 - 
+                    <span class="lang-ko">Apple과 같은 선도 기업이 AI를 사용자 기능뿐만 아니라 반도체 설계와 같은 핵심 하드웨어 개발 프로세스에 직접 통합하고 있다는 점입니다. 이는 생산성 및 혁신을 목표로 AI 전략이 심화되고 있음을 보여주며, EDA(전자 설계 자동화) 전문 공급업체와의 협력이 이러한 변화의 핵심 동력임을 시사합니다.</span>
+                    <span class="lang-en">The point is that leading companies like Apple are directly integrating AI not only into user functions but also into core hardware development processes, such as semiconductor design. This demonstrates a deepening AI strategy aimed at productivity and innovation, and suggests that cooperation with specialized EDA (Electronic Design Automation) suppliers is a key driver of this change.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 6.0 - 
+                    <span class="lang-ko">애플이 생성형 AI를 활용하여 맞춤형 칩 설계 프로세스를 혁신하고 있으며, 이는 제조업에서 AI를 핵심 하드웨어 개발에 통합하는 전략적 접근법을 보여줍니다. EDA 업체들과의 협력을 통해 설계 생산성을 대폭 향상시키고 있어, 제조업체들이 AI를 제품 개발 프로세스에 적용하는 방법론을 제시합니다.</span>
+                    <span class="lang-en">Apple is innovating its custom chip design process by leveraging generative AI, which demonstrates a strategic approach to integrating AI into core hardware development in manufacturing. Through collaboration with EDA vendors, they are significantly improving design productivity, thereby presenting a methodology for manufacturers to apply AI to their product development processes.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                4. Artificial intelligence
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 4.7/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 88.4%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                None
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.ft.com/artificial-intelligence" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.ft.com/artificial-intelligence
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 3.0 - 
+                    <span class="lang-ko">메타·소프트뱅크 등 글로벌 기업의 대규모 AI·로봇 제조 인프라 투자와 AI 엔지니어 확보 경쟁, AI 데이터센터 전력문제 대응을 위한 원전 투자 동향이 두드러짐</span>
+                    <span class="lang-en">The large-scale investments in AI and robot manufacturing infrastructure by global companies such as Meta and SoftBank, the competition to secure AI engineers, and the prominent trend of investing in nuclear power plants to address power issues for AI data centers are noticeable.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>GEMINI:</strong> 7.0 - 
+                    <span class="lang-ko">본 아티클은 특정 제조 분야에 한정되지 않고 AI 기술과 관련된 거시적 트렌드를 조망합니다. 핵심 인사이트는 AI 전환이 소프트웨어 도입을 넘어, 대규모 '로보틱스 복합단지' 건설, AI 데이터센터 구동을 위한 '에너지 인프라' 확보, 그리고 치열한 'AI 인재 전쟁'과 같은 물리적, 인적 인프라에 대한 막대한 투자를 동반하고 있다는 점입니다. 이는 제조업 리더들이 자사의 AX 전략을 수립할 때 반드시 고려해야 할 외부 환경의 거대한 변화를 명확히 보여줍니다.</span>
+                    <span class="lang-en">This article surveys macro trends related to AI technology, not limited to specific manufacturing sectors. The key insight is that AI transformation goes beyond software adoption, involving massive investment in physical and human infrastructure such as the construction of large-scale 'robotics complexes,' securing 'energy infrastructure' for operating AI data centers, and fierce 'AI talent wars.' This clearly demonstrates a massive change in the external environment that manufacturing leaders must consider when formulating their AX strategies.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 4.0 - 
+                    <span class="lang-ko">AI 분야의 대규모 투자 동향과 인재 확보 경쟁, 규제 논의 등 AI 생태계 전반의 변화를 보여주며, 특히 로보틱스 복합단지, 자율주행, 수술로봇 등 제조업과 연관된 일부 자동화 기술 발전 사례를 제시합니다.</span>
+                    <span class="lang-en">It shows changes across the entire AI ecosystem, including large-scale investment trends, competition for talent acquisition, and regulatory discussions in the AI sector, and specifically presents examples of the development of some automation technologies related to manufacturing, such as robotics complexes, autonomous driving, and surgical robots.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                5. The music industry is building the tech to hunt down AI songs | The ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 4.3/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 67.1%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                None
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.theverge.com/ai-artificial-intelligence/686767/music-industry-ai-song-detection-tracking-licensing" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.theverge.com/ai-artificial-intelligence/686767/music-industry-ai-son...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 1.0 - 
+                    <span class="lang-ko">AI 기반 음악 콘텐츠의 전 과정(학습→생성→유통) 검출·추적 인프라 구축과 선제적 라이선싱·저작권 관리, 창작 기여도 정량화를 통한 수익화 전략</span>
+                    <span class="lang-en">Establishment of an infrastructure for detecting and tracking AI-based music content throughout its entire process (training→generation→distribution), proactive licensing and copyright management, and a monetization strategy through the quantification of creative contribution.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>GEMINI:</strong> 8.0 - 
+                    <span class="lang-ko">음악 산업이 AI 생성 콘텐츠에 대응하는 방식, 즉 금지 대신 추적, 제어, 수익화를 위한 인프라를 선제적으로 구축하는 전략은 제조업의 AI 전환에 중요한 청사진을 제공합니다. 이는 물리적 제품의 공급망 전반에 걸쳐 부품의 출처, 가공 이력, 품질을 추적하고 관리하는 '디지털 DNA' 또는 '디지털 이력관리' 시스템을 구축하는 것과 동일한 원리입니다. AI 기술의 무분별한 도입이 아닌, 통제 가능한 프레임워크 내에서 새로운 가치를 창출하는 성숙한 접근 방식을 보여줍니다.</span>
+                    <span class="lang-en">The way the music industry responds to AI-generated content—specifically, its strategy of proactively building infrastructure for tracking, control, and monetization instead of prohibition—provides an important blueprint for the manufacturing industry's AI transformation. This is the same principle as establishing a 'Digital DNA' or 'Digital Traceability' system to track and manage the origin, processing history, and quality of components throughout the supply chain of physical products. It demonstrates a mature approach that creates new value within a controllable framework, rather than through the indiscriminate adoption of AI technology.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 4.0 - 
+                    <span class="lang-ko">음악 산업의 AI 콘텐츠 추적 및 수익화 전략은 제조업에서 AI 생성 콘텐츠나 지적재산 관리에 참고할 수 있는 접근법을 제시합니다. 특히 사전 예방적 라이선싱, 메타데이터 태깅, 전체 파이프라인에 걸친 추적 시스템 구축 등의 방법론은 제조업의 디지털 자산 관리나 품질 관리 시스템에 응용 가능한 인사이트를 제공합니다.</span>
+                    <span class="lang-en">The music industry's strategies for AI content tracking and monetization offer approaches that can inform AI-generated content or intellectual property management in the manufacturing industry. In particular, methodologies such as proactive licensing, metadata tagging, and the establishment of tracking systems across the entire pipeline provide applicable insights for digital asset management or quality control systems in manufacturing.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                6. Edge AI and Vision Alliance: Home
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 4.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 81.3%
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong> 
+                운영 효율성
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.edge-ai-vision.com/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.edge-ai-vision.com/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 2.0 - 
+                    <span class="lang-ko">다양한 산업 분야에서의 AI 혁신 사례(제너레이티브 AI, 리테일 자동화, 자가학습 모델 등)를 소개하지만 제조업 특화 적용 방안은 부재합니다.</span>
+                    <span class="lang-en">AI innovation cases from various industrial sectors (such as generative AI, retail automation, and self-learning models) are introduced, but manufacturing-specific application methods are absent.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>GEMINI:</strong> 7.0 - 
+                    <span class="lang-ko">이 기사는 물리 기반 AI, 자가 학습 모델, 운영 효율성 향상을 위한 AI 비서 등 제조 AX에 직접적으로 적용 가능한 최신 AI 기술 동향을 구체적인 사례(스타벅스, 아스트라제네카)와 함께 제시합니다. 또한 '소프트웨어 3.0'과 같은 미래 기술 패러다임을 소개해 장기적인 기술 전략 수립에 영감을 줍니다.</span>
+                    <span class="lang-en">This article presents the latest AI technology trends directly applicable to manufacturing AX, such as physics-based AI, self-learning models, and AI assistants for improving operational efficiency, along with concrete examples (Starbucks, AstraZeneca). Furthermore, it introduces future technology paradigms like 'Software 3.0' to inspire long-term technology strategy formulation.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 3.0 - 
+                    <span class="lang-ko">AI 기술의 전반적인 발전 동향과 다양한 산업 분야에서의 AI 활용 사례를 제시하고 있으나, 제조업 특화된 내용은 제한적입니다. 스타벅스의 바리스타용 AI 어시스턴트나 엔비디아의 장기 예측 AI 등 운영 효율성 개선 사례는 제조업에 간접적으로 참고할 수 있는 인사이트를 제공합니다.</span>
+                    <span class="lang-en">Although it presents overall development trends of AI technology and cases of AI application in various industrial fields, content specialized for manufacturing is limited. Cases of operational efficiency improvement, such as Starbucks' AI assistant for baristas or Nvidia's long-term prediction AI, provide insights that can be indirectly referenced in manufacturing.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #e9ecef; border-radius: 8px;">
+                    <p style="margin: 0; color: #666;">
+                        <span class="lang-ko">
+                            생성 시간: 2025년 06월 22일 21시 44분
+                        </span>
+                        <span class="lang-en">
+                            Generated at: 2025-06-22 21:44
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <script>
+                function switchLanguage(lang) {
+                    // 언어 버튼 상태 변경
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.getElementById('btn-' + lang).classList.add('active');
+                    
+                    // body 클래스 변경으로 언어 콘텐츠 토글
+                    document.body.className = lang === 'en' ? 'language-en' : '';
+                    
+                    // 로컬 스토리지에 선택된 언어 설정 저장
+                    localStorage.setItem('selectedLanguage', lang);
+                }
+                
+                // 페이지 로드 시 저장된 언어 설정 복원
+                document.addEventListener('DOMContentLoaded', function() {
+                    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+                    switchLanguage(savedLang);
+                });
+            </script>
+        </body>
+        </html>
+        
