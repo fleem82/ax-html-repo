@@ -1,0 +1,502 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Manufacturing AX Report [2025-06-24]</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                .header {
+                    text-align: center;
+                    border-bottom: 3px solid #0066cc;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 4px solid #28a745;
+                }
+                .language-selector {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background: white;
+                    border-radius: 25px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    padding: 5px;
+                }
+                .language-btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    margin: 0 2px;
+                }
+                .language-btn.active {
+                    background: #0066cc;
+                    color: white;
+                }
+                .language-btn:not(.active) {
+                    background: transparent;
+                    color: #666;
+                }
+                .language-btn:hover {
+                    background: #0066cc;
+                    color: white;
+                }
+                .lang-ko { display: block; }
+                .lang-en { display: none; }
+                .language-en .lang-ko { display: none; }
+                .language-en .lang-en { display: block; }
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .container { padding: 20px; }
+                    .language-selector {
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="language-selector">
+                <button class="language-btn active" onclick="switchLanguage('ko')" id="btn-ko">한국어</button>
+                <button class="language-btn" onclick="switchLanguage('en')" id="btn-en">English</button>
+            </div>
+            
+            <div class="container">
+                <div class="header">
+                    <h1 style="color: #0066cc; margin: 0; font-size: 2.5em;">
+                        🏭 <span class="lang-ko">제조업 AX 리포트</span><span class="lang-en">Manufacturing AX Report</span>
+                    </h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.2em; color: #666;">
+                        <span class="lang-ko">제조업 AI 전환 리포트 [2025-06-24]</span>
+                        <span class="lang-en">Manufacturing AI Transformation Report [2025-06-24]</span>
+                    </p>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center;">
+                        🤖 <span class="lang-ko" style="margin-left: 8px;">AI 참고사항</span>
+                        <span class="lang-en" style="margin-left: 8px;">AI Disclosure</span>
+                    </h3>
+                    <div style="font-size: 14px; line-height: 1.6; color: #856404;">
+                        <p style="margin: 8px 0;">
+                            <span class="lang-ko">
+                                이 리포트는 AI로 자동 생성되었습니다. 다음 모델들이 사용되었습니다:
+                            </span>
+                            <span class="lang-en">
+                                This report was automatically generated using AI. The following models were used:
+                            </span>
+                        </p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Claude (claude-sonnet-4-20250514)</li>
+                            <li>ChatGPT (o3)</li>
+                        </ul>
+                        <p style="margin: 8px 0; font-size: 13px;">
+                            <span class="lang-ko">
+                                AI 생성 콘텐츠의 정확성을 위해 전문가 검토를 권장합니다.
+                            </span>
+                            <span class="lang-en">
+                                Expert review is recommended for accuracy of AI-generated content.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2 style="color: #28a745; margin-top: 0;">
+                        <span class="lang-ko">📋 주요 인사이트</span>
+                        <span class="lang-en">📋 Key Insights</span>
+                    </h2>
+                    <div style="font-size: 16px; line-height: 1.8;">
+                        <div class="lang-ko">제조 산업 AI 전환(AX) 동향 분석 결과 요약<br><br>본 분석은 최신 뉴스와 보고서를 기반으로 제조 산업의 AI 전환(AX) 핵심 동향을 파악하기 위해 수행되었습니다. 분석 결과, AI 도입이 특정 공정을 넘어 산업 전반의 전략적 과제로 확장되고 있음이 확인되었습니다.<br><br>가장 중요한 동향은 'AI 인재 확보'와 '반도체 공급망'과 같은 기반 경쟁력 강화에 집중되고 있다는 점입니다. 실제 현장에서는 'AI 품질검사', '프로세스 자동화', '로봇 물류'가 핵심 적용 분야로 나타났습니다. 특히 단순 솔루션 도입을 넘어, 'AI 플랫폼'과 '장비 내장형 AI(Embedded AI)'처럼 기술을 내재화하고 'AI 신뢰 아키텍처'를 통해 데이터와 시스템의 안정성을 확보하려는 움직임이 두드러집니다.<br><br>이는 AI를 통한 생산성 및 품질 혁신의 기회를 의미하지만, 동시에 심화되는 'AI 인재 확보 경쟁'과 '제조 사이버보안'이라는 중대한 과제를 제시합니다. 성공적인 AI 전환을 위해서는 기술 도입뿐만 아니라, 인재 양성, 데이터 거버넌스, 보안을 아우르는 전사적 차원의 통합 전략 수립이 필수적입니다.</div>
+                        <div class="lang-en">Summary of Manufacturing Industry AI Transformation (AX) Trend Analysis Results<br><br>This analysis was conducted to identify the key trends of AI transformation (AX) in the manufacturing industry, based on the latest news and reports. The analysis revealed that AI adoption is expanding beyond specific processes to become a strategic challenge across the entire industry.<br><br>The most significant trend is a focus on strengthening foundational competitiveness, such as 'securing AI talent' and the 'semiconductor supply chain.' In real-world settings, 'AI quality inspection,' 'process automation,' and 'robot logistics' emerged as key application areas. Notably, beyond mere solution adoption, there is a prominent movement to internalize technologies like 'AI platforms' and 'equipment-embedded AI (Embedded AI),' and to secure the stability of data and systems through an 'AI trusted architecture.'<br><br>This signifies opportunities for productivity and quality innovation through AI, but simultaneously presents significant challenges such as intensifying 'competition for AI talent acquisition' and 'manufacturing cybersecurity.' For successful AI transformation, the establishment of an enterprise-wide integrated strategy encompassing not only technology adoption but also talent development, data governance, and security is essential.</div>
+                    </div>
+                </div>
+                
+                
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #0066cc; margin-bottom: 15px;">
+            <span class="lang-ko">📊 분석 통계</span>
+            <span class="lang-en">📊 Analysis Statistics</span>
+        </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <strong>
+                            <span class="lang-ko">총 분석 항목:</span>
+                            <span class="lang-en">Total Analysis Items:</span>
+                        </strong> 5<br>
+                        <strong>
+                            <span class="lang-ko">평균 점수:</span>
+                            <span class="lang-en">Average Score:</span>
+                        </strong> 5.2/10<br>
+                        <strong>
+                            <span class="lang-ko">평균 일관성:</span>
+                            <span class="lang-en">Average Consistency:</span>
+                        </strong> 0.7/1.0<br>
+                        <strong>
+                            <span class="lang-ko">최고 점수:</span>
+                            <span class="lang-en">Max Score:</span>
+                        </strong> 6.5/10
+                    </div>
+                    <div>
+                        <strong>
+                            <span class="lang-ko">고가치 (8점 이상):</span>
+                            <span class="lang-en">High Value (8+):</span>
+                        </strong> 0<br>
+                        <strong>
+                            <span class="lang-ko">중간가치 (5-7점):</span>
+                            <span class="lang-en">Medium Value (5-7):</span>
+                        </strong> 4<br>
+                        <strong>
+                            <span class="lang-ko">최저 점수:</span>
+                            <span class="lang-en">Min Score:</span>
+                        </strong> 4.0/10
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div style="margin: 15px 0;">
+                <strong>
+                    <span class="lang-ko">소스 통계:</span>
+                    <span class="lang-en">Source Statistics:</span>
+                </strong><br>
+                <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>Web: 5</span>
+            </div>
+            
+                
+                <h2 style="color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
+                    <span class="lang-ko">📄 상세 분석 결과</span>
+                    <span class="lang-en">📄 Detailed Analysis Results</span>
+                </h2>
+                
+                
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                1. Artificial intelligence
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>한국어: AI 인재 확보, 로보틱스 복합단지, 반도체 공급망, 에너지 인프라 혁신, 설명가능 AI, AI투자전략, 로보틱스자동화, AI인재확보</span><br><span class='lang-en'>English: ai talent war, robotics complex, chip supply chain, nuclear power for data centers, explainable ai, ai_investment_strategy, robotics_automation, ai_talent_acquisition</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.ft.com/artificial-intelligence" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.ft.com/artificial-intelligence
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 6.0<br>
+                    <span class="lang-ko">1) 글로벌 IT‧투자사들의 ‘초거대’ AI·로보틱스 투자 확대는 향후 공장 자동화·서비스 로봇 시장의 부품 수요와 기술 표준을 빠르게 끌어올릴 가능성이 큽니다. 2) AI 인재 확보 경쟁이 극심해지면서 제조기업도 내부 데이터·AI 직무를 매력적으로 설계하지 않으면 핵심 인력을 빼앗길 위험이 커집니다. 3) Bill Gates·Sam Altman이 후원하는 소형 원전 투자 사례는 AI 데이터센터 전력 부담이 제조 현장 전력 비용에도 영향을 줄 수 있음을 시사합니다. 4) ‘체인 오브 소트(설명가능성 강화 기법)’ 연구는 AI 기반 공정 제어·품질 예측 모델의 투명성을 높여 현장 신뢰성을 확보하는 데 응용될 수 있습니다. 5) 미국 내 10년 규제 유예 로비 움직임은 AI 활용 설비·서비스 수출 전략 수립 시 규제 리스크를 면밀히 모니터링해야 함을 의미합니다.</span>
+                    <span class="lang-en">1) Increased investment in 'hyperscale' AI and robotics by global IT and investment firms is highly likely to rapidly elevate component demand and technical standards in the future factory automation and service robot markets.
+2) As competition for securing AI talent intensifies, manufacturing companies also face an increased risk of losing core personnel if they do not design internal data and AI roles attractively.
+3) Investment cases in small modular reactors sponsored by Bill Gates and Sam Altman suggest that the power burden of AI data centers could also affect power costs at manufacturing sites.
+4) Research on 'Chain of Thought (interpretability enhancement technique)' can be applied to secure on-site reliability by increasing the transparency of AI-based process control and quality prediction models.
+5) Lobbying movements for a 10-year regulatory grace period within the US signify that regulatory risks must be closely monitored when establishing export strategies for AI-powered equipment and services.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 7.0<br>
+                    <span class="lang-ko">제조업 AI 전환에 핵심적인 전략적 통찰을 제공합니다. 메타의 140억 달러 AI 투자, 소프트뱅크의 1조 달러 AI·로보틱스 복합단지 계획 등 대규모 투자 동향은 제조업체들이 AI 투자 규모와 전략을 수립하는 데 중요한 벤치마크가 됩니다. 특히 AI 인재 확보를 위한 치열한 경쟁(1억 달러 계약금)은 제조업체들이 AI 인재 전략을 재고해야 함을 시사합니다. 테슬라의 로보택시, 영국 수술로봇 기업 등 구체적 로보틱스 사례는 제조업 자동화 방향성을 제시하며, AI 데이터센터를 위한 원자력 에너지 투자는 제조업 AI 인프라 구축 시 에너지 전략의 중요성을 보여줍니다.</span>
+                    <span class="lang-en">It provides key strategic insights for AI transformation in manufacturing. Large-scale investment trends, such as Meta's $14 billion AI investment and SoftBank's $1 trillion AI and robotics complex plan, serve as important benchmarks for manufacturers in establishing their AI investment scale and strategy. In particular, the fierce competition for securing AI talent ($100 million signing bonus) suggests that manufacturers need to re-evaluate their AI talent strategies. Concrete robotics examples, such as Tesla's robotaxi and a UK surgical robot company, indicate the direction for manufacturing automation, while investments in nuclear energy for AI data centers highlight the importance of energy strategy in building manufacturing AI infrastructure.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                2. [자정 뉴스브리핑] 파월 “기준금리 고점 도달…인하 여력 충분” 外
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 5.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 91.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.6
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>한국어: AI 품질검사, 제조 사이버보안, 프로세스 자동화, AI 데이터센터 ESG, B2B AI 도입, AI사이버보안, 제조결함탐지, 공정제조AI</span><br><span class='lang-en'>English: ai defect detection, manufacturing cybersecurity, process ai agents, ai data center esg, b2b ai adoption, manufacturing_cybersecurity, ai_defect_detection, process_manufacturing</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.tokenpost.kr/news/briefing/260690" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.tokenpost.kr/news/briefing/260690
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 4.0<br>
+                    <span class="lang-ko">• AI 기반 품질 검사·사이버 보안 등 제조 현안이 제목 수준으로 언급되며, 공정 최적화·결함 검출·AI 인프라 구축 시 발생할 환경·규제 리스크를 동시에 고려해야 한다는 시사점을 제공한다.
+• CloEE 사례는 ‘프로세스 제조용 AI 에이전트’라는 구체적 방향성을 제시해 중소 규모 공장도 저렴한 SaaS 형태로 AI를 도입할 수 있음을 시사한다.
+• ‘스스로 학습하는 결함 검출 AI’ 트렌드는 데이터 라벨링 부담을 줄여 중소 제조사의 AI 적용 허들을 낮출 수 있다.
+• 대규모 AI 데이터센터가 환경·지역사회와 충돌할 가능성이 제기돼, 제조업도 ESG 관점에서 AI 인프라 도입 시 사전 영향 평가가 필요함을 환기한다.
+• B2B 영역에서 AI 채택률이 급속히 높아지고 있다는 통계(67%)는 제조 기업도 고객·공급망 전반의 데이터 활용을 서둘러야 함을 보여준다.</span>
+                    <span class="lang-en">• Manufacturing issues such as AI-based quality inspection and cybersecurity are mentioned at a high level, providing the implication that environmental and regulatory risks arising during process optimization, defect detection, and AI infrastructure construction must be considered simultaneously.
+• The CloEE case presents a specific direction as an 'AI agent for process manufacturing,' suggesting that small and medium-sized factories can also adopt AI in an affordable SaaS format.
+• The trend of 'self-learning defect detection AI' can reduce the burden of data labeling, thereby lowering the AI adoption hurdle for small and medium-sized manufacturers.
+• The raised possibility of large-scale AI data centers conflicting with the environment and local communities reminds that the manufacturing industry also needs ex-ante impact assessments when introducing AI infrastructure from an ESG perspective.
+• The statistic (67%) indicating a rapid increase in AI adoption in the B2B sector shows that manufacturing companies also need to hasten their utilization of data across customers and the supply chain.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 7.0<br>
+                    <span class="lang-ko">제조업 AI 전환에 있어 사이버보안의 중요성과 AI 기반 품질 검사 기술의 발전을 보여주는 사례들입니다. 특히 CloEE의 60만 달러 투자 유치는 AI 에이전트가 기존 제조 플랫폼을 대체할 수 있는 가능성을 시사하며, 자가학습 결함 탐지 AI 기술은 품질관리 자동화의 새로운 방향을 제시합니다. B2B 분야에서 AI 도입이 B2C를 추월하고 있다는 점은 제조업체들의 AI 투자 확대 근거가 됩니다.</span>
+                    <span class="lang-en">These are examples demonstrating the importance of cybersecurity and the advancement of AI-based quality inspection technology in the AI transformation of manufacturing. In particular, CloEE's successful attraction of $600,000 in investment suggests the possibility of AI agents replacing existing manufacturing platforms, while self-learning defect detection AI technology proposes a new direction for quality control automation. The fact that AI adoption in the B2B sector is surpassing B2C serves as a basis for manufacturing companies to expand their AI investments.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                3. AI News | Latest AI News, Analysis & Events
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 5.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>한국어: AI 플랫폼, 신약개발자동화, 장비내장형AI, 디지털전환전략, 규제혁신, AI플랫폼, 디지털전환, 스마트기술</span><br><span class='lang-en'>English: ai platform, drug discovery automation, embedded ai in equipment, digital transformation strategy, regulatory acceleration, ai_platform, digital_transformation, smart_technology</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.artificialintelligence-news.com/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.artificialintelligence-news.com/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 6.0<br>
+                    <span class="lang-ko">• 의료·바이오 분야 사례이지만 ‘AI 플랫폼화’, ‘장비 내장형 AI’, ‘규제-연계 전략’ 등은 제조업에서도 적용 가능한 교훈을 제공합니다.
+• 파로스아이바이오의 케미버스 사례는 신약 후보물질 탐색 시간을 대폭 단축한 것으로, 제조업 R&D 단계에서 ‘생성형 AI+시뮬레이션’으로 제품 설계 사이클을 단축하는 벤치마킹 포인트가 됩니다.
+• 아이도트는 충격파 쇄석기(ESWL)에 AI를 직접 내장하여 실시간 영상 판독을 지원했습니다. 이는 제조 현장의 설비(프레스, 사출기 등)에 AI 비전·음향 센서를 “임베디드” 형태로 통합해 작업자 의존도를 낮추는 모델로 해석할 수 있습니다.
+• 오픈 이노베이션 및 국제 규제기관과의 조기 협업(Orphan Drug Designation 선취득)은 제조업에서 인증·규제 사전 대응(UL, CE, KC 등) 프로세스를 디지털로 앞당길 때 참고할 만한 전략입니다.
+• 지속가능성 보고, WHO-UNITAID 권고 등 비재무 성과를 데이터로 제시한 점은 ESG 기반 공급망 관리에서 ‘정량 KPI 공개’의 중요성을 시사합니다.</span>
+                    <span class="lang-en">• Although examples from the medical and bio field, 'AI platformization,' 'equipment-embedded AI,' and 'regulation-linked strategies' provide lessons applicable in manufacturing.
+• Pharos I Bio's Chemiverse case significantly shortened drug candidate discovery time and serves as a benchmarking point for shortening the product design cycle through 'generative AI + simulation' in the manufacturing R&D phase.
+• AIDOT directly embedded AI into an Extracorporeal Shock Wave Lithotripter (ESWL) to support real-time image interpretation. This can be interpreted as a model for reducing operator dependency by integrating AI vision and acoustic sensors in an "embedded" form into equipment (e.g., presses, injection molding machines) at manufacturing sites.
+• Open innovation and early collaboration with international regulatory bodies (e.g., early acquisition of Orphan Drug Designation) are strategies that can be referenced when manufacturing accelerates certification and regulation pre-compliance processes (e.g., UL, CE, KC) digitally.
+• Presenting non-financial performance data, such as sustainability reports and WHO-UNITAID recommendations, indicates the importance of 'disclosing quantitative KPIs' in ESG-based supply chain management.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 4.0<br>
+                    <span class="lang-ko">제조업 관점에서 직접적 연관성은 낮지만, AI 플랫폼 개발 및 상용화 전략에서 유용한 인사이트를 제공합니다. 특히 파로스아이바이오의 '케미버스' AI 플랫폼은 제조업의 AI 기반 R&D 플랫폼 구축에 참고할 수 있으며, 노을의 기술 개발에서 사업 확장으로의 전략적 전환은 제조업 AI 기업들의 성장 전략 수립에 도움이 됩니다. 아이도트의 'URO dot AI'처럼 기존 장비에 AI 기능을 통합하는 접근법은 제조 장비의 스마트화 전략에 응용 가능합니다.</span>
+                    <span class="lang-en">Although its direct relevance is low from a manufacturing perspective, it provides useful insights in AI platform development and commercialization strategies. Particularly, Pharos I Bio's 'Chemiverse' AI platform can serve as a reference for building AI-based R&D platforms in manufacturing, and Noel's strategic shift from technology development to business expansion is helpful for manufacturing AI companies in establishing growth strategies. An approach like I-dot's 'URO dot AI', which integrates AI functions into existing equipment, is applicable to smartization strategies for manufacturing equipment.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                4. [AI의료}파로스아이바이오 AI 신약 PHI-101, 유럽 희귀의약품 지정 外 노...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 5.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>한국어: AI 신뢰 아키텍처, 분산형 AI, AI 학습 데이터, 고성능 AI 서버, DePIN 클라우드, AI인프라, 분산형AI, AI통합서버</span><br><span class='lang-en'>English: decentralized ai, ai computing mining, ai infrastructure, transparent ai ecosystem, joint investment fund, ai_infrastructure, decentralized_ai, ai_integrated_server</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.getnews.co.kr/news/articleView.html?idxno=827947" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.getnews.co.kr/news/articleView.html?idxno=827947
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 6.0<br>
+                    <span class="lang-ko">본 기사에서 제시된 ‘AI 신뢰 혁신 아키텍처’, ‘분산형 AI’, ‘AI 학습 데이터 라이선스 투자’, ‘고성능 AI 통합서버(온프레미스·DePIN 클라우드 지원)’ 등의 주제는 제조업 디지털 전환에도 간접적으로 활용될 수 있습니다. 특히
+1) AI 신뢰 혁신 아키텍처는 제조 데이터 거버넌스·품질관리 체계 구축 시 참고할 만한 구조적 관점을 제공합니다.
+2) 분산형 AI 및 AI 학습 데이터 라이선스 기반 투자 모델은 협력사·공급망 전반에서 데이터 공유/보상 메커니즘을 설계할 때 시사점을 줍니다.
+3) 온프레미스와 DePIN 클라우드를 모두 지원하는 고성능 AI 서버는 공장 내/외부 엣지·클라우드 혼합형 AI 연산 인프라 구축에 실질적 대안을 제시합니다.
+4) AI 계산 마이닝(재정의된 POW)은 유휴 GPU 자원을 활용해 예측·최적화 모델 학습 비용을 절감할 수 있는 가능성을 보여줍니다.
+제조업계는 아직 직접 사례가 부족하지만, 이러한 흐름을 통해 ‘투명성·분산형 데이터·유연한 연산 인프라’라는 3대 키워드가 향후 스마트공장 경쟁력의 핵심이 될 수 있음을 학습할 필요가 있습니다.</span>
+                    <span class="lang-en">The topics presented in this article, such as 'AI Trust Innovation Architecture,' 'Decentralized AI,' 'AI Training Data License Investment,' and 'High-performance AI Integrated Server (supporting on-premise and DePIN cloud),' can be indirectly utilized for digital transformation in manufacturing. Specifically:
+1) The AI Trust Innovation Architecture provides a structural perspective worth referencing when establishing manufacturing data governance and quality management systems.
+2) Decentralized AI and investment models based on AI training data licenses offer insights when designing data sharing/compensation mechanisms across partners and supply chains.
+3) High-performance AI servers that support both on-premise and DePIN clouds present a practical alternative for building hybrid edge-cloud AI computing infrastructure inside and outside factories.
+4) AI compute mining (redefined POW) shows the potential to reduce the training costs of prediction and optimization models by utilizing idle GPU resources.
+While the manufacturing industry still lacks direct case studies, it needs to understand through these trends that the three key terms – 'transparency, decentralized data, and flexible computing infrastructure' – can become the core of smart factory competitiveness in the future.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 4.0<br>
+                    <span class="lang-ko">제조업 관점에서 AI 인프라와 분산형 AI 생태계 구축 동향을 파악할 수 있습니다. 특히 온프레미스와 클라우드 환경을 모두 지원하는 고성능 AI 통합 서버 출시는 제조업체의 AI 도입 옵션 확대를 시사합니다. AI 컴퓨팅 마이닝과 투명한 AI 생태계 구축 노력은 향후 제조업 AI 솔루션의 접근성과 비용 효율성 개선에 기여할 가능성이 있습니다.</span>
+                    <span class="lang-en">From a manufacturing perspective, trends in building AI infrastructure and distributed AI ecosystems can be identified. In particular, the launch of high-performance AI integrated servers that support both on-premise and cloud environments suggests an expansion of AI adoption options for manufacturers. Efforts to establish AI computing mining and a transparent AI ecosystem have the potential to contribute to improved accessibility and cost-efficiency of manufacturing AI solutions in the future.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                5. CloEE: Transforming Manufacturing with AI Innovation - Manufacturing.net
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 4.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.8
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>한국어: 로봇자동화, 패키지분류, AI물류, 스마트팩토리, 산업용로봇, 제조업로봇, 물류자동화</span><br><span class='lang-en'>English: robotic_sorting, package_handling_automation, ai_robotics, smart_factory, warehouse_automation, robotic_automation, package_sorting, manufacturing_robots</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.manufacturing.net/artificial-intelligence/news/22944093/cloee-transforming-manufacturing-with-ai-innovation" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.manufacturing.net/artificial-intelligence/news/22944093/cloee-transf...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">AI 평가:</span><span class="lang-en">AI Evaluation:</span></strong>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>OPENAI:</strong> 3.0<br>
+                    <span class="lang-ko">해당 기사에서는 Figure 02 로봇이 인간과 유사한 수준으로 패키지를 분류하는 영상을 소개하지만, 실제 제조 현장에 적용하기 위한 구체적인 기술 사양·ROI·도입 과정 등의 정보는 전무합니다. 따라서 배울 수 있는 핵심 포인트는 ‘로봇 비전과 AI 알고리즘의 발전으로 물류·조립 공정의 자동화 가능성이 빠르게 높아지고 있다’는 트렌드 인식 정도에 그칩니다.</span>
+                    <span class="lang-en">This article introduces a video of the Figure 02 robot classifying packages at a human-like level, but there is no information whatsoever regarding specific technical specifications, ROI, or implementation process for actual application in manufacturing sites. Therefore, the key takeaway is merely the recognition of the trend that the potential for automation in logistics and assembly processes is rapidly increasing with the advancement of robot vision and AI algorithms.</span>
+                </div>
+                
+                <div style="margin: 5px 0; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                    <strong>CLAUDE:</strong> 5.0<br>
+                    <span class="lang-ko">Figure 02 로봇의 패키지 분류 능력은 제조업 물류 자동화의 새로운 가능성을 보여줍니다. 인간과 유사한 정밀도와 속도로 작업을 수행하는 로봇 기술은 창고 관리, 품질 검사, 포장 공정 등 제조업 전반의 자동화 수준을 한 단계 끌어올릴 수 있는 잠재력을 가지고 있습니다. 특히 복잡한 형태의 제품을 다루는 제조업체들에게는 생산성 향상과 인력 부족 문제 해결의 실질적인 대안이 될 수 있습니다.</span>
+                    <span class="lang-en">Figure 02 The robot's package sorting capability demonstrates new possibilities for manufacturing logistics automation. Robotic technology that performs tasks with human-like precision and speed has the potential to elevate the level of automation throughout manufacturing, including warehouse management, quality inspection, and packaging processes. In particular, for manufacturers dealing with complexly shaped products, it can be a practical alternative for improving productivity and addressing labor shortage issues.</span>
+                </div>
+                
+            </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #e9ecef; border-radius: 8px;">
+                    <p style="margin: 0; color: #666;">
+                        <span class="lang-ko">
+                            생성 시간: 2025년 06월 25일 00시 12분
+                        </span>
+                        <span class="lang-en">
+                            Generated at: 2025-06-25 00:12
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <script>
+                function switchLanguage(lang) {
+                    // 언어 버튼 상태 변경
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.getElementById('btn-' + lang).classList.add('active');
+                    
+                    // body 클래스 변경으로 언어 콘텐츠 토글
+                    document.body.className = lang === 'en' ? 'language-en' : '';
+                    
+                    // 로컬 스토리지에 선택된 언어 설정 저장
+                    localStorage.setItem('selectedLanguage', lang);
+                }
+                
+                // 페이지 로드 시 저장된 언어 설정 복원
+                document.addEventListener('DOMContentLoaded', function() {
+                    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+                    switchLanguage(savedLang);
+                });
+            </script>
+        </body>
+        </html>
+        
