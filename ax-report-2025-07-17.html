@@ -1,0 +1,867 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Manufacturing AX Report [2025-07-17]</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                .header {
+                    text-align: center;
+                    border-bottom: 3px solid #0066cc;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 4px solid #28a745;
+                }
+                .language-selector {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background: white;
+                    border-radius: 25px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    padding: 5px;
+                }
+                .language-btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    margin: 0 2px;
+                }
+                .language-btn.active {
+                    background: #0066cc;
+                    color: white;
+                }
+                .language-btn:not(.active) {
+                    background: transparent;
+                    color: #666;
+                }
+                .language-btn:hover {
+                    background: #0066cc;
+                    color: white;
+                }
+                .lang-ko { display: block; }
+                .lang-en { display: none; }
+                .language-en .lang-ko { display: none; }
+                .language-en .lang-en { display: block; }
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .container { padding: 20px; }
+                    .language-selector {
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="language-selector">
+                <button class="language-btn active" onclick="switchLanguage('ko')" id="btn-ko">한국어</button>
+                <button class="language-btn" onclick="switchLanguage('en')" id="btn-en">English</button>
+            </div>
+            
+            <div class="container">
+                <div class="header">
+                    <h1 style="color: #0066cc; margin: 0; font-size: 2.5em;">
+                        🏭 <span class="lang-ko">제조업 AX 리포트</span><span class="lang-en">Manufacturing AX Report</span>
+                    </h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.2em; color: #666;">
+                        <span class="lang-ko">제조업 AI 전환 리포트 [2025-07-17]</span>
+                        <span class="lang-en">Manufacturing AI Transformation Report [2025-07-17]</span>
+                    </p>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center;">
+                        🤖 <span class="lang-ko" style="margin-left: 8px;">AI 참고사항</span>
+                        <span class="lang-en" style="margin-left: 8px;">AI Disclosure</span>
+                    </h3>
+                    <div style="font-size: 14px; line-height: 1.6; color: #856404;">
+                        <p style="margin: 8px 0;">
+                            <span class="lang-ko">
+                                이 리포트는 AI로 자동 생성되었습니다. 다음 모델들이 사용되었습니다:
+                            </span>
+                            <span class="lang-en">
+                                This report was automatically generated using AI. The following models were used:
+                            </span>
+                        </p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Claude (claude-sonnet-4-20250514)</li>
+                            <li>ChatGPT (o3)</li>
+                        </ul>
+                        <p style="margin: 8px 0; font-size: 13px;">
+                            <span class="lang-ko">
+                                AI 생성 콘텐츠의 정확성을 위해 전문가 검토를 권장합니다.
+                            </span>
+                            <span class="lang-en">
+                                Expert review is recommended for accuracy of AI-generated content.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2 style="color: #28a745; margin-top: 0;">
+                        <span class="lang-ko">📋 주요 인사이트</span>
+                        <span class="lang-en">📋 Key Insights</span>
+                    </h2>
+                    <div style="font-size: 16px; line-height: 1.8;">
+                        <div class="lang-ko"><strong>제조 AI 전환(AX) 동향 분석 결과 요약</strong><br><br>본 분석은 최신 기술 동향 및 사례를 기반으로 제조 분야의 AI 전환(AX) 핵심 트렌드를 파악하기 위해 수행되었습니다.<br><br>분석 결과, 제조 현장에서는 AI를 활용한 공정 및 운영 효율화가 가장 중요한 흐름으로 나타났습니다. 특히 <strong>실시간 데이터를 통한 원자재 투입 최적화, 비전 기술 기반의 품질 검사, 예측 정비 및 재고 관리</strong> 등 구체적인 ROI(투자수익률)를 창출하는 적용 사례들이 높은 평가를 받았습니다. 또한, <strong>스마트 물류 및 창고 자동화</strong> 역시 중요한 축으로 자리 잡고 있습니다.<br><br>이러한 기술 도입은 생산성 향상이라는 큰 기회를 제공하지만, 동시에 새로운 과제도 제시합니다. AI 기술의 기반이 되는 <strong>AI 반도체 공급망의 안정성 확보</strong>와 함께, 성공적인 AX를 위해 <strong>직원 교육을 통한 AI 활용 역량 강화 및 신뢰할 수 있는 AI 거버넌스 구축</strong>이 필수 조건으로 부상하고 있습니다.<br><br>따라서 성공적인 제조 AI 전환을 위해서는 단순히 기술을 도입하는 것을 넘어, 안정적인 기술 기반 확보와 조직 구성원의 역량 강화를 병행하는 통합적인 접근이 요구됩니다.</div>
+                        <div class="lang-en"><strong>Summary of Manufacturing AI Transformation (AX) Trend Analysis Results</strong><br><br>This analysis was conducted to identify key trends in Manufacturing AI Transformation (AX) based on the latest technological trends and case studies.<br><br>The analysis revealed that process and operational efficiency improvement using AI is the most significant trend in manufacturing sites. In particular, application cases that generate concrete ROI (Return on Investment) such as raw material input optimization through real-time data, vision technology-based quality inspection, and predictive maintenance and inventory management received high evaluations. Furthermore, smart logistics and warehouse automation are also establishing themselves as an important pillar.<br><br>While the adoption of these technologies offers significant opportunities for productivity enhancement, it also presents new challenges. Along with securing the stability of the AI semiconductor supply chain, which forms the foundation of AI technology, strengthening AI utilization capabilities through employee training and establishing reliable AI governance are emerging as essential conditions for successful AX.<br><br>Therefore, successful Manufacturing AI Transformation requires an integrated approach that goes beyond simply adopting technology, concurrently securing a stable technological foundation and enhancing the capabilities of organization members.</div>
+                    </div>
+                </div>
+                
+                
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #0066cc; margin-bottom: 15px;">
+            <span class="lang-ko">📊 분석 통계</span>
+            <span class="lang-en">📊 Analysis Statistics</span>
+        </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <strong>
+                            <span class="lang-ko">총 분석 항목:</span>
+                            <span class="lang-en">Total Analysis Items:</span>
+                        </strong> 14<br>
+                        <strong>
+                            <span class="lang-ko">평균 점수:</span>
+                            <span class="lang-en">Average Score:</span>
+                        </strong> 7.0/10<br>
+                        <strong>
+                            <span class="lang-ko">평균 일관성:</span>
+                            <span class="lang-en">Average Consistency:</span>
+                        </strong> 0.7/1.0<br>
+                        <strong>
+                            <span class="lang-ko">최고 점수:</span>
+                            <span class="lang-en">Max Score:</span>
+                        </strong> 8.5/10
+                    </div>
+                    <div>
+                        <strong>
+                            <span class="lang-ko">고가치 (8점 이상):</span>
+                            <span class="lang-en">High Value (8+):</span>
+                        </strong> 3<br>
+                        <strong>
+                            <span class="lang-ko">중간가치 (5-7점):</span>
+                            <span class="lang-en">Medium Value (5-7):</span>
+                        </strong> 11<br>
+                        <strong>
+                            <span class="lang-ko">최저 점수:</span>
+                            <span class="lang-en">Min Score:</span>
+                        </strong> 6.5/10
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div style="margin: 15px 0;">
+                <strong>
+                    <span class="lang-ko">소스 통계:</span>
+                    <span class="lang-en">Source Statistics:</span>
+                </strong><br>
+                <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>google_pdf: 5</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>google_web: 3</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>naver: 4</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>tavily: 2</span>
+            </div>
+            
+                
+                <h2 style="color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
+                    <span class="lang-ko">📄 상세 분석 결과</span>
+                    <span class="lang-en">📄 Detailed Analysis Results</span>
+                </h2>
+                
+                
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                1. Hindustan Zinc Deploys AI to Streamline Zinc Production and ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI 투입 최적화, 스마트 스멜팅, 실시간 데이터 통합, 저탄소 아연, 오픈이노베이션, AI자동화시스템, 스마트팩토리, 공정최적화</span><br><span class='lang-en'>ai dosing optimization, smart smelting, real-time process control, consumable reduction, low-carbon zinc, ai_automation, smart_manufacturing, process_optimization</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.hzlindia.com/wp-content/uploads/Hindustan-Zinc-Deploys-AI-to-Streamline-Zinc-Production.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.hzlindia.com/wp-content/uploads/Hindustan-Zinc-Deploys-AI-to-Streaml...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">힌두스탄 아연은 LIMS-DCS-PLC 데이터를 실시간 통합해 AI/ML이 아연 분말·황산나트륨·석회 등 핵심 소모품 투입량을 자동 최적화하여 원가 절감·품질 일관성·탄소 저감을 동시에 달성했습니다. 스타트업(리픽AI)과의 공동 개발을 Vedanta Spark 오픈이노베이션으로 확장하고, 동일 솔루션을 여러 제련소에 수직 적용해 표준화·데이터 거버넌스와 디지털 트윈·장비 모니터링까지 구현한 점은 멀티플랜트 AI 전환의 모범 사례로 활용할 수 있습니다.</span>
+                    <span class="lang-en">Hindustan Zinc simultaneously achieved cost reduction, quality consistency, and carbon reduction by integrating LIMS-DCS-PLC data in real-time, allowing AI/ML to automatically optimize the input of key consumables such as zinc powder, sodium sulfate, and lime. The joint development with the startup (Refic AI) was expanded to Vedanta Spark Open Innovation, and the vertical application of the same solution to multiple smelters, implementing standardization, data governance, digital twin, and equipment monitoring, can be utilized as a best practice for multi-plant AI transformation.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    힌두스탄아연은 제련 3개 공장에 AI 기반 자동 투입 제어 시스템을 도입해 소모품 사용을 최적화하고 품질을 안정화했습니다. LIMS-DCS-PLC 데이터를 통합해 실시간으로 공정을 조정하며, 스타트업과의 협업으로 빠르게 현장 적용·확산한 것이 특징입니다. 이는 금속·소재업계가 AI를 활용해 비용 절감, 생산성 향상, ESG 목표 달성을 동시에 추진할 수 있음을 보여주는 사례로, 멀티사이트 표준화 전략과 오픈이노베이션 모델 수립에 실질적 참고가 됩니다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                2. New AI model could revolutionize U.S manufacturing | NSF ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 50.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.5
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>비전검사, 자연어처리, 실시간 품질관리, 소형제조기업, 고성능컴퓨팅</span><br><span class='lang-en'>defect_detection, multimodal_ai, real-time_analytics, small_batch_manufacturing, human-machine_interaction</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.nsf.gov/news/new-ai-model-could-revolutionize-us-manufacturing" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.nsf.gov/news/new-ai-model-could-revolutionize-us-manufacturing
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko"></span>
+                    <span class="lang-en"></span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    NSF가 지원한 MaVila는 제조 현장용 멀티모달 AI 모델로, 이미지 기반 불량 탐지와 자연어 기반 원인 분석·설정 명령을 통합 제공합니다. 적은 데이터로도 학습 가능한 전용 사전학습 모델이라 중소 제조업체도 도입이 용이하며, 모바일·로봇과 실시간 연동해 설비 상태를 즉시 교정할 수 있습니다. HPC 기반 학습 사례는 향후 제조 AI 구축 방법론을 보여주며, 파일럿을 통해 정량적 성과를 검증하면 스마트팩토리 ROI 제시가 가능할 것입니다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                3. AI in Manufacturing: How Irish Industry Gains Real ROI
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 50.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.5
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>예측정비, 재고최적화, 공급망수요예측, AI거버넌스, 품질검사자동화</span><br><span class='lang-en'>predictive_maintenance, inventory_optimization, supply_chain_forecasting, ai_governance, quality_inspection_automation</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://softco.com/blog/how-ai-is-transforming-manufacturing-industry/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://softco.com/blog/how-ai-is-transforming-manufacturing-industry/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko"></span>
+                    <span class="lang-en"></span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    본 글은 아일랜드 제조업체들이 AI로 효율·비용·경쟁력을 끌어올리는 구체적 영역(공급망, 품질, 설비, 조달)을 제시하고, ROI를 확보하기 위한 4단계 실행 프레임워크를 제공한다. 특히 데이터·보안·레거시 시스템 문제를 해결하기 위한 거버넌스 중요성과, 고임팩트 파일럿부터 시작해 조직 학습을 가속화하는 전략이 실무적으로 유용하다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                4. ‘물류 자동화’ 한발 앞서는 현대글로비스
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>스마트물류, 창고자동화, 자율주행드론, 패키지로봇, 재고관리혁신, 물류자동화, 스마트팩토리, 로봇물류</span><br><span class='lang-en'>smart logistics, warehouse automation, autonomous drones, robotic palletizing, inventory optimization, logistics_automation, smart_factory, robotic_logistics</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.seoul.co.kr/news/economy/industry/2025/07/18/20250718039003?wlog_tag3=naver" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.seoul.co.kr/news/economy/industry/2025/07/18/20250718039003?wlog_tag...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">현대글로비스 사례는 생산-창고-출하를 하나로 묶는 물류 자동화 로드맵을 제시한다. Boston Dynamics Stretch 로봇(23kg 박스, 600개/시간)과 컴퓨터비전-IMU 자율비행 드론은 피킹·적재 병목을 제거하고 재고조사를 ‘수시간→수십 분’으로 단축하며, 6대 산업군별 맞춤 알고리즘·WMS 연동 등 소프트웨어 기반 데이터 통합이 성공 열쇠임을 보여준다.</span>
+                    <span class="lang-en">The Hyundai Glovis case presents a logistics automation roadmap that integrates production, warehousing, and shipping. Boston Dynamics Stretch robots (23kg boxes, 600 units/hour) and computer vision-IMU autonomous drones eliminate picking and stacking bottlenecks and shorten inventory checks from 'hours to tens of minutes', demonstrating that software-based data integration, including customized algorithms for 6 major industry sectors and WMS integration, is the key to success.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    현대글로비스는 스마트물류 솔루션으로 박스 핸들링 로봇(시간당 600개)과 자율 드론 재고조사 시스템을 공개했다. 이는 제조사의 창고 및 출하 공정에서 인력 의존도를 줄이고 리드타임을 단축할 현실적인 기술 대안으로, 소프트웨어 기반의 맞춤형 통합이 성과의 핵심임을 보여준다. 제조업체는 물류·창고 데이터를 생산 MES·ERP와 연동해 전체 밸류체인 최적화를 도모할 필요가 있다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                5. NineToothed: A Triton-Based High-Level Domain-Specific ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>도메인특화언어, 병렬프로그래밍, AI커널개발, 타일기반최적화, 엣지AI, 딥러닝, AI개발도구, 크로스플랫폼</span><br><span class='lang-en'>domain-specific language, triton, kernel optimization, tensor-oriented metaprogramming, cross-platform ai, deep_learning, parallel_programming, ai_development</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://arxiv.org/pdf/2507.11978" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://arxiv.org/pdf/2507.11978
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">NineToothed DSL은 직렬 코드만으로도 타일 기반 메타프로그래밍을 통해 고성능 병렬 커널을 자동 생성하고, Triton 백엔드로 x86·ARM GPU 및 ASIC까지 즉시 이식해 제조 AI 팀의 하드웨어 변경·증설 부담을 크게 줄입니다. 코드 볼륨을 최대 99%까지 감소시키면서도 기존 Triton-수준 성능을 유지해 R&D 생산성과 신공정·신모델 실험 속도를 대폭 향상시킬 수 있습니다.</span>
+                    <span class="lang-en">NineToothed DSL automatically generates high-performance parallel kernels through tile-based metaprogramming, using only serial code, and enables immediate portability to x86 and ARM GPUs and ASICs with the Triton backend, significantly reducing the burden of hardware changes and expansion for manufacturing AI teams. While reducing code volume by up to 99%, it maintains existing Triton-level performance, which can greatly improve R&D productivity and the speed of new process and new model experimentation.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    제조업의 스마트팩토리·엣지AI 구축 시 가장 큰 난제 중 하나는 다양한 GPU/AI 가속기에 맞춘 커널 최적화 및 유지보수 비용입니다. NineToothed DSL은 ‘Serial → Parallel’ 자동 변환과 타일 기반 메타프로그래밍을 통해 개발자가 파편화된 하드웨어 세부사항을 신경 쓰지 않고도 고성능 커널을 작성하도록 돕습니다. Triton 백엔드로 여러 하드웨어를 동시에 지원하며, 코드량을 0.25~56% 수준으로 줄이면서 동일한 성능을 제공해 개발·검증 속도를 큰 폭으로 향상시킵니다. 제조 현장의 AI 응용(품질 검사, 예지보전, 로봇 제어 등)에서 하드웨어 교체에도 신속히 대응하고, 신기능을 빠르게 프로토타이핑하려는 조직에 유용한 접근법입니다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                6. TSMC, AI 칩 수요에 힘입어 2분기 순이익 61%↑…애리조나 초미세 공정 ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>반도체 제조, 첨단공정, AI 칩 수요, 미국 생산거점, 공급망 다변화, TSMC, AI칩, 반도체제조</span><br><span class='lang-en'>advanced node, semiconductor manufacturing, ai chips, capacity expansion, supply chain resilience, tsmc, ai_chips, advanced_process</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.tokenpost.kr/news/tech/268212" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.tokenpost.kr/news/tech/268212
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">TSMC의 7nm 이하 초미세 공정 확대와 AI·5G 칩 매출 비중 60% 기록은 AI 수요가 첨단 반도체 투자와 글로벌 공급망 재편을 가속하고 있음을 보여준다. 제조업체는 애리조나 등 다지역 파운드리와 전략적 파트너십을 통해 지정학적 리스크를 완화하고, AI·고성능 컴퓨팅 부품 리드타임 단축을 위한 선제적 수요 예측·재고 관리 체계를 구축해야 한다.</span>
+                    <span class="lang-en">TSMC's expansion of sub-7nm ultra-fine process technology and its 60% revenue share from AI and 5G chips demonstrate that AI demand is accelerating advanced semiconductor investment and global supply chain restructuring. Manufacturers must mitigate geopolitical risks through strategic partnerships with multi-region foundries, such as those in Arizona, and establish proactive demand forecasting and inventory management systems to shorten lead times for AI and high-performance computing components.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    TSMC는 2분기 매출·이익이 급증했고, 165억 달러 규모의 애리조나 3공장 착공으로 미국 내 첨단공정 생산능력을 확장한다. AI와 5G용 7nm 이하 칩이 매출을 주도해 향후에도 AI 수요 대응이 파운드리 전략의 핵심이 될 전망이다. 제조업체는 첨단공정 파운드리 확보, 지역별 공급망 분산, AI 칩 리드타임 관리 등 전략적 대응이 필요하다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                7. TSMC posts record quarterly profit on AI demand, but wary about ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>TSMC, AI 반도체, 설비투자, 공급망 리스크, 무역관세, AI칩, 반도체공급망, 스마트팩토리</span><br><span class='lang-en'>tsmc, ai chips, capital expenditure, supply chain, tariff risk, ai_chips, semiconductor_supply_chain, manufacturing_ai</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.reuters.com/world/asia-pacific/tsmc-posts-record-quarterly-profit-ai-demand-wary-about-tariffs-2025-07-16/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.reuters.com/world/asia-pacific/tsmc-posts-record-quarterly-profit-ai...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">TSMC의 사상 최대 분기 실적은 AI 칩 수요 폭증이 실제 매출로 이어지고 있음을 입증하며, 제조업체가 AI·스마트팩토리 구현을 위해 필요한 하드웨어 확보 시기를 앞당겨야 함을 시사합니다. 연간 380~420억 달러 규모의 공격적 설비투자는 첨단 공정 캐파 확대와 장기 수급 안정성에 긍정적이므로, 제조기업은 이를 반영해 투자·조달 일정과 기술 로드맵을 재조정해야 합니다. 동시에 미국 관세, 환율 변동 등 지정학적 변수에 따른 원가 리스크를 모니터링해 가격·재고 전략을 유연화하는 것이 필수적입니다.</span>
+                    <span class="lang-en">TSMC's record-high quarterly performance proves that the surging demand for AI chips is translating into actual revenue, suggesting that manufacturers should accelerate the acquisition of hardware necessary for AI and smart factory implementation. Aggressive capital expenditure of USD 38-42 billion annually is positive for expanding advanced process capacity and long-term supply-demand stability, so manufacturing companies should readjust their investment and procurement schedules and technology roadmaps to reflect this. Simultaneously, it is essential to make pricing and inventory strategies flexible by monitoring cost risks due to geopolitical variables such as US tariffs and exchange rate fluctuations.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    TSMC가 AI 칩 호황에 힘입어 분기 사상 최대 실적(매출 3,983억 대만달러, 전년 대비 +60.7%)을 기록했으며, 올해 매출 30% 성장과 380~420억 달러의 설비투자를 유지하겠다고 밝혔다. 이는 AI 하드웨어 수급이 앞으로도 빠듯할 가능성을 시사해, 스마트팩토리·디지털 제조를 추진하는 기업에는 장기 부품 확보 전략이 중요함을 알린다. 다만 미국 관세, 환율 변동이 4분기 실적에 부정적 영향을 줄 수 있어, 글로벌 생산 네트워크를 운영하는 제조업체엔 비용 및 위험 관리가 더욱 필요하다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                8. Trust, attitudes and use of artificial intelligence: Canadian perspectives
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI문해력, 직원교육, 신뢰거버넌스, 제조업디지털전환, 생산성향상, AI리터러시, AI신뢰도, 업무효율성</span><br><span class='lang-en'>ai literacy, workforce training, trust governance, digital transformation, productivity, ai_literacy, workforce_training, ai_trust</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://assets.kpmg.com/content/dam/kpmg/ca/pdf/2025/07/trust-in-ai-en-report.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://assets.kpmg.com/content/dam/kpmg/ca/pdf/2025/07/trust-in-ai-en-report.pd...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">캐나다 조사에 따르면 현장 직원의 61%가 AI를 사용하지만 56%가 오류를 겪어, 제조업에서는 ‘AI 문해력’ 부족이 곧바로 품질·생산성 리스크로 이어짐을 시사한다. 최고경영층 주도의 거버넌스·윤리 기준 아래 기초→업무별 활용→보안·윤리 단계형 교육과 데이터 활용 목적·책임 소재의 투명한 커뮤니케이션을 병행하면 신뢰를 높이고 오류·저항을 최소화할 수 있으며, 자동화로 확보된 인력을 품질 개선·공정 혁신 등 고부가가치 영역에 재배치해 생산성 위기를 해소할 수 있다.</span>
+                    <span class="lang-en">According to a Canadian survey, 61% of field staff use AI, but 56% experience errors, suggesting that in manufacturing, a lack of 'AI literacy' directly leads to quality and productivity risks. Under C-suite-led governance and ethical standards, by combining phased training (from basics to task-specific application, then security and ethics) with transparent communication regarding data usage purpose and accountability, trust can be increased, and errors and resistance minimized; furthermore, by reallocating personnel freed up by automation to high-value-added areas such as quality improvement and process innovation, the productivity crisis can be resolved.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    이 보고서는 캐나다 근로자들의 AI 신뢰·문해력 현황과 이를 높이기 위한 교육, 거버넌스, 리더십 전략을 제시한다. 제조업체는 이를 통해 현장 중심의 AI 교육 체계 구축, 명확한 활용 규정 마련, 투명한 소통을 통해 직원 불안을 경감시키고 생산성을 높일 수 있다는 시사점을 얻을 수 있다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                9. Speech by Governor Cook on artificial intelligence and innovation
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI 거버넌스, 인력 재훈련, 일반목적기술, 생산성 향상, 실험 문화, 인공지능전환, 범용기술, 생산성향상</span><br><span class='lang-en'>responsible ai, workforce training, general-purpose technology, productivity impact, adoption barriers, ai_transformation, general_purpose_technology, productivity_improvement</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.federalreserve.gov/newsevents/speech/files/cook20250717a.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.federalreserve.gov/newsevents/speech/files/cook20250717a.pdf
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">본 연설은 AI를 전기·증기기관과 같은 범용기술로 규정하며, 제조기업이 전사적·장기적 관점에서 AI 로드맵을 수립해야 함을 강조한다. 강력한 거버넌스·리스크 관리, 인력 재훈련, 현장 단위의 자율 실험, 성과 기반 중단·확산이라는 4대 원칙은 MES·스마트팩토리 업그레이드 시 바로 적용할 수 있는 책임형 AI 도입 프레임워크를 제시한다. 또한 AI 확산이 생산성-인플레이션 구조와 투자 변동성을 동반할 수 있음을 지적해, 설비 로그·VOC·공급망 문서를 AI로 구조화하면서도 거시 리스크 대응 시나리오를 병행할 필요가 있음을 시사한다.</span>
+                    <span class="lang-en">This speech defines AI as a general-purpose technology like electricity and the steam engine, emphasizing that manufacturing companies must establish an AI roadmap from an enterprise-wide and long-term perspective. The four principles—strong governance and risk management, workforce retraining, autonomous experimentation at the site level, and performance-based discontinuation or expansion—present a framework for responsible AI adoption that can be immediately applied during MES and smart factory upgrades. It also points out that AI proliferation may be accompanied by a productivity-inflation structure and investment volatility, suggesting the necessity of implementing macro risk response scenarios concurrently while structuring equipment logs, VOCs (Voice of Customer), and supply chain documents with AI.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    이 글은 연준이 바라보는 AI의 경제적 파급효과와 조직 내부 활용 경험을 바탕으로, 제조기업이 AI를 도입할 때 유의해야 할 거버넌스·교육·실험·선택적 확산 전략을 일목요연하게 제시한다. 직접적인 공정 사례는 없지만, AI를 ‘생산성·물가’ 모두에 영향을 주는 일반목적기술로 규정하고, 대규모 조직이 겪는 실제 제약과 대응방식을 공유함으로써 스마트팩토리 추진 조직에 거시·조직 관점의 통찰을 제공한다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                10. Unpacking the AI supply chain: market structure and policy ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI 공급망, GPU 집중도, 클라우드 락인, 데이터 독점, 오픈소스 모델, AI공급망, 빅테크독점, 제조업AI전환</span><br><span class='lang-en'>ai supply chain, gpu concentration, cloud lock-in, big tech dominance, open-source foundation models, ai_supply_chain, big_tech_dominance, manufacturing_ai_transformation</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.suerf.org/wp-content/uploads/2025/07/SUERF-Policy-Brief-1219_Gambacorta_Shreeti.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.suerf.org/wp-content/uploads/2025/07/SUERF-Policy-Brief-1219_Gambaco...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI 공급망은 하드웨어-클라우드-데이터-파운데이션 모델-애플리케이션의 5계층으로 이루어지며, GPU·클라우드 시장의 과점 구조가 학습·추론 비용 급등과 벤더 락인을 초래합니다. 제조사는 예산 책정 시 가격·납기 변동성을 반영하고, 멀티클라우드·온프레미스 혼합 및 오픈소스 모델을 활용해 공급망 리스크를 분산하며, 현장 설비·품질 데이터를 전략 자산으로 관리해 경쟁우위를 확보해야 합니다.</span>
+                    <span class="lang-en">The AI supply chain consists of five layers: hardware, cloud, data, foundation models, and applications. The oligopolistic structure of the GPU and cloud markets leads to a sharp increase in training and inference costs and vendor lock-in. Manufacturers should reflect price and lead time volatility when budgeting, diversify supply chain risks by utilizing a multi-cloud and on-premise mix and open-source models, and secure competitive advantage by managing on-site equipment and quality data as strategic assets.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    이 글은 AI 공급망의 5계층 구조와 각 계층별 시장집중도를 분석하며, GPU·클라우드·데이터 자원을 빅테크가 장악하고 있다는 사실을 통계와 사례로 제시합니다. 제조업 관점에서는 ① GPU·클라우드 비용 및 납기 리스크 관리, ② 멀티클라우드·오픈소스 활용을 통한 벤더 락인 최소화, ③ 제조 데이터의 전략적 확보·공동 활용이 핵심 시사점입니다. 즉 직접적인 공정기술 사례는 없지만, AI 인프라 조달 및 데이터 전략 수립에 유익한 거시적 통찰을 제공합니다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                11. '법인세율 인상' 시사한 구윤철…&quot;법인세수 2년새 40% 줄어&quot;[Pick코노미]
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>국내생산촉진세액공제, AI투자전략, 법인세정책, 제조업디지털전환, 스마트팩토리, AI투자, 제조업지원, 디지털전환</span><br><span class='lang-en'>domestic production tax credit, corporate tax policy, ai investment, manufacturing competitiveness, digital transformation, ai_investment, domestic_production_tax_credit, manufacturing_support</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.sedaily.com/NewsView/2GVEAEEGYF" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.sedaily.com/NewsView/2GVEAEEGYF
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">정부가 ‘국내생산촉진 세액공제’ 도입과 AI 투자 확대를 병행 검토하면서, 국내에 설비투자·생산라인을 증설하는 제조기업은 세제 인센티브와 AI 지원금을 동시에 활용할 수 있는 창구가 열리고 있습니다. 다만 재원 확보 차원에서 법인세율 인상 가능성도 거론되므로, 제조업체는 세액공제 혜택과 세후 현금흐름 악화를 함께 시뮬레이션해 CAPEX·AI 투자 우선순위를 재조정하고, 정부 과제 신청 시 ROI‧생산성 지표를 명확히 제시하는 전략이 필요합니다.</span>
+                    <span class="lang-en">As the government simultaneously reviews the introduction of the 'Domestic Production Promotion Tax Credit' and the expansion of AI investment, a channel is opening for manufacturing companies that are expanding facility investments and production lines domestically to simultaneously utilize tax incentives and AI subsidies. However, as the possibility of an increase in corporate tax rates is also being discussed in terms of securing financial resources, manufacturing companies need a strategy to simulate both tax credit benefits and the deterioration of after-tax cash flow to readjust CAPEX and AI investment priorities, and to clearly present ROI and productivity indicators when applying for government initiatives.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    정부가 법인세율 조정과 동시에 ‘국내생산 촉진 세액공제’를 검토 중이며, AI 투자 확대를 제조업 전반으로 연결하겠다는 의지를 표명했다. 세율 인상과 세액공제가 혼재되는 환경에서 제조기업은 투자·세무 전략을 재설계해야 하며, 향후 정부 지원형 AI·스마트팩토리 과제는 명확한 성과지표 제시가 필수적일 전망이다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                12. 반도체부터 데이터센터까지… SK, AI 인프라 총결집 ‘4차 퀀텀 점프’
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>인공지능 데이터센터, 고대역폭메모리, 에너지효율, 반도체생태계, 클라우드인프라, AI인프라, 데이터센터, 디지털전환</span><br><span class='lang-en'>ai data center, high-bandwidth memory, energy optimization, semiconductor ecosystem, cloud infrastructure, ai_infrastructure, data_center, digital_transformation</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.seoul.co.kr/news/economy/industry/2025/07/18/20250718039001?wlog_tag3=naver" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.seoul.co.kr/news/economy/industry/2025/07/18/20250718039001?wlog_tag...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">SK그룹은 반도체(HBM)–클라우드–에너지 사업을 하나로 묶은 수직 통합 AI 데이터센터 모델을 구축해 TCO·탄소배출을 동시에 낮추고 있습니다. AWS·울산시, 말레이시아 등과의 ‘지역 기반 + 글로벌 파트너십’ 전략과 AI 핵심역량 집중 구조조정 사례는 제조사가 해외 생산기지나 스마트팩토리에 AI·클라우드 인프라를 확장할 때 벤치마크로 활용할 수 있습니다.</span>
+                    <span class="lang-en">SK Group is building a vertically integrated AI data center model that combines semiconductor (HBM), cloud, and energy businesses, thereby simultaneously lowering TCO and carbon emissions. The 'region-based + global partnership' strategy with AWS, Ulsan Metropolitan City, Malaysia, and others, along with cases of restructuring focused on core AI capabilities, can be used as a benchmark when manufacturers expand AI and cloud infrastructure to overseas production bases or smart factories.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    SK그룹은 HBM 기반 반도체, 초고속 네트워크, 친환경 에너지 설비를 통합한 AI 전용 데이터센터를 울산 등지에 구축해 ‘AI 인프라 수직계열화’를 추진한다. 이는 제조업체가 AI 분석·시뮬레이션을 대규모로 실행하거나 글로벌 공장에 DX 인프라를 확장할 때 필요한 비용·에너지·거버넌스 최적화 방안을 보여준다. 구체적 성과 지표는 부족하지만, 메모리-클라우드-에너지를 묶는 전략적 로드맵과 해외 거점 구축 사례는 제조 DX 담당자에게 구조적·재무적 시사점을 제공한다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                13. Makersite & Siemens: Sustainability in Product Lifecycle - Manufacturing.net
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 91.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.6
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>인공지능, 사이버보안, 비전검사, 지속가능성 PLM, 자산관리, AI지속가능성, PLM통합, 제품설계최적화</span><br><span class='lang-en'>ai cybersecurity, self-learning vision, sustainability intelligence, predictive maintenance, plm integration, sustainability_intelligence, plm_integration, ai_manufacturing</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.manufacturing.net/artificial-intelligence/news/22945733/makersite-siemens-sustainability-in-product-lifecycle" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.manufacturing.net/artificial-intelligence/news/22945733/makersite-si...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">Makersite와 Siemens의 협업은 AI 기반 지속가능성 데이터를 PLM에 실시간으로 통합해 설계 단계에서부터 탄소·원가·규제 리스크를 수치화·비교할 수 있도록 합니다. 제조사는 이를 통해 ESG 목표와 규제 준수를 동시에 만족하는 최적 설계안을 신속히 선택하고, 제품 라이프사이클 전반의 환경영향을 지속적으로 모니터링·최적화하는 경쟁력을 확보할 수 있습니다.</span>
+                    <span class="lang-en">The collaboration between Makersite and Siemens integrates AI-powered sustainability data into PLM in real-time, enabling the quantification and comparison of carbon, cost, and regulatory risks from the design phase. This allows manufacturers to quickly select optimal design proposals that simultaneously meet ESG goals and regulatory compliance, and secure the competitiveness to continuously monitor and optimize the environmental impact throughout the entire product lifecycle.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    해당 기사 모음은 AI가 제조 사이버보안, 품질 검사, 지속가능 설계, 자산관리 등 핵심 영역에 어떻게 적용되고 있는지를 헤드라인 수준으로 제시한다. 구체적 수치나 사례는 부족하지만, ① 보안 위협 대비 전략 수립, ② 자가 학습 비전 AI 도입 가능성 평가, ③ 설계 단계부터 탄소·규제 데이터를 반영하는 PLM 전략, ④ AI 기반 설비 관리 투자 필요성 등을 시사해 중장기 전략 수립에 참고할 만하다.
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                14. Are Agentic AI Systems Quietly Taking Over Enterprises? 3 Ways To Keep Humans In The Loop - Forbes
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>휴먼인더루프, 에이전틱AI, 제조AI거버넌스, 위험관리, 품질보증, AI에이전트, 제조업AI전환, 인간감독체계</span><br><span class='lang-en'>human-in-the-loop, agentic ai, ai governance, risk management, quality assurance, human_in_the_loop, agentic_ai, manufacturing_ai_transformation</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.forbes.com/sites/saharhashmi/2025/07/17/are-agentic-ai-systems-quietly-taking-over-enterprises-3-ways-to-keep-humans-in-the-loop/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.forbes.com/sites/saharhashmi/2025/07/17/are-agentic-ai-systems-quiet...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI 에이전트 시스템을 제조 현장에 적용할 때는 ‘휴먼-인-더-루프(HITL)’ 체계를 사전 설계해 안전·품질·규제 리스크를 제어해야 합니다. 감독자(실시간 모니터링)-에스컬레이터(이상 시 개입)-감사자(주기적 리뷰)로 인간 역할을 명확히 구분하고, 품질관리·생산계획·공급망 등 고위험 의사결정에는 리스크 기반 게이트와 설명가능성·로그 감사, SOP·교육 프로그램을 결합해 AI의 분석 결과를 최종적으로 현장 전문가가 검증·보완하도록 하십시오.</span>
+                    <span class="lang-en">When applying AI agent systems to manufacturing sites, a 'Human-in-the-Loop (HITL)' framework must be pre-designed to control safety, quality, and regulatory risks. Clearly distinguish human roles as Supervisor (real-time monitoring), Escalator (intervention upon anomaly), and Auditor (periodic review), and for high-risk decision-making, such as quality control, production planning, and supply chain, combine risk-based gates with explainability, log auditing, SOPs, and training programs to ensure that AI's analysis results are ultimately verified and supplemented by on-site experts.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    기사에서는 조직 전반에 ‘휴먼-인-더-루프’ 체계를 도입해 AI의 자율성을 관리하라고 조언합니다. 제조업에 적용하면 AI가 제안한 공정·품질 개선안을 현장 전문가가 검증·보완하도록 역할·책임을 구조화해야 하며, 설명 가능성과 감사 가능성을 확보하는 데이터·프로세스 설계가 필수적입니다. 리스크 기반 승인 절차와 교육·SOP를 함께 구축하면 스마트팩토리의 안전성과 규제 준수 수준을 높일 수 있습니다.
+                </div>
+            </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #e9ecef; border-radius: 8px;">
+                    <p style="margin: 0; color: #666;">
+                        <span class="lang-ko">
+                            생성 시간: 2025년 07월 18일 06시 58분
+                        </span>
+                        <span class="lang-en">
+                            Generated at: 2025-07-18 06:58
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <script>
+                function switchLanguage(lang) {
+                    // 언어 버튼 상태 변경
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.getElementById('btn-' + lang).classList.add('active');
+                    
+                    // body 클래스 변경으로 언어 콘텐츠 토글
+                    document.body.className = lang === 'en' ? 'language-en' : '';
+                    
+                    // 로컬 스토리지에 선택된 언어 설정 저장
+                    localStorage.setItem('selectedLanguage', lang);
+                }
+                
+                // 페이지 로드 시 저장된 언어 설정 복원
+                document.addEventListener('DOMContentLoaded', function() {
+                    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+                    switchLanguage(savedLang);
+                });
+            </script>
+        </body>
+        </html>
+        
