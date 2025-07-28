@@ -1,0 +1,559 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Manufacturing AX Report [2025-07-28]</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                .header {
+                    text-align: center;
+                    border-bottom: 3px solid #0066cc;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 4px solid #28a745;
+                }
+                .language-selector {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background: white;
+                    border-radius: 25px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    padding: 5px;
+                }
+                .language-btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    margin: 0 2px;
+                }
+                .language-btn.active {
+                    background: #0066cc;
+                    color: white;
+                }
+                .language-btn:not(.active) {
+                    background: transparent;
+                    color: #666;
+                }
+                .language-btn:hover {
+                    background: #0066cc;
+                    color: white;
+                }
+                .lang-ko { display: block; }
+                .lang-en { display: none; }
+                .language-en .lang-ko { display: none; }
+                .language-en .lang-en { display: block; }
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .container { padding: 20px; }
+                    .language-selector {
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="language-selector">
+                <button class="language-btn active" onclick="switchLanguage('ko')" id="btn-ko">한국어</button>
+                <button class="language-btn" onclick="switchLanguage('en')" id="btn-en">English</button>
+            </div>
+            
+            <div class="container">
+                <div class="header">
+                    <h1 style="color: #0066cc; margin: 0; font-size: 2.5em;">
+                        🏭 <span class="lang-ko">제조업 AX 리포트</span><span class="lang-en">Manufacturing AX Report</span>
+                    </h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.2em; color: #666;">
+                        <span class="lang-ko">제조업 AI 전환 리포트 [2025-07-28]</span>
+                        <span class="lang-en">Manufacturing AI Transformation Report [2025-07-28]</span>
+                    </p>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center;">
+                        🤖 <span class="lang-ko" style="margin-left: 8px;">AI 참고사항</span>
+                        <span class="lang-en" style="margin-left: 8px;">AI Disclosure</span>
+                    </h3>
+                    <div style="font-size: 14px; line-height: 1.6; color: #856404;">
+                        <p style="margin: 8px 0;">
+                            <span class="lang-ko">
+                                이 리포트는 AI로 자동 생성되었습니다. 다음 모델들이 사용되었습니다:
+                            </span>
+                            <span class="lang-en">
+                                This report was automatically generated using AI. The following models were used:
+                            </span>
+                        </p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Claude (claude-sonnet-4-20250514)</li>
+                            <li>ChatGPT (o3)</li>
+                        </ul>
+                        <p style="margin: 8px 0; font-size: 13px;">
+                            <span class="lang-ko">
+                                AI 생성 콘텐츠의 정확성을 위해 전문가 검토를 권장합니다.
+                            </span>
+                            <span class="lang-en">
+                                Expert review is recommended for accuracy of AI-generated content.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2 style="color: #28a745; margin-top: 0;">
+                        <span class="lang-ko">📋 주요 인사이트</span>
+                        <span class="lang-en">📋 Key Insights</span>
+                    </h2>
+                    <div style="font-size: 16px; line-height: 1.8;">
+                        <div class="lang-ko">제조 AI 전환(AX) 동향 분석 결과를 요약합니다.<br>본 분석은 최신 기술 동향, 공급망 변화, 기업 전략을 종합하여 제조 AI의 현주소와 미래 방향성을 제시합니다.<br><br>핵심적인 발견은 제조 지능화가 '다크팩토리(완전 자동화 공장)', '물리적 AI'와 같이 인간의 개입을 최소화하는 단계로 진화하고 있다는 점입니다. 또한 AI의 역할이 생산 공정을 넘어, IoT 센서와 블록체인을 활용한 '콜드체인' 물류 추적, 재고 예측 등 공급망 전체로 확장되고 있습니다. 기술적으로는 기존 데이터 분석을 넘어 인간처럼 논리적 추론이 가능한 '설명가능한 AI'가 신뢰도 확보의 핵심으로 부상하고 있습니다.<br><br>이러한 변화는 생산 최적화와 유연성 확보에 큰 기회를 제공하지만, 'AI 반도체' 공급망의 지정학적 리스크와 AI 도입에 따른 거버넌스 및 신뢰도 구축이라는 과제를 동시에 안겨줍니다.<br><br>성공적인 AI 전환을 위해서는 단순히 기술을 도입하는 것을 넘어, 안정적인 부품 공급망을 확보하고 조직 전반의 신뢰를 얻는 통합적인 전략 수립이 필수적입니다.</div>
+                        <div class="lang-en">Summarizing the results of the Manufacturing AI Transformation (AX) trend analysis.<br>This analysis integrates the latest technology trends, supply chain changes, and corporate strategies to present the current status and future direction of manufacturing AI.<br><br>A key finding is that manufacturing intelligence is evolving towards stages that minimize human intervention, such as 'Dark Factories (fully automated factories)' and 'Physical AI.' Furthermore, AI's role is expanding beyond production processes to cover the entire supply chain, including 'Cold Chain' logistics tracking and inventory forecasting using IoT sensors and blockchain. Technologically, 'Explainable AI,' which can perform logical reasoning like humans beyond traditional data analysis, is emerging as key to ensuring reliability.<br><br>These changes offer significant opportunities for production optimization and flexibility, but simultaneously present challenges such as geopolitical risks in the 'AI Semiconductor' supply chain and the establishment of governance and trust associated with AI adoption.<br><br>For a successful AI transformation, it is essential to establish an integrated strategy that goes beyond simply adopting technology, ensuring a stable component supply chain and gaining trust across the entire organization.</div>
+                    </div>
+                </div>
+                
+                
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #0066cc; margin-bottom: 15px;">
+            <span class="lang-ko">📊 분석 통계</span>
+            <span class="lang-en">📊 Analysis Statistics</span>
+        </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <strong>
+                            <span class="lang-ko">총 분석 항목:</span>
+                            <span class="lang-en">Total Analysis Items:</span>
+                        </strong> 7<br>
+                        <strong>
+                            <span class="lang-ko">평균 점수:</span>
+                            <span class="lang-en">Average Score:</span>
+                        </strong> 7.0/10<br>
+                        <strong>
+                            <span class="lang-ko">평균 일관성:</span>
+                            <span class="lang-en">Average Consistency:</span>
+                        </strong> 0.7/1.0<br>
+                        <strong>
+                            <span class="lang-ko">최고 점수:</span>
+                            <span class="lang-en">Max Score:</span>
+                        </strong> 8.5/10
+                    </div>
+                    <div>
+                        <strong>
+                            <span class="lang-ko">고가치 (8점 이상):</span>
+                            <span class="lang-en">High Value (8+):</span>
+                        </strong> 1<br>
+                        <strong>
+                            <span class="lang-ko">중간가치 (5-7점):</span>
+                            <span class="lang-en">Medium Value (5-7):</span>
+                        </strong> 6<br>
+                        <strong>
+                            <span class="lang-ko">최저 점수:</span>
+                            <span class="lang-en">Min Score:</span>
+                        </strong> 6.5/10
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div style="margin: 15px 0;">
+                <strong>
+                    <span class="lang-ko">소스 통계:</span>
+                    <span class="lang-en">Source Statistics:</span>
+                </strong><br>
+                <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>tavily: 1</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>naver: 5</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>google_pdf: 1</span>
+            </div>
+            
+                
+                <h2 style="color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
+                    <span class="lang-ko">📄 상세 분석 결과</span>
+                    <span class="lang-en">📄 Detailed Analysis Results</span>
+                </h2>
+                
+                
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                1. [PDF] Transforming Consumer Industries in the Age of AI
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 8.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.8
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>다크팩토리, AI재고예측, 물리적AI, 엣지컴퓨팅, 실리코혁신, 스마트제조, 실시간품질관리, 자가최적화공급망</span><br><span class='lang-en'>dark_factory, physical_ai, in_silico_innovation, edge_computing, self_optimizing_supply_chain, smart_manufacturing, real_time_quality_control</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://reports.weforum.org/docs/WEF_Transforming_Consumer_Industries_in_the_Age_of_AI_2025.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://reports.weforum.org/docs/WEF_Transforming_Consumer_Industries_in_the_Age...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">보고서는 다크팩토리·물리적 AI·5G/엣지 컴퓨팅을 결합해 무인화와 초저지연 품질 관리를 구현하고, AI 기반 재고 예측·넥스트 베스트 액션으로 ‘품절 제로’와 실시간 작업 최적화를 달성하는 실행 로드맵을 제시합니다. 또한 인실리코 R&D와 IoT-센서·생성형 AI를 활용해 시제품 없이 공정·재료 변수를 검증하고 자가 최적화 공급망을 구축하는 단계별 적용 시나리오를 제공해 제조 현장의 AI 투자 우선순위 설정에 직접 활용할 수 있습니다.</span>
+                    <span class="lang-en">The report presents an execution roadmap that combines Dark Factory, Physical AI, and 5G/Edge Computing to implement unmanned operation and ultra-low latency quality management, and achieves 'zero stock-out' and real-time operation optimization through AI-based inventory forecasting and Next Best Action. Additionally, by providing step-by-step application scenarios that utilize in-silico R&D, IoT-sensors, and Generative AI to verify process and material variables without prototypes and build a self-optimizing supply chain, it can be directly utilized for setting AI investment priorities in manufacturing sites.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">이 글은 AI가 제조현장에 가져올 다섯 가지 구조적 변화를 제시합니다. 완전 자동화 공장, 품절 없는 재고 관리, 작업자 의사결정 지원, AI 기반 가상 R&D, 물리적 AI 로봇·엣지컴퓨팅의 결합 등으로 생산 효율과 공급망 민첩성이 크게 향상될 수 있음을 구체적 사례와 함께 설명합니다. 제조 리더는 해당 트렌드를 중장기 로드맵에 반영해 자동화 수준을 단계별로 높이고, 실시간 데이터·AI 시뮬레이션·로봇 활용에 대한 투자를 병행할 필요가 있습니다.</span>
+                    <span class="lang-en">This article presents five structural changes that AI will bring to the manufacturing floor. It explains, with specific examples, how production efficiency and supply chain agility can be greatly enhanced through fully automated factories, stockout-free inventory management, worker decision support, AI-based virtual R&D, and the integration of physical AI robots and edge computing. Manufacturing leaders need to incorporate these trends into their mid-to-long-term roadmaps, incrementally raising the level of automation, and concurrently investing in real-time data, AI simulation, and robot utilization.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                2. &quot;글로벌 백신 공급망, 무역·통상·관세와 정면 충돌…보건안보는?&quot;
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>콜드체인, IoT 온도센서, 블록체인 추적, 관세정책, 공급망 회복탄력성, 공급망관리, 디지털기술, IoT센서</span><br><span class='lang-en'>cold chain logistics, iot temperature monitoring, blockchain authentication, tariff impact, supply chain resilience, supply_chain_management, digital_transformation, iot_sensors</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.kpanews.co.kr/article/show.asp?idx=261627&category=D" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.kpanews.co.kr/article/show.asp?idx=261627&category=D
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">백신 초저온 콜드체인 사례는 온도·시간 민감 품목을 생산·운송하는 제조업체에게 IoT 온도센서·실시간 위치추적·블록체인·AI 수요·품질 예측을 결합해 전주기 데이터 가시성과 위변조 방지 체계를 구축해야 함을 시사합니다. 아울러 관세·수출통제·보조금 등 정책 변수가 물류비·리드타임·제품 원가에 직접적인 영향을 미치므로, 제조사는 정책 리스크 시나리오를 반영한 공급망 탄력성 확보와 생산거점 다변화 전략을 서둘러 마련해야 합니다.</span>
+                    <span class="lang-en">The case of the vaccine ultra-low temperature cold chain suggests that manufacturers producing and transporting temperature- and time-sensitive items must establish an end-to-end data visibility and anti-tampering system by combining IoT temperature sensors, real-time location tracking, blockchain, and AI demand/quality forecasting. Furthermore, since policy variables such as tariffs, export controls, and subsidies directly impact logistics costs, lead times, and product costs, manufacturers must quickly prepare strategies for securing supply chain resilience reflecting policy risk scenarios and diversifying production bases.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">이 보고서는 백신 콜드체인을 사례로 디지털 기술과 정책 환경이 글로벌 공급망에 미치는 영향을 분석합니다. 제조업체는 IoT·AI·블록체인으로 가시성을 높이고, 관세·수출통제 변화에 대비한 다중 생산거점 및 데이터 기반 의사결정 체계를 마련해야 합니다. 이러한 인사이트는 정밀 제조·식품·배터리 등 온도·품질 민감 산업 전반에 적용할 수 있는 실질적 시사점을 제공합니다.</span>
+                    <span class="lang-en">This report analyzes the impact of digital technologies and the policy environment on global supply chains, using the vaccine cold chain as a case study. Manufacturers must enhance visibility with IoT, AI, and blockchain, and establish multiple production bases and data-driven decision-making systems to prepare for changes in tariffs and export controls. These insights provide practical implications applicable across all temperature- and quality-sensitive industries, such as precision manufacturing, food, and batteries.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                3. AI의 다음 진화는? &quot;데이터 중심 → 인간처럼 추론&quot;
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>뉴로심볼릭AI, 설명가능한AI, 제조지능화, 규칙기반자동화, 전문가지식디지털화, 추론AI, 전문가지식, 자동규칙업데이트</span><br><span class='lang-en'>neuro-symbolic ai, explainable ai, industrial intelligence, rule-based automation, expert knowledge digitization, neurosymbolic_ai, explainable_ai, reasoning_ai</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.news1.kr/life-culture/book/5861624" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.news1.kr/life-culture/book/5861624
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">데이터 기반 딥러닝에 전문가 규칙을 결합한 뉴로심볼릭 AI는 생산 스케줄링·품질 분석·예지정비 등 복합 의사결정을 인간처럼 추론‧설명할 수 있어, 작업 표준서와 공정 제어 룰을 센서 데이터로 실시간 보정하는 ‘자동 규칙 업데이트’ 기능으로 스마트팩토리 민첩성을 크게 높인다. 동시에 숙련 기술자의 암묵지를 논리 규칙으로 디지털화해 교육 기간을 단축하고, 규제·고객 감사 대응에 필요한 투명성을 확보함으로써 AI 도입 신뢰도와 현장 적용성을 강화할 수 있다.</span>
+                    <span class="lang-en">Neuro-symbolic AI, which combines expert rules with data-driven deep learning, can reason and explain complex decision-making such as production scheduling, quality analysis, and predictive maintenance just like humans, and significantly enhances smart factory agility through its 'automatic rule update' function, which real-time adjusts work standards and process control rules based on sensor data. Simultaneously, by digitizing skilled technicians' tacit knowledge into logical rules, it shortens training periods, and by securing the transparency required for responding to regulations and customer audits, it can strengthen the reliability of AI adoption and its field applicability.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">이 기사는 신간 ‘뉴로심볼릭 AI’를 소개하며, 데이터 중심 딥러닝의 한계를 보완할 차세대 AI 패러다임을 설명한다. 제조업 입장에서 뉴로심볼릭 접근은 ①실시간 공정 룰 자동 보정, ②복합 의사결정 구조화, ③숙련자 지식의 체계적 캡처, ④설명 가능성과 규제 대응력 강화 등 실질적 이점을 제공한다. 특히 ‘자동 규칙 업데이트’와 ‘추론 방식 4분류’는 스마트팩토리 고도화 전략 수립에 직접 참고할 만한 구체적 프레임워크로 평가된다.</span>
+                    <span class="lang-en">This article introduces the new book 'Neuro-symbolic AI' and explains the next-generation AI paradigm that will complement the limitations of data-driven deep learning. From the perspective of the manufacturing industry, the neuro-symbolic approach offers practical advantages such as ① real-time process rule automatic correction, ② structuring complex decision-making, ③ systematic capture of expert knowledge, and ④ strengthening explainability and regulatory responsiveness. In particular, 'automatic rule updates' and 'four classifications of inference methods' are evaluated as concrete frameworks worth directly referencing for establishing smart factory advancement strategies.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                4. 테슬라 삼전과 빅딜, 3.02% 급등…시총 1조달러 회복(상보)
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI6 반도체, 장기 공급계약, 생산 최적화, 공급망 안정화, 로보택시, AI칩제조, 수직통합전략, 공급망안정화</span><br><span class='lang-en'>ai chip manufacturing, long-term supply agreement, production optimization, supply chain resilience, robotaxi hardware, ai_chip_manufacturing, vertical_integration, supply_chain_stabilization</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.news1.kr/world/usa-canada/5861619" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.news1.kr/world/usa-canada/5861619
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">테슬라가 삼성전자와 2033년까지 165억 달러 규모의 로보택시용 AI 칩 장기 공급계약을 맺고 텍사스 팹 운영권까지 확보한 사례는 자동차 OEM이 핵심 반도체를 수직통합해 공정·품질 데이터를 실시간 확보함으로써 AI 기반 스마트팩토리를 가속화할 수 있음을 입증한다. 대형·장기 계약을 통한 공급망 안정화와 리쇼어링은 제품 개발 주기 단축과 미래 모빌리티 시장 선점에 직결되므로, 제조업체들은 핵심 부품의 직접 생산 참여·다변화 전략을 서둘러 검토해야 한다.</span>
+                    <span class="lang-en">The case where Tesla secured a long-term supply agreement with Samsung Electronics for AI chips for robotaxis, valued at $16.5 billion until 2033, and also obtained operational rights for a Texas fab, demonstrates that automotive OEMs can accelerate AI-based smart factories by vertically integrating core semiconductors and securing process and quality data in real-time. Since supply chain stabilization and reshoring through large-scale and long-term contracts are directly linked to shortening product development cycles and seizing the future mobility market, manufacturers should urgently review strategies for direct participation in core component production and diversification.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">테슬라-삼성전자의 165억달러 규모 AI6 칩 장기 계약은 자동차 OEM이 반도체 생산까지 직접 관여해 공급망을 통제하려는 ‘수직통합’ 전략을 구체화한 사례다. 테슬라가 생산라인 운영권을 확보함으로써 실시간 데이터 기반 공정 최적화, 품질 관리, 스마트팩토리 구현 가능성을 보여준다. 또한 텍사스 현지 팹 구축은 리쇼어링 및 지역 생산 전략의 중요성을 부각하며, 장기간·대규모 계약 구조는 칩 부족 리스크를 완화해 제조 안정성을 강화한다. 로보택시 사업 확대를 위한 고성능 AI 칩 수요 증가가 자동차-반도체 융합과 제조 가치사슬 재편을 가속화할 것으로 예상된다.</span>
+                    <span class="lang-en">Tesla and Samsung Electronics' $16.5 billion long-term contract for AI6 chips is an example that concretizes the 'vertical integration' strategy, where automotive OEMs directly get involved in semiconductor production to control the supply chain. By securing operational rights for the production line, Tesla demonstrates the possibility of real-time data-based process optimization, quality control, and smart factory implementation. Furthermore, the construction of a local fab in Texas highlights the importance of reshoring and regional production strategies, and the long-term, large-scale contract structure mitigates chip shortage risks, strengthening manufacturing stability. The increasing demand for high-performance AI chips for the expansion of the robotaxi business is expected to accelerate the convergence of automotive and semiconductor industries and the reorganization of the manufacturing value chain.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                5. Directors Quarterly: July 2025
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>이사회 거버넌스, AI 신뢰도, 관세 영향, 사이버보안 위험, 지속가능성 보고, AI투자수익률, 사이버보안, 이사회거버넌스</span><br><span class='lang-en'>board governance, ai trust, tariff impact, cybersecurity risk, sustainability reporting, ai_roi, cybersecurity_governance, board_oversight</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2025/directors-quarterly-july-2025.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2025/directors-quarterly-july-2025...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">글로벌 AI 신뢰도 격차(신흥국 80% vs 선진국 58%)와 관세·지정학 리스크를 함께 고려해 제조사는 사업장별 AI·스마트팩토리 도입 및 공급망 시나리오를 차별화하고, 이사회 차원에서 장기 전략을 재점검해야 합니다. 동시에 감사위원회가 사이버보안·데이터 프라이버시·AI 리스크를 우선 관리하고, 관세 인상 시 매출·재고·리스 등 재무 영향 체크리스트와 ISSB·EU 기후 공시 요구를 선제 반영해 ROI와 규제 대응력을 높일 수 있습니다.</span>
+                    <span class="lang-en">Considering the global AI trust gap (80% in emerging countries vs. 58% in developed countries) and tariff and geopolitical risks, manufacturers should differentiate AI and smart factory adoption and supply chain scenarios by business site, and the board should re-examine long-term strategies. Simultaneously, the audit committee should prioritize managing cybersecurity, data privacy, and AI risks, and by preemptively incorporating financial impact checklists (covering revenue, inventory, and leases, among others) for tariff increases and ISSB and EU climate disclosure requirements, they can enhance ROI and regulatory responsiveness.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">본 보고서는 제조업에 특화된 내용은 아니지만, 관세 변동·지정학 리스크가 재무·공급망에 미치는 영향, AI 신뢰 구축 전략, 사이버보안·데이터 거버넌스 리스크, 그리고 지속가능성·기후 규제 대응 등 스마트 제조 전환 과정에서 반드시 고려해야 할 거버넌스 이슈를 풍부한 설문·사례와 함께 제시합니다. 제조 경영진은 국가별 AI 수용 격차를 고려한 도입 전략, 감사위원회의 리스크 우선순위, 관세에 따른 재무 시뮬레이션, ISSB 기반 기후 공시 준비 등 실질적 액션 플랜 수립에 활용할 수 있습니다.</span>
+                    <span class="lang-en">While this report is not specific to the manufacturing industry, it presents governance issues that must be considered during the smart manufacturing transition process, such as the impact of tariff fluctuations and geopolitical risks on finance and supply chains, AI trust-building strategies, cybersecurity and data governance risks, and responses to sustainability and climate regulations, along with extensive surveys and case studies. Manufacturing executives can use this to develop practical action plans, including adoption strategies that consider national differences in AI acceptance, risk priorities for audit committees, financial simulations based on tariffs, and preparations for ISSB-based climate disclosures.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                6. 머스크 &quot;삼성 AI 칩 계약, 165억은 최소 금액…실제 몇 배 높을 듯&quot;
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>반도체 공급망, 현지화 생산, AI 칩, 전략적 파트너십, CAPA 확보, AI칩생산, 스마트제조, 공급망전략</span><br><span class='lang-en'>semiconductor supply chain, localized manufacturing, ai accelerator, dual sourcing, capacity planning, ai_chip_manufacturing, smart_manufacturing, supply_chain_strategy</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.bloter.net/news/articleView.html?idxno=641020" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.bloter.net/news/articleView.html?idxno=641020
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">테슬라가 삼성·TSMC와 병행 체결한 대규모 AI 반도체 장기계약은 ‘핵심 부품 선확보→설비 투자 보장→CAPA 선제 확대’의 모범 사례로, 제조기업은 공급망 안정성·가격 협상력 강화를 위해 이원화 소싱과 공동투자를 검토해야 합니다. 또한 텍사스 현지 생산과 같은 생산 거점 다변화는 관세·지정학 리스크를 완화하므로, 국내외 공장 포트폴리오 재편과 AI·로봇 기반 신사업 내재화 전략을 동시 추진하는 것이 디지털 전환 속도 경쟁에서 필수입니다.</span>
+                    <span class="lang-en">Tesla's large-scale, long-term AI semiconductor contracts, simultaneously signed with Samsung and TSMC, serve as a prime example of 'proactively securing core components → guaranteeing equipment investment → preemptively expanding CAPA.' Manufacturing companies should therefore consider dual sourcing and joint investment to enhance supply chain stability and price negotiation power. Furthermore, diversifying production bases, such as local production in Texas, mitigates tariff and geopolitical risks. Thus, simultaneously pursuing strategies for restructuring domestic and international factory portfolios and internalizing new AI- and robot-based businesses is essential in the speed competition of digital transformation.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">테슬라가 삼성과 165억 달러 규모의 AI6 칩 생산 계약을 체결해 미국 내 생산 역량을 확보하고 관세 리스크를 줄였습니다. TSMC와의 병행 소싱으로 공급 안전망을 강화했으며, 이는 AI·로봇 중심 사업 전환을 위한 핵심 기반입니다. 제조업계는 핵심 부품의 현지화 생산, 장기 파트너십, 이원화 소싱 전략을 통해 공급망 리스크를 완화하고 AI 기반 비즈니스로의 전환 속도를 높일 필요가 있습니다.</span>
+                    <span class="lang-en">Tesla signed a $16.5 billion contract with Samsung for AI6 chip production, securing domestic production capacity in the US and reducing tariff risks. Parallel sourcing with TSMC has strengthened the supply safety net, which is a core foundation for the transition to an AI and robot-centric business. The manufacturing industry needs to mitigate supply chain risks through localization of core component production, long-term partnerships, and dual-sourcing strategies, and accelerate the transition to AI-based businesses.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                7. [박한나의 배터리ON] 전기차 둔화에 ‘ESS 카드’…LG엔솔, 합작 케파까...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>ESS시장, LFP배터리, 생산전환유연성, 북미현지화, 배터리용량확대, 생산전환, ESS배터리, 생산능력확장</span><br><span class='lang-en'>energy_storage_system, lfp_battery, capacity_expansion, production_flexibility, north_america_market, ess_manufacturing, cost_efficiency, market_pivot_strategy</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.dt.co.kr/article/12007371?ref=naver" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.dt.co.kr/article/12007371?ref=naver
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">LG에너지솔루션은 EV 수요 둔화에 맞춰 북미에서 LFP 장셀 기반 ESS를 30GWh까지 양산하도록 기존 EV 배터리 라인을 전환·공통화해 CAPEX를 최소화하고 생산 유연성을 극대화하는 모범 사례를 제시한다. 동시에 고수익 제품 집중, 원가 절감, 자재비 인하로 수익성을 방어한 포트폴리오·원가 구조 최적화 전략은 제조 현장의 설비 투자 및 라인 운영 의사결정에 즉시 적용할 수 있는 실질적 인사이트를 제공한다.</span>
+                    <span class="lang-en">LG Energy Solution presents a best practice by converting and commonizing existing EV battery lines in North America to mass produce LFP long-cell based ESS up to 30GWh in response to the slowdown in EV demand, thereby minimizing CAPEX and maximizing production flexibility. Simultaneously, the portfolio and cost structure optimization strategy, which defended profitability by focusing on high-profit products, cost reduction, and material cost reduction, provides practical insights that can be immediately applied to equipment investment and line operation decision-making in the manufacturing site.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">LG에너지솔루션은 북미 EV 수요 둔화를 감지하고 LFP 기반 ESS로 빠르게 포트폴리오를 전환, 30GWh 규모의 현지 양산 체제를 구축하려는 구체적 계획을 제시했다. 기존 EV 라인을 ESS로 변환하는 방안과 고수익 제품 중심의 원가 개선 사례는 제조기업이 시장 변동성에 대응해 설비 유연성, 현지화, 제품 믹스 전략을 병행해야 한다는 교훈을 제공한다.</span>
+                    <span class="lang-en">LG Energy Solution sensed the slowdown in North American EV demand and quickly shifted its portfolio to LFP-based ESS, presenting a concrete plan to establish a local mass production system with a capacity of 30GWh. The approach of converting existing EV lines to ESS and examples of cost improvement focused on high-profit products provide a lesson that manufacturing companies must simultaneously employ facility flexibility, localization, and product mix strategies in response to market volatility.</span>
+                </div>
+            </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #e9ecef; border-radius: 8px;">
+                    <p style="margin: 0; color: #666;">
+                        <span class="lang-ko">
+                            생성 시간: 2025년 07월 29일 06시 24분
+                        </span>
+                        <span class="lang-en">
+                            Generated at: 2025-07-29 06:24
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <script>
+                function switchLanguage(lang) {
+                    // 언어 버튼 상태 변경
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.getElementById('btn-' + lang).classList.add('active');
+                    
+                    // body 클래스 변경으로 언어 콘텐츠 토글
+                    document.body.className = lang === 'en' ? 'language-en' : '';
+                    
+                    // 로컬 스토리지에 선택된 언어 설정 저장
+                    localStorage.setItem('selectedLanguage', lang);
+                }
+                
+                // 페이지 로드 시 저장된 언어 설정 복원
+                document.addEventListener('DOMContentLoaded', function() {
+                    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+                    switchLanguage(savedLang);
+                });
+            </script>
+        </body>
+        </html>
+        
