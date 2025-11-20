@@ -1,0 +1,1249 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Manufacturing AX Report [2025-11-20]</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                .header {
+                    text-align: center;
+                    border-bottom: 3px solid #0066cc;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 4px solid #28a745;
+                }
+                .language-selector {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background: white;
+                    border-radius: 25px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    padding: 5px;
+                }
+                .language-btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    margin: 0 2px;
+                }
+                .language-btn.active {
+                    background: #0066cc;
+                    color: white;
+                }
+                .language-btn:not(.active) {
+                    background: transparent;
+                    color: #666;
+                }
+                .language-btn:hover {
+                    background: #0066cc;
+                    color: white;
+                }
+                .lang-ko { display: block; }
+                .lang-en { display: none; }
+                .language-en .lang-ko { display: none; }
+                .language-en .lang-en { display: block; }
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .container { padding: 20px; }
+                    .language-selector {
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="language-selector">
+                <button class="language-btn active" onclick="switchLanguage('ko')" id="btn-ko">한국어</button>
+                <button class="language-btn" onclick="switchLanguage('en')" id="btn-en">English</button>
+            </div>
+            
+            <div class="container">
+                <div class="header">
+                    <h1 style="color: #0066cc; margin: 0; font-size: 2.5em;">
+                        🏭 <span class="lang-ko">제조업 AX 리포트</span><span class="lang-en">Manufacturing AX Report</span>
+                    </h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.2em; color: #666;">
+                        <span class="lang-ko">[자동 포스팅 완료] 제조업 AI 전환 리포트 [2025-11-20]</span>
+                        <span class="lang-en">[Auto-Posted] Manufacturing AI Transformation Report [2025-11-20]</span>
+                    </p>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center;">
+                        🤖 <span class="lang-ko" style="margin-left: 8px;">AI 참고사항</span>
+                        <span class="lang-en" style="margin-left: 8px;">AI Disclosure</span>
+                    </h3>
+                    <div style="font-size: 14px; line-height: 1.6; color: #856404;">
+                        <p style="margin: 8px 0;">
+                            <span class="lang-ko">
+                                이 리포트는 AI로 자동 생성되었으며 LinkedIn에 자동 포스팅되었습니다. 사용된 모델:
+                            </span>
+                            <span class="lang-en">
+                                This report was automatically generated using AI and auto-posted to LinkedIn. Models used:
+                            </span>
+                        </p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Claude (claude-sonnet-4-5)</li>
+                            <li>ChatGPT (gpt-5)</li>
+                        </ul>
+                        <p style="margin: 8px 0; font-size: 13px;">
+                            <span class="lang-ko">
+                                AI 생성 콘텐츠의 정확성을 위해 전문가 검토를 권장합니다.
+                            </span>
+                            <span class="lang-en">
+                                Expert review is recommended for accuracy of AI-generated content.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2 style="color: #28a745; margin-top: 0;">
+                        <span class="lang-ko">📋 주요 인사이트</span>
+                        <span class="lang-en">📋 Key Insights</span>
+                    </h2>
+                    <div style="font-size: 16px; line-height: 1.8;">
+                        <div class="lang-ko">제조 AI 전환(AX) 동향 분석 결과를 다음과 같이 요약합니다.<br><br>최신 제조 AI 기술은 단순 예지보전 및 공정 최적화를 넘어, 실시간 데이터에 기반한 자율 운영 시스템으로 빠르게 진화하고 있습니다. 특히 적층제조(Additive Manufacturing) 분야에서 강화학습을 이용한 실시간 공정제어 기술이 핵심 트렌드로 부상했으며, 디지털 트윈을 활용한 시뮬레이션 및 예지보전 기술 역시 높은 중요도를 보였습니다.<br><br>이러한 고도화된 AI를 구현하기 위한 전제 조건으로 '데이터 패브릭'과 같은 통합 데이터 인프라의 중요성이 공통적으로 강조되었습니다. 또한 AI의 적용 범위는 생산 현장을 넘어, AI 에이전트를 통한 생산 스케줄 최적화, 설계-제조 자동화, 생성형 AI 코파일럿을 활용한 현장-사무 부서 간 협업 강화 등 전방위로 확장되는 추세입니다.<br><br>결론적으로, 제조 AI는 초자동화를 통한 혁신적인 생산성 향상의 기회를 제공하지만, 동시에 견고한 데이터 인프라 구축과 AI 거버넌스 수립이라는 과제를 안고 있습니다. 성공적인 AI 전환을 위해서는 명확한 데이터 전략을 바탕으로 단계적인 자율화 기술을 도입하는 접근이 필요합니다.</div>
+                        <div class="lang-en">The results of the Manufacturing AI Transformation (AX) trend analysis are summarized as follows.<br><br>The latest manufacturing AI technology is rapidly evolving beyond simple predictive maintenance and process optimization, moving towards autonomous operating systems based on real-time data. Particularly in the field of Additive Manufacturing, real-time process control technology utilizing reinforcement learning has emerged as a key trend, and simulation and predictive maintenance technologies leveraging digital twins also demonstrated significant importance.<br><br>As a prerequisite for implementing such advanced AI, the importance of an integrated data infrastructure, such as 'data fabric,' was commonly emphasized. Furthermore, the scope of AI application is expanding in all directions, beyond the production floor, to include production schedule optimization through AI agents, design-to-manufacturing automation, and strengthened collaboration between field and office departments utilizing generative AI copilots.<br><br>In conclusion, while manufacturing AI offers opportunities for innovative productivity improvement through hyperautomation, it simultaneously presents the challenges of building a robust data infrastructure and establishing AI governance. For a successful AI transformation, an approach that introduces phased autonomous technologies based on a clear data strategy is required.</div>
+                    </div>
+                </div>
+                
+                
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #0066cc; margin-bottom: 15px;">
+            <span class="lang-ko">📊 분석 통계</span>
+            <span class="lang-en">📊 Analysis Statistics</span>
+        </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <strong>
+                            <span class="lang-ko">총 분석 항목:</span>
+                            <span class="lang-en">Total Analysis Items:</span>
+                        </strong> 22<br>
+                        <strong>
+                            <span class="lang-ko">평균 점수:</span>
+                            <span class="lang-en">Average Score:</span>
+                        </strong> 7.3/10<br>
+                        <strong>
+                            <span class="lang-ko">평균 일관성:</span>
+                            <span class="lang-en">Average Consistency:</span>
+                        </strong> 0.7/1.0<br>
+                        <strong>
+                            <span class="lang-ko">최고 점수:</span>
+                            <span class="lang-en">Max Score:</span>
+                        </strong> 9.2/10
+                    </div>
+                    <div>
+                        <strong>
+                            <span class="lang-ko">고가치 (8점 이상):</span>
+                            <span class="lang-en">High Value (8+):</span>
+                        </strong> 3<br>
+                        <strong>
+                            <span class="lang-ko">중간가치 (5-7점):</span>
+                            <span class="lang-en">Medium Value (5-7):</span>
+                        </strong> 19<br>
+                        <strong>
+                            <span class="lang-ko">최저 점수:</span>
+                            <span class="lang-en">Min Score:</span>
+                        </strong> 6.2/10
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div style="margin: 15px 0;">
+                <strong>
+                    <span class="lang-ko">소스 통계:</span>
+                    <span class="lang-en">Source Statistics:</span>
+                </strong><br>
+                <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>google_web: 8</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>rss: 2</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>naver: 5</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>google_pdf: 5</span> <span style='background: #6c757d; color: white; padding: 2px 6px; border-radius: 3px; margin: 2px;'>tavily: 2</span>
+            </div>
+            
+                
+                <h2 style="color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
+                    <span class="lang-ko">📄 상세 분석 결과</span>
+                    <span class="lang-en">📄 Detailed Analysis Results</span>
+                </h2>
+                
+                
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                1. Engineers Develop Autonomous Artificial Intelligence That ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 9.2/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>적층제조, 실시간 공정제어, 조건부 강화학습, 문헌 마이닝, 실험 최적화, 3D프린팅 품질관리, 실시간 결함 보정, AI 기반 R&D 가속화</span><br><span class='lang-en'>additive manufacturing, closed-loop process control, conditional reinforcement learning, literature mining, active learning/doe, conditional_reinforcement_learning, additive_manufacturing, real_time_defect_correction</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.newswise.com/articles/engineers-develop-autonomous-artificial-intelligence-that-transforms-resilience-and-discovery-in-manufacturing" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.newswise.com/articles/engineers-develop-autonomous-artificial-intell...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">조건부 강화학습과 실시간 카메라 피드백을 결합한 폐루프 제어는 사전 문제정의나 재학습 없이 결함을 자동 보정해 엣지·극한 환경은 물론 일반 공정에서도 품질관리 자동화와 오퍼레이터 의존도/유지보수 비용을 동시에 낮춥니다. 구현 시 카메라·센서 레트로핏, 제어 한계·중지 로직 등 안전 가드레일, MLOps 기반 엣지 배포 체계를 초기 설계에 포함하는 것이 핵심입니다. 또한 문헌 마이닝과 소량 실험을 결합하고 지식그래프·액티브러닝·베이지안 최적화를 활용하면 DOE 주기를 단축하여 합금·열처리·코팅·적층제조 파라미터 개발을 항공우주·자동차·전자·국방 등에서 가속할 수 있습니다.</span>
+                    <span class="lang-en">Closed-loop control, combining conditional reinforcement learning with real-time camera feedback, automatically corrects defects without prior problem definition or retraining, simultaneously lowering quality control automation and operator dependency/maintenance costs in edge and extreme environments as well as in general processes. When implementing, it is crucial to include camera and sensor retrofits, safety guardrails such as control limits and stop logic, and an MLOps-based edge deployment system in the initial design. Furthermore, by combining literature mining with small-scale experiments and utilizing knowledge graphs, active learning, and Bayesian optimization, the DOE cycle can be shortened, thereby accelerating the development of parameters for alloys, heat treatment, coating, and additive manufacturing in fields such as aerospace, automotive, electronics, and defense.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">Rutgers의 두 가지 AI 성과는 제조 AX에 직접적 가치를 제공한다. 1) 카메라 기반 조건부 강화학습으로 3D 프린팅 중 결함을 실시간 자가 보정해 재학습 없이도 결함률을 크게 낮추며, 엣지 환경(우주/전장 등)에서도 신뢰성을 확보한다. 2) 논문·데이터를 결합한 예측모델로 실험 횟수를 줄여 소재/공정 개발을 가속화한다. 실무 적용을 위해서는 카메라/센서 레트로핏, 안전 가드레일 설계, 엣지 MLOps 체계, 내부·외부 지식 소스 통합(지식그래프)과 액티브러닝/베이지안 최적화 결합이 핵심이다.</span>
+                    <span class="lang-en">Rutgers' two AI achievements provide direct value to manufacturing AX. 1) By real-time self-correction of defects during 3D printing using camera-based conditional reinforcement learning, the defect rate is significantly reduced even without retraining, and reliability is ensured even in edge environments (e.g., space/battlefield). 2) Material/process development is accelerated by reducing the number of experiments with a predictive model combining papers and data. For practical application, camera/sensor retrofitting, safety guardrail design, an edge MLOps system, integration of internal and external knowledge sources (knowledge graph), and the combination of active learning/Bayesian optimization are key.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                2. AI and digital twins in manufacturing
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 9.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>스마트제조, 디지털 트윈, 예지보전, IT/OT 통합, 데이터 거버넌스, 디지털트윈, AI제조, 예측정비</span><br><span class='lang-en'>digital twin adoption, ai in manufacturing, predictive maintenance, it/ot convergence, smart factory workforce, digital_twin, smart_manufacturing, ai_manufacturing</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.processexcellencenetwork.com/ai/news/alabama-universities-receive-grant-to-help-manufacturers-boost-production-processes-with-ai-digital-twins" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.processexcellencenetwork.com/ai/news/alabama-universities-receive-gr...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">대학-산업 협력형 SMART 센터 모델을 통해 현장 센서·카메라 데이터를 기반으로 AI·디지털 트윈을 설계·통합하고, 데이터 파이프라인–IT/OT–엣지/클라우드–MLOps까지 아우르는 단계적 도입 로드맵을 제시합니다. 벤치마크 결과(다운타임·운영비용 65%↓, 예지보전 55%↑, 협업 40%↑)와 제조사의 40% 이상이 파일럿 중이라는 점은 조기 파일럿–학습–확산의 경쟁우위를 뒷받침합니다. 실행 측면에서는 고가치 병목 공정부터 시작해 범위·최소 데이터·KPI를 명확히 하고 12~16주 파일럿로 검증 후 확산하며, 대학 연계를 통한 리스킬로 데이터 엔지니어·OT 보안·현장 데이터 리터러시 역량을 내재화하는 것이 핵심입니다.</span>
+                    <span class="lang-en">Through the University-Industry collaborative SMART Center model, we present a phased adoption roadmap that designs and integrates AI and digital twins based on field sensor and camera data, covering everything from data pipelines to IT/OT, edge/cloud, and MLOps. Benchmark results (65% reduction in downtime and operating costs, 55% increase in predictive maintenance, 40% increase in collaboration) and the fact that over 40% of manufacturers are currently running pilots underpin the competitive advantage of early piloting, learning, and scaling. In terms of implementation, the key is to start with high-value bottleneck processes, clarify the scope, minimum data, and KPIs, verify with a 12-16 week pilot before scaling up, and internalize data engineer, OT security, and field data literacy capabilities through reskilling via university linkages.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">NSF 지원을 받은 알라바마 대학들의 SMART 센터는 현장 센서·카메라 데이터를 수집해 AI·디지털 트윈을 공정에 통합하는 실전 지원을 제공한다. 업계 조사에 따르면 디지털 트윈 도입 시 다운타임·운영비용 65% 감소, 예지보전 55% 개선 등 실질 효과가 확인되며, 제조사의 40% 이상이 파일럿 중이다. 실무적으로는 데이터 파이프라인과 거버넌스, OT 보안, 엣지-클라우드 아키텍처, MLOps 체계를 마련하고, 고가치 공정부터 12~16주 파일럿을 통해 KPI 기반으로 확산하는 전략이 유효하다. 대학 협력을 통한 인력 재교육으로 조직 내 역량을 내재화하는 것이 경쟁우위를 좌우한다.</span>
+                    <span class="lang-en">The NSF-funded SMART Center at Alabama universities provides practical support for collecting field sensor and camera data and integrating AI and digital twins into processes. According to industry surveys, tangible benefits have been confirmed upon digital twin adoption, such as a 65% reduction in downtime and operating costs, and a 55% improvement in predictive maintenance, with over 40% of manufacturers currently running pilot programs. Practically, an effective strategy involves establishing data pipelines and governance, OT security, edge-cloud architecture, and MLOps systems, then expanding based on KPIs through 12-16 week pilot programs starting with high-value processes. Internalizing capabilities within the organization through workforce retraining via university collaboration determines competitive advantage.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                3. Transform Your Factory Floor with Automation in Manufacturing
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 9.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 100.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>실시간 데이터 스트리밍, SCADA 통합, 생산 스케줄 최적화, AI 에이전트, OT 보안, 제조 자동화, 생성형 AI, 스마트 팩토리</span><br><span class='lang-en'>real-time production scheduling, scada integration, ai agents, streaming data architecture, ot security, manufacturing_automation, generative_ai, scada_integration</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://centricconsulting.com/blog/how-to-transform-your-factory-floor-with-automation-in-manufacturing/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://centricconsulting.com/blog/how-to-transform-your-factory-floor-with-auto...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">단발성 자동화·RPA를 넘어 SCADA, MES/ERP, 생산지시·이력과 수요/공급 등 외부 신호를 결합한 에이전트 기반 실시간 오케스트레이션으로 전환하라. Kafka/MQTT 이벤트 스트리밍과 공통 시맨틱 모델을 기반으로 고수익 과제(병목 기반 동적 일정 재계산, 예지정비, 비전 품질, 수요예측)를 우선 실행하고, SLM/AI 에이전트를 엣지에 배치하되 가드레일·승인 임계값, OT 보안, KPI(OEE·리드타임·스케줄 준수) 관리와 디지털 트윈 시뮬레이션으로 리스크를 통제하라.</span>
+                    <span class="lang-en">Transition beyond one-off automation and RPA to agent-based real-time orchestration that combines external signals such as SCADA, MES/ERP, production orders/history, and demand/supply. Based on Kafka/MQTT event streaming and a common semantic model, prioritize high-return tasks (bottleneck-based dynamic schedule recalculation, predictive maintenance, vision quality, demand forecasting), and deploy SLM/AI agents at the edge, but control risks with guardrails, approval thresholds, OT security, KPI (OEE, lead time, schedule adherence) management, and digital twin simulation.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">AI와 실시간 스트리밍을 결합해 생산스케줄을 지속 재계산하고 병목·변동에 민첩하게 대응하는 공장 오케스트레이션 전략을 제시한다. SCADA·생산지시·성과이력 등 이기종 데이터를 통합하고 SLM/AI 에이전트를 엣지에 배치해 운영 의사결정을 자동화하는 접근이 핵심이다. 성공을 위해 데이터 정합·시맨틱 모델·MLOps 및 OT 보안을 선행 구축하고, 동적 스케줄링·시나리오 테스트·예지정비·품질검사 등 고ROI 과제부터 시작할 것을 권고한다. KPI 기반 사전/사후 검증과 가드레일 설정으로 위험을 통제하며, 이벤트 중심 아키텍처와 디지털 트윈으로 확장성을 확보하라.</span>
+                    <span class="lang-en">It proposes a factory orchestration strategy that combines AI and real-time streaming to continuously recalculate production schedules and agilely respond to bottlenecks and fluctuations. The core is an approach that integrates heterogeneous data such as SCADA, production orders, and performance history, and deploys SLM/AI agents at the edge to automate operational decision-making. For success, it is recommended to proactively establish data consistency, semantic models, MLOps, and OT security, and to start with high-ROI tasks such as dynamic scheduling, scenario testing, predictive maintenance, and quality inspection. Control risks with KPI-based pre- and post-verification and guardrail settings, and ensure scalability with event-driven architecture and digital twins.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                4. Designing digital resilience in the agentic AI era
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.8/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>데이터 패브릭, 에이전틱 AI, 기계 텔레메트리, OT/IT 통합, 디지털 회복탄력성, 자율AI, 데이터패브릭, 디지털복원력</span><br><span class='lang-en'>data fabric, agentic ai, machine telemetry, federated data architecture, digital resilience, agentic_ai, data_fabric, digital_resilience</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.technologyreview.com/2025/11/20/1127941/designing-digital-resilience-in-the-agentic-ai-era/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.technologyreview.com/2025/11/20/1127941/designing-digital-resilience...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">에이전틱 AI를 공장에 안전하게 적용하려면 로그·메트릭·텔레메트리 등 기계 데이터를 실시간으로 수집·스트리밍하고, 데이터 패브릭(연합 아키텍처)으로 OT/IT/보안/품질/설비 데이터를 통합해 표준 거버넌스(권한·정책·감사)를 일관되게 적용해야 합니다. AI 도구로 데이터 관계 매핑·정정·NLP 분류를 자동화하고, 정형/비정형 데이터(정비 기록·영상·음성)의 이상탐지와 시뮬레이션을 결합하면 다운타임과 품질 리스크를 선제적으로 줄일 수 있습니다. 또한 인간-인더-루프 감독을 기본 설계로 두어 자율 의사결정의 안전성과 복구 탄력성을 강화해야 합니다.</span>
+                    <span class="lang-en">To safely apply Agentic AI in factories, machine data such as logs, metrics, and telemetry must be collected and streamed in real-time, and OT/IT/security/quality/equipment data must be integrated into a data fabric (federated architecture) to consistently apply standard governance (permissions, policies, audits). By automating data relationship mapping, correction, and NLP classification with AI tools, and combining anomaly detection and simulation for structured/unstructured data (maintenance records, video, audio), downtime and quality risks can be proactively reduced. Furthermore, human-in-the-loop oversight must be made a fundamental design to strengthen the safety and recovery resilience of autonomous decision-making.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">기사의 핵심은 에이전틱 AI 시대에 공장 디지털 회복탄력성을 확보하려면 기계 데이터 중심의 데이터 패브릭을 설계해야 한다는 점이다. OT/IT/보안/운영 데이터를 연합 아키텍처로 통합하고 실시간 스트리밍 접근을 확보하면 에이전트가 안전하게 이상 탐지, 시뮬레이션, 복구를 수행할 수 있다. NLP·관계 매핑 등 AI를 데이터 관리에 활용하되, 인간-인더-루프와 권한·정책·감사 추적을 통해 제어와 책임을 명확히 해야 한다. 제조 현장에서는 설비 로그·메트릭 파이프라인 표준화, 데이터 카탈로그 및 품질 규칙 적용, 비정형 데이터 이상 탐지 도입, 변경 영향 시뮬레이션 등 단계적 실행이 실질적 가치를 만든다.</span>
+                    <span class="lang-en">The core of the article is that to secure factory digital resilience in the era of agentic AI, a machine data-centric data fabric must be designed. Integrating OT/IT/security/operations data into a federated architecture and securing real-time streaming access allows agents to safely perform anomaly detection, simulation, and recovery. While utilizing AI such as NLP and relationship mapping for data management, control and accountability must be clarified through human-in-the-loop and authorization, policy, and audit trails. In manufacturing sites, phased implementation of steps such as standardization of equipment log and metric pipelines, application of data catalogs and quality rules, introduction of unstructured data anomaly detection, and change impact simulation creates practical value.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                5. Jeff Bezos is building a multi-billion dollar AI manufacturing startup ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.8/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI 기반 설계-제조 자동화, 자율 실험실, 휴머노이드 로봇 생산자동화, 디지털 트윈/시뮬레이션, 항공우주·국방 제조 혁신, AI 제조, 자율 설계 시스템, 휴머노이드 로봇</span><br><span class='lang-en'>ai-native manufacturing, autonomous experimentation, design-to-manufacture automation, humanoid robotics in production, digital twins and simulation, ai_manufacturing, autonomous_design, humanoid_robotics</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.linkedin.com/posts/leoneluca_jeff-bezos-is-building-a-multi-billion-dollar-activity-7397242525054423040-C-jd" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.linkedin.com/posts/leoneluca_jeff-bezos-is-building-a-multi-billion-...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">베이조스의 대규모 AI 제조 벤처(Project Prometheus)는 소프트웨어-설계-자율 실험-생산을 폐루프로 잇는 ‘AI-네이티브 설계·제조 스택’을 가속화하며, 항공우주·자동차·컴퓨팅 같은 고복잡·자본집약 산업에서 먼저 ROI가 입증될 가능성이 큽니다. 제조사는 자율 실험실과 생성형/모델 기반 설계, 휴머노이드·조작 로봇을 염두에 두고 디지털 트윈·고정밀 시뮬레이션·데이터 표준화를 선행하며, 로봇이 해석 가능한 공정/BOM 정비와 제한 범위 PoC를 명확한 KPI·TCO·안전 기준으로 검증해야 합니다. 동시에 생태계 동향을 모니터링하고 핵심 데이터·IP 종속성과 규제/수출통제 리스크를 관리하세요.</span>
+                    <span class="lang-en">Bezos' large-scale AI manufacturing venture (Project Prometheus) accelerates an 'AI-native design and manufacturing stack' that connects software-design-autonomous experimentation-production in a closed loop, and it is highly likely that ROI will first be proven in high-complexity, capital-intensive industries like aerospace, automotive, and computing. Manufacturers, keeping autonomous laboratories, generative/model-based design, and humanoid/manipulator robots in mind, should prioritize digital twins, high-precision simulation, and data standardization, as well as maintenance of robot-interpretable processes/BOMs, and limited-scope PoCs (Proof of Concepts) must be validated with clear KPI, TCO, and safety criteria. Simultaneously, monitor ecosystem trends and manage core data and IP dependencies, as well as regulatory/export control risks.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">베조스의 Project Prometheus는 자율 실험, 생성형 설계, 휴머노이드 로보틱스 등 AI 중심의 설계-제조 통합을 겨냥합니다. 항공우주·자동차 등 복잡 제조에서 먼저 ROI가 입증될 가능성이 높으며, 제조사는 디지털 트윈과 고충실도 시뮬레이션, R&D/시험 데이터 표준화, 로봇 적용 가능한 공정 정의, 안전·거버넌스 체계를 선제 구축해야 합니다. 단기적으로는 제한적 PoC로 성능·안전·TCO를 검증하고, 벤더 종속과 규제 리스크를 관리하는 파트너십 전략이 현실적입니다.</span>
+                    <span class="lang-en">Bezos's Project Prometheus aims at AI-driven design-manufacturing integration, including autonomous experimentation, generative design, and humanoid robotics. ROI is highly likely to be proven first in complex manufacturing sectors such as aerospace and automotive, and manufacturers must proactively establish digital twins, high-fidelity simulation, standardization of R&D/test data, definition of robot-applicable processes, and safety and governance systems. In the short term, a partnership strategy that verifies performance, safety, and TCO through limited PoCs and manages vendor lock-in and regulatory risks is realistic.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                6. [美특징주]엔비디아 판 소프트뱅크, 오픈AI 인프라에 30억달러 투자
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.8/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>모듈러 데이터센터, 공장 전환(리툴링), 전력·냉각 스키드, 하이퍼스케일 CAPEX, 공급망 현지화, 모듈러 제조, 공장 전환, AI 인프라</span><br><span class='lang-en'>modular data centers, factory retooling, liquid cooling, power distribution skids, hyperscale supply chain, modular_manufacturing, factory_conversion, ai_infrastructure</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="http://www.edaily.co.kr/news/newspath.asp?newsid=01125046642368016" target="_blank" style="color: #0066cc; text-decoration: none;">
+                http://www.edaily.co.kr/news/newspath.asp?newsid=01125046642368016
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI 인프라 투자 확대로 모듈러 데이터센터 수요가 급증하는 가운데, 소프트뱅크의 EV 공장→데이터센터 장비 전환은 브라운필드 리툴링과 모듈러 표준(OCP/Open19) 기반 ETO→CTO 전환의 실무적 벤치마크입니다. 제조사는 랙·전력·냉각 모듈 등 포트폴리오를 확장하되 TtC 단축을 위해 DFMA·프리패브/프리테스트를 적용하고, UL/NEC/IEEE 규격·신뢰성/열 시험, QMS·FAT/SAT 체계를 선제 구축해야 합니다. 또한 미국 중심 대형 CAPEX에 대응해 현지 조달·조립, 스위치기어/변압기 등 장주기 부품 리드타임 관리와 듀얼 소싱, 고전력밀도 대응(액침/직접액냉) 역량 내재화가 차별화를 좌우합니다.</span>
+                    <span class="lang-en">Amidst rapidly increasing demand for modular data centers due to expanded investment in AI infrastructure, SoftBank's conversion of EV factories to data center equipment is a practical benchmark for brownfield retooling and ETO-to-CTO conversion based on modular standards (OCP/Open19). Manufacturers should expand their portfolios to include rack, power, and cooling modules, while also applying DFMA and prefabrication/pretesting to shorten TtC, and proactively establishing UL/NEC/IEEE standards, reliability/thermal testing, and QMS, FAT/SAT systems. Furthermore, in response to large, US-centric CAPEX, local procurement and assembly, lead time management and dual sourcing for long-lead-time components such as switchgear/transformers, and the internalization of capabilities to handle high power density (immersion/direct liquid cooling) will determine differentiation.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">소프트뱅크가 오하이오의 EV 공장을 리툴링해 모듈러 데이터센터 설비를 생산하고, 오픈AI 인프라에 30억 달러를 투자한다는 소식은 제조업에 직접적인 기회를 시사합니다. 모듈러화·프리패브 전략으로 데이터센터의 빠른 증설이 핵심이 되며, 전력/냉각 스키드, 랙·PDU, 열관리 솔루션 등 고부가 장비의 수요가 확대됩니다. 제조사는 DFMA와 표준 플랫폼 기반 제품화, UL/NEC/IEEE 규정 준수, FAT/SAT 품질 게이트 도입, 장주기 전기 부품 리드타임 관리, 미국 현지화 전략을 선제적으로 준비할 필요가 있습니다. 이는 ETO 중심에서 플랫폼·모듈형 CTO로의 전환, 브라운필드 자산의 유연 재배치, 다학제 인력 확충을 촉진하는 방향입니다.</span>
+                    <span class="lang-en">The news that SoftBank is retooling an EV factory in Ohio to produce modular data center facilities and investing $3 billion in OpenAI's infrastructure suggests direct opportunities for the manufacturing industry. With modularization and prefabrication strategies, rapid expansion of data centers becomes key, and the demand for high-value-added equipment such as power/cooling skids, racks/PDUs, and thermal management solutions will expand. Manufacturers need to proactively prepare for DFMA, standard platform-based productization, compliance with UL/NEC/IEEE regulations, introduction of FAT/SAT quality gates, management of long-lead-time electrical components, and a US localization strategy. This is a direction that promotes the transition from an ETO-centric approach to platform and modular CTO, flexible redeployment of brownfield assets, and expansion of multidisciplinary personnel.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                7. Archetype AI | Physical AI Platform for Real-World Intelligence
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>물리 AI 에이전트, 센서 융합, 이상 탐지, 설비 모니터링, 시계열-자연어 멀티모달 모델, 물리적AI, 센서융합, 스마트팩토리</span><br><span class='lang-en'>physical ai agents, sensor fusion, manufacturing anomaly detection, time-series multimodal model, no-code agent toolkit, physical_ai, sensor_fusion, foundation_model</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.archetypeai.io/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.archetypeai.io/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">Archetype AI의 Physical AI 플랫폼(Newton/TimeFusion)은 PLC/SCADA와 진동·전류·비전 등 OT 센서 신호를 점검 기록·작업지시 등 자연어와 멀티모달로 융합해 현장 에이전트가 실시간 이상 탐지, 가동률/안전 모니터링, 근본원인 추론을 수행하며 오탐을 줄입니다. 노코드 에이전트 설계와 턴키/엣지 배치로 PoC→파일럿→확산을 가속하고 중소 제조의 진입 장벽을 낮출 수 있으며, Human-in-the-loop·권한/가드레일·감사로그 등 거버넌스와 KPI(다운타임, MTTR, 경보 품질, 배포 리드타임) 관리로 ROI를 명확히 할 수 있습니다.</span>
+                    <span class="lang-en">Archetype AI's Physical AI platform (Newton/TimeFusion) fuses OT sensor signals such as PLC/SCADA, vibration, current, and vision with natural language and multimodal data like inspection records and work instructions, enabling on-site agents to perform real-time anomaly detection, utilization rate/safety monitoring, and root cause inference while reducing false positives. With no-code agent design and turnkey/edge deployment, PoC → pilot → scaling can be accelerated, and entry barriers for small and medium-sized manufacturers can be lowered. Furthermore, ROI can be clarified through governance elements like Human-in-the-loop, access controls/guardrails, and audit logs, and KPI management (downtime, MTTR, alert quality, deployment lead time).</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">Archetype AI는 Newton 기반 물리 AI 플랫폼으로, 다양한 센서를 융합해 실시간 의사결정을 수행하는 에이전트를 빠르게 구축·배포하도록 지원한다. 제조 관점에서 기계 모니터링, 이상 탐지, 안전 모니터링 등 턴키 에이전트가 유용하며, NTT 사례처럼 현장 이상 징후 탐지에 적용 가능성이 높다. 시계열+자연어 결합은 운영 문맥을 반영한 경보와 원인분석에 강점이 있다. 실무 적용은 소규모 파일럿(한 셀/라인의 설비 모니터링)로 시작해 엣지 배치, 데이터 계약, HIL 거버넌스를 갖추고, 다운타임/오탐율/배포 리드타임 등 KPI로 ROI를 관리하는 접근이 바람직하다.</span>
+                    <span class="lang-en">Archetype AI is a Newton-based physical AI platform that supports the rapid construction and deployment of agents that perform real-time decision-making by fusing various sensors. From a manufacturing perspective, turnkey agents for machine monitoring, anomaly detection, and safety monitoring are useful, and it has high applicability for detecting abnormal signs on site, as seen in the NTT case. The combination of time series and natural language has strengths in alarms and root cause analysis that reflect operational context. For practical application, it is desirable to start with a small-scale pilot (equipment monitoring of one cell/line), establish edge deployment, data contracts, and HIL governance, and manage ROI with KPIs such as downtime, false positive rate, and deployment lead time.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                8. Why AI Is Finally Bridging Manufacturing's Longest Running Gap
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>연결형 공장, 현장-사무 협업, 마이크로소프트 코파일럿, 파워 플랫폼, 실시간 가시성, 제조업 AI 전환, 스마트팩토리 협업, 현장-사무실 연결</span><br><span class='lang-en'>ai copilot, power platform, connected factory, frontline collaboration, real-time visibility, manufacturing_ai_transformation, connected_factory, microsoft_copilot</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.changingsocial.com/blog/ai-in-manufacturing/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.changingsocial.com/blog/ai-in-manufacturing/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI를 사무·지식 업무와 현장(Shop floor) 사이의 정보 격차를 메우는 통합 레이어로 활용해, Microsoft Copilot과 Power Platform을 MES/ERP/PLM 및 Power Apps 데이터에 연결하여 품질 이상(NCR/8D), 라인 다운타임, 변경관리, EHS 사고 보고 등 고마찰 프로세스를 표준 템플릿과 승인 워크플로로 자동화·가속화하라. 연결형 워크플로로 현장 입력이 즉시 관련자에게 전달되고 조치·승인·에스컬레이션이 추적되며, 휴먼 인 더 루프·역할 기반 접근제어·데이터 거버넌스를 전제로 LTR, FPY, MTTR, 보고 사이클타임, 재작업률 등 KPI로 효과를 계량화하라. CS-500 성숙도 프레임워크로 현 수준을 진단해 단계별 도입 로드맵을 수립하면 초기 리스크를 낮추고 커뮤니케이션·가시성·워크플로 일관성을 조기 개선할 수 있다.</span>
+                    <span class="lang-en">Utilize AI as an integrated layer that bridges the information gap between office/knowledge work and the shop floor, connecting Microsoft Copilot and Power Platform to MES/ERP/PLM and Power Apps data to automate and accelerate high-friction processes such as quality non-conformances (NCR/8D), line downtime, change management, and EHS incident reporting with standard templates and approval workflows. With connected workflows, shop floor input is immediately communicated to relevant stakeholders, and actions, approvals, and escalations are tracked; predicated on human-in-the-loop, role-based access control, and data governance, quantify the effects with KPIs such as LTR, FPY, MTTR, reporting cycle time, and rework rate. By diagnosing the current level with the CS-500 maturity framework and establishing a phased implementation roadmap, initial risks can be reduced, and communication, visibility, and workflow consistency can be improved early on.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">기사의 핵심 가치는 AI를 이용해 사무 부서와 생산 현장 간 단절을 줄이고, 표준화된 보고와 연결형 워크플로로 의사결정 속도와 정확도를 높인다는 점이다. 코파일럿과 파워 플랫폼을 데이터 소스(MES/ERP/Power Apps)와 연계해 품질 보고 자동 생성, 승인/에스컬레이션 자동화, 리더의 실시간 가시성 제공 등 실무 효익을 창출할 수 있다. 초기 적용은 품질·유지보수·안전 등 고마찰 영역에서 시작하고, 역할 기반 보안과 데이터 거버넌스, 표준 템플릿을 마련하라. CS-500 같은 성숙도 모델로 현황을 진단하고 로드맵을 수립하며, LTR·FPY·MTTR 등 KPI로 효과를 계량화하는 접근이 권장된다.</span>
+                    <span class="lang-en">The core value of this article is to reduce the disconnect between office departments and production sites by utilizing AI, and to increase decision-making speed and accuracy through standardized reporting and connected workflows. Copilot and Power Platform, linked with data sources (MES/ERP/Power Apps), can create practical benefits such as automated quality report generation, automation of approvals/escalations, and providing real-time visibility for leaders. Initial application should begin in high-friction areas such as quality, maintenance, and safety, and role-based security, data governance, and standard templates should be established. An approach that diagnoses the current status and establishes a roadmap using a maturity model like CS-500, and quantifies effects using KPIs such as LTR, FPY, and MTTR, is recommended.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                9. Testimony of Charles Crain Managing Vice President, Policy ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>스마트팩토리, AI 거버넌스, 즉시 비용처리, SBA 7(a)/504 대출, 전력 수급·그리드, 제조업 AI 도입, 스마트 팩토리 투자, 디지털 전환 장벽</span><br><span class='lang-en'>smart factory, immediate expensing, nepa permitting reform, sba 7(a)/504 loans, risk-based ai governance, manufacturing_ai_adoption, smart_factory_investment, digital_transformation_barriers</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://nam.org/wp-content/uploads/securepdfs/2025/11/Charles-Crain-NAM_House-Small-Business-Committee-Hearing_11.20.25.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://nam.org/wp-content/uploads/securepdfs/2025/11/Charles-Crain-NAM_House-Sm...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">정책 레버와 자금조달을 활용하면 AI·자동화 전환을 가속할 수 있습니다: 즉시 비용처리(OBBBA)와 제조 전용 SBA 7(a)/504 대출 한도 1,000만 달러 확대(MAMFA)로 스마트팩토리·데이터 수집·OT 연결·엣지/센서·MLOps 등 단계적 CAPEX를 앞당기며, 자본 제약이 큰 중소 제조(93%)에 특히 효과적입니다. 확산·장벽 데이터(이미 50%+ 도입, 2025년 44% 투자 확대, 2030년 80% 필수 인식; 장애: 설비 업그레이드 49%, 디지털 인력 43%)에 근거해 유틸리티와 초기 협업으로 전력·부하·온사이트 발전/저장·수요반응을 설계하고 NEPA 간소화에 맞춘 선제 허가 자료를 준비하세요. 또한 리스크 기반 규율에 대비해 NIST 기반 AI 거버넌스(데이터/모델 투명성 문서화, 오픈웨이트·상용 모델 병행)와 견습·Workforce Pell 중심 업스킬을 병행하면 정책 변화의 수혜를 극대화할 수 있습니다.</span>
+                    <span class="lang-en">Utilizing policy levers and funding can accelerate the AI and automation transition: by immediately expensing (OBBBA) and expanding the manufacturing-specific SBA 7(a)/504 loan limit to $10 million (MAMFA), phased CAPEX for Smart Factories, data collection, OT connectivity, edge/sensors, and MLOps can be expedited, which is particularly effective for small and medium-sized manufacturers (93%) with significant capital constraints. Based on diffusion and barrier data (already 50%+ adopted, 44% investment expansion by 2025, 80% recognized as essential by 2030; barriers: equipment upgrade 49%, digital workforce 43%), design power, load, onsite generation/storage, and demand response through early collaboration with utilities, and prepare proactive permitting materials aligned with NEPA streamlining. Furthermore, in preparation for risk-based regulations, by combining NIST-based AI governance (documenting data/model transparency, integrating open-weight and commercial models) with apprenticeships and Workforce Pell-centric upskilling, you can maximize the benefits of policy changes.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">NAM의 의회 증언은 제조업의 AI·스마트팩토리 확산을 가로막는 실질적 병목(자본, 전력/그리드, 인허가, 인력)을 정책 레버로 해소하는 로드맵을 제시합니다. R&D·설비·시설의 즉시 비용처리와 제조 전용 SBA 대출 상향을 활용해 데이터 인프라·OT 연결성·센서/엣지·MLOps에 선투자하고, 전력 수요 급증에 대비해 유틸리티 연계·온사이트 에너지·수요반응 전략을 병행하세요. AI 규제는 용도·리스크 기반으로 갈 가능성이 커 NIST 기반의 내부 거버넌스, 모델 투명성 문서화, 오픈웨이트/상용 모델 병행 체계를 갖추는 것이 유리합니다. 고용주 주도 훈련·견습·Workforce Pell 등으로 디지털·AI 역량을 빠르게 내재화하고, 인허가 간소화 흐름을 활용해 프로젝트 리드타임을 단축하는 것이 핵심입니다.</span>
+                    <span class="lang-en">NAM's congressional testimony presents a roadmap to resolve practical bottlenecks (capital, power/grid, permits/licensing, workforce) hindering the spread of AI and smart factories in manufacturing, using policy levers. Leverage immediate expensing for R&D, equipment, and facilities, and increased SBA loans dedicated to manufacturing, to make preemptive investments in data infrastructure, OT connectivity, sensors/edge, and MLOps, and concurrently implement utility integration, onsite energy, and demand response strategies to prepare for a sharp increase in power demand. As AI regulation is likely to be use-case and risk-based, it is advantageous to establish NIST-based internal governance, document model transparency, and implement a system that combines open-weight and commercial models. It is crucial to rapidly internalize digital and AI capabilities through employer-led training, apprenticeships, Workforce Pell, etc., and to shorten project lead times by leveraging the trend of simplified permits and licensing.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                10. Mazda turns to AI to stem tariff-induced losses - Automotive World
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>글로벌 생산 실적 집계, 데이터 통합(데이터 패브릭), 생성형 AI 코파일럿, 음성 합성·다국어 번역, MES/ERP 통합 분석, 생성형AI, 마쓰다, 데이터통합</span><br><span class='lang-en'>real-time production reporting, data fabric and consolidation, generative ai copilot, voice cloning and multilingual translation, mes/erp integration, generative_ai, manufacturing_ai, data_consolidation</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.automotiveworld.com/news/mazda-turns-to-ai-to-stem-tariff-induced-losses/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.automotiveworld.com/news/mazda-turns-to-ai-to-stem-tariff-induced-lo...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">마쓰다 사례는 Copilot/ChatGPT 같은 상용 도구로 시작하되, 보안·도메인 요구를 충족하는 사내 모델과 시스템을 병행 구축하는 하이브리드 도입 로드맵을 제시합니다. 글로벌 MES/ERP/SCM/PLM에서 분산된 생산 데이터를 AI 애그리게이션으로 준실시간 통합하고 메타데이터 카탈로그·권한 기반 검색을 적용해 보고 리드타임과 관리성 업무 시간을 단축하는 것이 핵심입니다. 실행 우선순위는 데이터 표준화·마스터데이터 관리, API/ETL(배치+스트리밍) 파이프라인과 실시간 KPI 대시보드 구축이며, 효과는 보고 리드타임·업무시간 절감·데이터 정합성·QA 정확도로 계량화합니다.</span>
+                    <span class="lang-en">The Mazda case presents a hybrid adoption roadmap that starts with commercial tools like Copilot/ChatGPT but simultaneously builds in-house models and systems to meet security and domain requirements. The core is to integrate distributed production data from global MES/ERP/SCM/PLM in near real-time using AI aggregation, and apply metadata catalogs and permission-based search to shorten reporting lead time and administrative work time. Execution priorities include data standardization, master data management, API/ETL (batch+streaming) pipelines and real-time KPI dashboard construction, and the benefits are quantified by reporting lead time, work time reduction, data consistency, and QA accuracy.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">마쓰다는 AI로 전 세계 시스템의 생산 수치를 즉시 집계하는 PoC를 진행하고, Copilot·ChatGPT를 업무 대화형 도구로 쓰면서 사내 모델도 병행 개발 중입니다. 또한 분산 데이터를 통합해 정보 검색을 가속화하고 관리자성 업무 시간을 줄이는 것이 목표이며, 경영진 메시지의 다국어 번역·음성 합성도 시험 중입니다. 제조 관점의 시사점: 데이터 표준화·거버넌스 기반의 통합(데이터 패브릭)부터 착수하고, 보고/지식검색 등 고효과 영역에서 빠른 성과를 만들며, MES/ERP 연동 실시간 KPI 대시보드를 구축하세요. 음성 합성에는 보안·윤리 가드레일을 적용하고, ROI는 보고 리드타임 및 인력 시간 절감 지표로 관리하는 것이 바람직합니다.</span>
+                    <span class="lang-en">Mazda is conducting a PoC to immediately aggregate production figures from global systems using AI, and while using Copilot and ChatGPT as conversational work tools, it is also concurrently developing in-house models. Additionally, the goal is to integrate distributed data to accelerate information retrieval and reduce managerial administrative work time, and multilingual translation and speech synthesis of executive messages are also being tested. Implications from a manufacturing perspective: Start with data standardization and governance-based integration (data fabric), create quick results in high-impact areas such as reporting/knowledge retrieval, and build a real-time KPI dashboard linked with MES/ERP. For speech synthesis, apply security and ethical guardrails, and it is desirable to manage ROI using reporting lead time and human resource time savings as metrics.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                11. Three things to know about the future of electricity
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.2/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 97.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>전력수요 전망, 재생에너지 PPA, 마이크로그리드, 수요반응(DR), 에너지관리시스템(EMS), 전력 수요, 데이터센터, 재생에너지</span><br><span class='lang-en'>industrial electrification, power purchase agreement (ppa), microgrid, grid interconnection, load flexibility, electricity_demand, data_center_infrastructure, renewable_energy_transition</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.technologyreview.com/2025/11/20/1128167/future-of-electricity/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.technologyreview.com/2025/11/20/1128167/future-of-electricity/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI·데이터센터발 수요 급증과 재생에너지 전환 가속을 전제로, 제조 AX/스마트팩토리에서는 전력을 핵심 제약조건으로 보고 입지·전력조달을 선결 과제로 설계해야 합니다(지역별 계통 혼잡, 조기 Interconnection 용량 검토, 변전소 증설 리드타임, 재생에너지 접근성·PPA/VPPA 포함). 공장 단에는 태양광+ESS·마이크로그리드·수요반응 포트폴리오를 도입하고 EMS를 MES/APS와 연동해 가격·발전예측·피크회피 기반으로 생산·에너지를 동시 최적화하세요. 아울러 공정열 전기화와 AI 워크로드의 오프피크 스케줄링/엣지-클라우드 최적화를 병행해 비용·탄소·공급안정성을 함께 개선할 수 있습니다.</span>
+                    <span class="lang-en">Premised on the rapid increase in demand driven by AI and data centers and the accelerated transition to renewable energy, manufacturing AX/smart factories must view power as a core constraint and design location and power procurement as prerequisite tasks (including regional grid congestion, early interconnection capacity review, substation expansion lead time, renewable energy accessibility, and PPA/VPPA). At the factory level, introduce a portfolio of solar+ESS, microgrids, and demand response, and link EMS with MES/APS to simultaneously optimize production and energy based on price, generation forecasting, and peak avoidance. Furthermore, by combining the electrification of process heat with off-peak scheduling/edge-cloud optimization of AI workloads, cost, carbon emissions, and supply stability can be improved together.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">전력수요 급증과 데이터센터 집중, 재생에너지로의 전환은 제조업의 전력비용·가용성·탈탄소 전략에 직접적 영향을 줍니다. 제조업체는 지역 계통 혼잡을 고려해 조기 전력용량을 확보하고, 공장 내 태양광·ESS·DR·마이크로그리드로 피크부하와 정전 리스크를 줄여야 합니다. 또한 EMS와 생산계획을 연계해 에너지-생산 동시 최적화를 구현하고, 공정열 전기화와 재생에너지 PPA를 통해 비용 헤지와 Scope 2 감축을 병행해야 합니다. AI 도입 시에는 에너지 효율 중심의 모델/하드웨어 선택과 오프피크 스케줄링 등 에너지 인지형 운영이 경쟁력을 좌우합니다.</span>
+                    <span class="lang-en">Surging electricity demand, the concentration of data centers, and the transition to renewable energy directly impact manufacturers' electricity costs, availability, and decarbonization strategies. Manufacturers must secure power capacity early, considering local grid congestion, and reduce peak loads and outage risks through on-site solar, ESS, DR, and microgrids. Additionally, by linking EMS with production plans, they must implement simultaneous energy-production optimization, and concurrently pursue cost hedging and Scope 2 reductions through process heat electrification and renewable energy PPAs. When adopting AI, energy-aware operations, such as selecting energy-efficient models/hardware and off-peak scheduling, determine competitiveness.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                12. 삼성전자 C랩, 육성 스타트업 1000개 눈앞
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.2/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 97.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>오픈이노베이션, 로봇 센서, 산업용 로봇, 예지보전, 스마트팩토리, 로봇센서기술, 스타트업협업, 제조로봇</span><br><span class='lang-en'>robotics sensor, industrial robotics, predictive maintenance, corporate accelerator, technology scouting, open_innovation, corporate_startup_collaboration, robotics_sensor</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.donga.com/news/Economy/article/all/20251120/132809847/2" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.donga.com/news/Economy/article/all/20251120/132809847/2
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">삼성 C랩의 대기업-스타트업 협업은 제조 AX에서 ‘디리스크드 혁신’을 구현하는 실증 모델이며, Aidin Robotics의 미세 전기 감지 로봇 센서가 레인보우로보틱스에 공급된 사례는 PoC→양산으로 이어지는 경로와 정밀 접촉 감지·공구 마모 모니터링·품질검사 정밀도 향상 등 현장 적용성을 입증합니다. 제조사는 C랩·데모데이 등 오픈이노베이션 채널로 기술 스카우팅을 확대하고, 사이클타임·불량률·안전 KPI 기반 PoC 설계 후 TRL 게이트, MES/PLC 연동, OT 보안, 장기공급·서비스 기준을 포함한 스케일업 거버넌스를 선제 정의하면 도입 속도와 성공률을 높일 수 있습니다.</span>
+                    <span class="lang-en">Samsung C-Lab's large enterprise-startup collaboration is a demonstration model that implements 'de-risked innovation' in Manufacturing AX. The case where Aidin Robotics' micro-electric sensing robot sensor was supplied to Rainbow Robotics demonstrates the path from PoC to mass production and its field applicability, including precise contact detection, tool wear monitoring, and improved precision in quality inspection. Manufacturers can increase the speed of adoption and success rate by expanding technology scouting through open innovation channels such as C-Lab and Demo Day, and by proactively defining scale-up governance that includes TRL gates, MES/PLC integration, OT security, and long-term supply and service standards, after designing PoCs based on cycle time, defect rate, and safety KPIs.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">삼성 C-Lab은 로봇·AI 중심의 스타트업과 협업해 사업 과제를 기반으로 신기술을 검증·적용하는 모델을 제시했다. Aidin Robotics의 로봇 센서가 레인보우로보틱스에 공급된 사례는 제조 현장에서 ‘파일럿→양산’ 전환이 가능한 경로를 보여준다. 제조사는 이런 오픈이노베이션 채널을 적극 활용해 기술 스카우팅과 PoC를 운영하고, KPI 중심 검증과 TRL·MES/PLC 연동·OT 보안 등 스케일업 거버넌스를 마련함으로써 AX 전환 속도를 높일 수 있다. 숫자 지표(투자·일자리)는 생태계 성숙도를 시사하며, 로봇 공급망 재편 방향을 읽는 데 참고 가치가 있다.</span>
+                    <span class="lang-en">Samsung C-Lab presented a model for verifying and applying new technologies based on business challenges, in collaboration with robot- and AI-centric startups. The case of Aidin Robotics' robot sensors being supplied to Rainbow Robotics demonstrates a viable path for transitioning from 'pilot to mass production' in manufacturing environments. Manufacturers can accelerate the speed of AX transformation by actively utilizing such open innovation channels to conduct technology scouting and PoCs, and by establishing scale-up governance that includes KPI-driven verification, TRL and MES/PLC integration, and OT security. Numerical indicators (investment, jobs) suggest the maturity of the ecosystem and are valuable for understanding the direction of robot supply chain restructuring.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                13. Future-proofing the Quantum Europe Strategy for 2040
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 7.0/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 96.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>양자센싱, 양자내성 암호(PQC), 어닐러 기반 최적화, EuroQCI(유럽 양자통신 인프라), 기술성숙도(TRL), 양자 기술, 양자 컴퓨팅, 제조업 최적화</span><br><span class='lang-en'>quantum sensing, post-quantum cryptography (pqc), quantum annealing optimization, euroqci, technology readiness levels (trl), quantum_technology, quantum_computing, manufacturing_optimization</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.europarl.europa.eu/RegData/etudes/IDAN/2025/774696/EPRS_IDA(2025)774696_EN.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.europarl.europa.eu/RegData/etudes/IDAN/2025/774696/EPRS_IDA(2025)774...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">본 보고서는 양자기술의 TRL·표준·거버넌스를 체계화해 제조 AX 우선순위를 제시하며, 단기적으로는 양자센싱(비침습 품질·예지보전, GNSS-프리 내비)과 어닐러 기반 라우팅/스케줄링 등 HPC/AI와의 하이브리드 PoC가 현실적이고, 범용 양자컴퓨팅은 모니터링·시뮬레이터 중심이 적절합니다. 동시에 PQC 전환과 암호 민첩성으로 ‘수집 후 복호’ 리스크를 완화하고, QKD는 보완적 수단으로 보되 EuroQCI·유럽 테스트베드/컨소시엄을 활용해 표준·IP 선점과 공급망 다변화를 추진하는 전략이 권장됩니다.</span>
+                    <span class="lang-en">This report systematizes the TRL, standards, and governance of quantum technology, presenting manufacturing AX priorities. In the short term, hybrid PoCs with HPC/AI, such as quantum sensing (non-invasive quality control, predictive maintenance, GNSS-free navigation) and annealer-based routing/scheduling, are realistic, and for general-purpose quantum computing, a focus on monitoring and simulators is appropriate. Simultaneously, by transitioning to PQC and employing cryptographic agility, the 'collect now, decrypt later' risk is mitigated, and QKD should be seen as a complementary means; however, a strategy of leveraging EuroQCI and European testbeds/consortia to preempt standards and IP and diversify the supply chain is recommended.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">EU의 ‘Quantum Europe Strategy’와 2040 시나리오 분석은 제조업이 양자 도입을 언제·어떻게 준비해야 하는지에 대한 방향을 제공합니다. 단기적으로는 상용화가 근접한 양자센싱과 어닐러 기반 최적화가 유효하며, 범용 양자컴퓨팅은 관찰·학습 단계로 두는 것이 현실적입니다. 보안 측면에서는 ‘수집 후 복호’ 위협에 대비해 PQC 전환과 암호 민첩성을 즉시 착수해야 합니다. 유럽의 EuroQCI, 스킬 아카데미, 테스트베드 참여는 표준·IP 선점과 공급망 리스크 완화에 도움됩니다. 지정학적 시나리오에 따라 표준 분기·수출통제·민관 파워 밸런스가 달라지므로, 멀티벤더·표준 참여·하이브리드(HPC+AI+Quantum) 전략으로 리스크를 헤지하십시오. 실행 우선순위: 1) 어닐러 PoC(스케줄링/라우팅), 2) PQC 로드맵 수립과 핵심 시스템 우선 이행, 3) 비침습 품질·예지보전용 센싱 파일럿, 4) 내부 역량 구축(시뮬레이터·파트너십), 5) KPI로 TRL 게이트와 PoC→파일럿 전환율 관리.</span>
+                    <span class="lang-en">EU's 'Quantum Europe Strategy' and 2040 scenario analysis provide direction on when and how the manufacturing sector should prepare for quantum adoption. In the short term, quantum sensing and annealer-based optimization, which are close to commercialization, are effective, and it is realistic to keep general-purpose quantum computing in the observation and learning phase. From a security perspective, PQC transition and crypto-agility must be initiated immediately to prepare for the 'harvest now, decrypt later' threat. Participation in Europe's EuroQCI, skills academies, and testbeds helps in preempting standards and IP, and mitigating supply chain risks. Since standard divergence, export controls, and public-private power balance vary depending on geopolitical scenarios, hedge risks with a multi-vendor, standards participation, and hybrid (HPC+AI+Quantum) strategy. Execution priorities: 1) Annealer PoC (scheduling/routing), 2) Establish PQC roadmap and prioritize implementation for critical systems, 3) Sensing pilot for non-invasive quality and predictive maintenance, 4) Build internal capabilities (simulators/partnerships), 5) Manage TRL gates and PoC→pilot conversion rates with KPIs.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                14. November 2025
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.8/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>제조업 AI 인프라, 블랙웰 울트라, 사설 AI 팩토리, 데이터센터 네트워킹(InfiniBand/이더넷), 전력·냉각 용량 계획, AI인프라, 데이터센터, 엣지컴퓨팅</span><br><span class='lang-en'>accelerated computing, blackwell ultra, ai infrastructure scaling, private ai factory, infiniband/ethernet fabric, ai_infrastructure, data_center, blackwell_architecture</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://s201.q4cdn.com/141608511/files/doc_financials/2026/q3/NVDA-F3Q26-Quarterly-Presentation.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://s201.q4cdn.com/141608511/files/doc_financials/2026/q3/NVDA-F3Q26-Quarter...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">대규모 AI 인프라 투자 가속과 NVIDIA Blackwell 전환·네트워킹 확대는 제조사의 사설/하이브리드 AI 팩토리 구축 접근성을 높이며, 데이터센터–엣지 전반의 성능·비용 최적화 기회를 연다. 24개월 로드맵에서 Hopper→Blackwell(및 Ultra) 마이그레이션, 패브릭 설계(InfiniBand/고성능 이더넷), 전력·냉각·랙 밀도 재정의를 포함한 TCO 관점의 전체 스택 평가가 필요하다. 동시에 공급 제약을 고려한 장기 수요 예측·벤더 다변화·레퍼런스 아키텍처 기반 턴키 도입을 병행하고, 예지보전·품질검사·생산스케줄링 등 에이전틱 앱과 디지털 트윈을 우선 적용해 초기 ROI를 확보하라.</span>
+                    <span class="lang-en">The acceleration of large-scale AI infrastructure investment, coupled with the NVIDIA Blackwell transition and networking expansion, will increase manufacturers' accessibility to building private/hybrid AI factories and open up opportunities for performance and cost optimization across data centers and the edge. Within a 24-month roadmap, a full stack evaluation from a TCO perspective is necessary, encompassing Hopper to Blackwell (and Ultra) migration, fabric design (InfiniBand/high-performance Ethernet), and the redefinition of power, cooling, and rack density. Simultaneously, long-term demand forecasting, vendor diversification, and turnkey adoption based on reference architectures, all considering supply constraints, should be pursued in parallel, and prioritize the application of agentic apps such as predictive maintenance, quality inspection, and production scheduling, along with digital twins, to secure initial ROI.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">이 자료는 제조 현장에 직접적인 사례는 없지만, 2025~2026년 AI 인프라 대규모 확장과 Blackwell 중심의 업그레이드 사이클을 명확히 보여준다. 제조사는 사설/하이브리드 AI 팩토리 구축, 네트워킹 패브릭 설계, 전력·냉각 용량, 그리고 Hopper→Blackwell 전환 로드맵을 선제적으로 준비해야 한다. 에이전틱 애플리케이션과 가속컴퓨팅 기반 시뮬레이션/디지털 트윈 활용을 위한 예산·파트너·조달 전략 수립에 참고 가치가 있다.</span>
+                    <span class="lang-en">Although this document does not contain direct examples from manufacturing sites, it clearly shows the large-scale expansion of AI infrastructure and a Blackwell-centric upgrade cycle in 2025-2026. Manufacturers must proactively prepare for the construction of private/hybrid AI factories, networking fabric design, power and cooling capacity, and the Hopper-to-Blackwell transition roadmap. It is valuable for reference in establishing budget, partner, and procurement strategies for utilizing agentic applications and accelerated computing-based simulations/digital twins.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                15. Teva Launches Rise: A Global Open Innovation Platform to ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>스마트 제조, 예지정비, 디지털 트윈, GxP/CSV 검증, 공급망 가시성, 오픈이노베이션, 스마트제조, 인더스트리4.0</span><br><span class='lang-en'>open innovation, smart manufacturing, industry 4.0, gmp-compliant ai, challenge-based sourcing, open_innovation, smart_manufacturing, industry_4.0</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.biospace.com/press-releases/teva-launches-rise-a-global-open-innovation-platform-to-accelerate-ai-industry-4-0-smart-manufacturing-digital-health-and-biotech-breakthroughs-for-pharmas-biggest-challenges" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.biospace.com/press-releases/teva-launches-rise-a-global-open-innovat...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">Teva의 오픈이노베이션 플랫폼은 AI·Industry 4.0 솔루션을 R&D–제조–공급망–상업을 잇는 디지털 스레드로 PoC부터 스케일업까지 연결하며, 실제 도입을 위한 투자와 파트너 협업 구조를 명확히 제시합니다. 제약 제조의 GxP/CSV·데이터 무결성 요구를 전제로 품질·규제 준수형 MLOps를 갖추고, MES/LIMS/ERP 통합 및 KPI 기반 단계적 게이팅으로 예지정비, PAT/실시간 품질, 디지털 트윈, 배치 릴리즈 자동화 등 핵심 과제를 실행하는 실용적 프레임워크를 제공합니다.</span>
+                    <span class="lang-en">Teva's open innovation platform connects AI and Industry 4.0 solutions as a digital thread linking R&D, manufacturing, supply chain, and commercial operations, from PoC to scale-up, and clearly presents investment and partner collaboration structures for actual implementation. Premised on the GxP/CSV and data integrity requirements of pharmaceutical manufacturing, it is equipped with quality- and regulatory-compliant MLOps, and through MES/LIMS/ERP integration and KPI-based phased gating, it provides a practical framework that executes key tasks such as predictive maintenance, PAT/real-time quality, digital twins, and batch release automation.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">Teva가 AI·스마트 제조·Industry 4.0을 포함한 7개 챌린지를 외부 파트너와 해결하는 오픈이노베이션 플랫폼을 출범했습니다. 구체적 성과 수치는 없지만, R&D-제조-공급망을 잇는 엔드투엔드 혁신 의지와 투자 의향을 확인할 수 있어 제조 AX 관점에서 참고 가치가 있습니다. 제조 조직은 GxP/CSV를 고려한 규제 친화적 AI·MLOps, MES/LIMS/ERP 연계, 챌린지 기반 소싱과 단계적 확산 모델을 설계하는 데 인사이트를 얻을 수 있습니다. 유망 적용 분야로 예지정비, 공정 분석·실시간 품질, 디지털 트윈, 배치 릴리즈 자동화, 공급망 가시성이 제시됩니다.</span>
+                    <span class="lang-en">Teva has launched an open innovation platform to solve 7 challenges, including AI, smart manufacturing, and Industry 4.0, with external partners. Although there are no specific performance figures, it is valuable for reference from a manufacturing AX perspective, as it confirms an end-to-end innovation commitment and willingness to invest that connects R&D, manufacturing, and the supply chain. Manufacturing organizations can gain insights into designing regulatory-friendly AI and MLOps considering GxP/CSV, MES/LIMS/ERP integration, and a challenge-based sourcing and phased deployment model. Promising application areas include predictive maintenance, process analysis and real-time quality, digital twin, batch release automation, and supply chain visibility.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                16. Principal Full Stack Engineer - AI Product - Re:Build Manufacturing ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>제조 AI 플랫폼, 에이전틱 AI, 클라우드 네이티브 아키텍처, LLM 통합, 엔지니어링 서비스 자동화, 에이전틱AI, 제조엔지니어링, AI플랫폼</span><br><span class='lang-en'>agentic ai, cloud-native (gcp), llm integration, engineering workflows automation, human-in-the-loop, agentic_ai, manufacturing_engineering, ai_platform</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.builtinboston.com/job/principal-full-stack-engineer-ai-product/7763496" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.builtinboston.com/job/principal-full-stack-engineer-ai-product/77634...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">채용 공고이지만, 제조 AX 관점에서 ‘에이전틱 AI로 엔지니어링 워크플로우(견적·제안, 도면/요구사항 해석, 설계 리뷰, BOM/PLM 동기화)를 자동화·증강’하기 위한 인재·아키텍처 청사진을 제시합니다. GCP 기반 클라우드 네이티브와 LLM API/오케스트레이션, React Native 중심 현장 UX를 채택하고 프로덕션 거버넌스(보안·관찰성·배포 자동화·HITL)와 KPI(설계 사이클타임, 견적 리드타임, 엔지니어 시간 절감, LLM 호출당 비용)를 함께 설계하되, 프린서플급 풀스택 AI 리더 확보가 성공의 핵심입니다.</span>
+                    <span class="lang-en">While this is a recruitment notice, from the perspective of manufacturing AX, we present a blueprint for talent and architecture aimed at 'automating and augmenting engineering workflows (estimation/proposal, drawing/requirement interpretation, design review, BOM/PLM synchronization) with agentic AI.' Adopting GCP-based cloud-native, LLM API/orchestration, and React Native-centric field UX, while concurrently designing production governance (security, observability, deployment automation, HITL) and KPIs (design cycle time, quote lead time, engineer time savings, cost per LLM call), securing a principal-level full-stack AI leader is key to success.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">Re:Build Manufacturing이 엔지니어링 서비스를 혁신할 AI 제품을 구축하기 위해 프린서플급 풀스택 엔지니어를 채용한다는 점에서, 제조 AX에 필요한 인력 프로파일과 기술 스택(GCP, LLM 통합, 에이전틱 AI), 운영 원칙(프로덕션급 품질, HITL, 비용/품질 모니터링)을 확인할 수 있습니다. 제조사는 이를 참고해 초기 고가치 유스케이스(제안/견적 자동화, 설계 리뷰 코파일럿, PLM 연계 보조)를 에이전틱 워크플로우로 구현하고, 모바일/현장 UX를 고려한 제품 설계를 병행하며, KPI(사이클타임·리드타임·시간절감·호출비용)로 성과를 관리하는 접근을 설계할 수 있습니다.</span>
+                    <span class="lang-en">The fact that Re:Build Manufacturing is hiring a Principal Full-Stack Engineer to build AI products that will innovate engineering services highlights the personnel profile and technology stack (GCP, LLM integration, Agentic AI), along with the operational principles (production-grade quality, HITL, cost/quality monitoring) required for manufacturing AI Transformation (AX). Manufacturers can refer to this to implement initial high-value use cases (proposal/quotation automation, design review copilot, PLM integration assistance) as agentic workflows, concurrently pursuing product design that considers mobile/on-site UX, and devising an approach to manage performance with KPIs (cycle time, lead time, time savings, call costs).</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                17. CIN NO. L25200GJ2009PLC058294 Date: 20th November, 2025 To ...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 91.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.6
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI 기반 품질검사, 실시간 불량 감지, 배치 생산 추적성, 클린룸·HACCP, MAP 포장(FIBC), AI 품질관리, 스마트제조, 자동화생산</span><br><span class='lang-en'>ai visual inspection, real-time defect detection, batch manufacturing traceability, brc food-grade compliance, map-enabled fibc, ai_quality_control, smart_manufacturing, automated_production</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://nsearchives.nseindia.com/corporate/BULKCORP_20112025143311_Intimation_Signed.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://nsearchives.nseindia.com/corporate/BULKCORP_20112025143311_Intimation_Si...
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">Bulkcorp의 FIBC 제조 사례는 PLC 연동 AI 비전으로 실시간 불량을 감지하고, 배치 생산·클린룸·HACCP·다중 국제인증(ISO/BRC 등)으로 식품·제약급 추적성과 균일성을 확보한 제조 AX 레퍼런스입니다. MAP 기능 FIBC·정전기 안전 Type C/D·UN 인증 등 제품 차별화와 함께 4,800 MTPA(60% 가동), 90% 재구매, 464kW 태양광 KPI가 제시되며, 실무에선 결함 정의 표준화→AI 비전 튜닝, 로트 데이터 모델링(MES/PLC 연계), 전자 CoC 기반 규격 적합성 자동검증을 우선 적용할 수 있습니다.</span>
+                    <span class="lang-en">Bulkcorp's FIBC manufacturing case is a manufacturing AX reference that detects real-time defects with PLC-integrated AI vision and ensures food and pharmaceutical-grade traceability and uniformity through batch production, cleanroom, HACCP, and multiple international certifications (ISO/BRC, etc.). Along with product differentiation such as MAP-function FIBCs, electrostatic safe Type C/D, and UN certification, KPIs of 4,800 MTPA (60% utilization), 90% repurchase rate, and 464kW solar power are presented, and in practice, standardization of defect definition → AI vision tuning, lot data modeling (MES/PLC linkage), and automated verification of specification conformity based on electronic CoC can be prioritized for application.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">FIBC 전문 제조사의 투자자 자료지만, AI 기반 실시간 불량 감지, PLC 설비, 배치 생산·추적성, 클린룸·HACCP, BRC/ISO/Sedex 인증 등 스마트 품질·규제 대응 체계를 구체적으로 제시한다. MAP 적용 FIBC, UN/정전기 규격 대응 등 제품·공정 동시 고도화 전략과 4,800 MTPA, 60% 가동률, 95% 수출, 464kW 태양광 등 운영 지표가 실무 벤치마킹 가치가 있다. 제조사는 AI 비전 도입 시 결함 표준과 로트 데이터 구조를 정립하고, 식품·제약 등 고규제 시장을 겨냥해 인증·청정공정을 통합 구축하는 전략을 참고할 수 있다.</span>
+                    <span class="lang-en">Although it is an investor document from a specialized FIBC manufacturer, it specifically presents smart quality and regulatory compliance systems such as AI-based real-time defect detection, PLC equipment, batch production and traceability, cleanroom and HACCP, and BRC/ISO/Sedex certifications. Operating indicators such as 4,800 MTPA, 60% utilization rate, 95% exports, and 464kW solar power, along with strategies for simultaneous product and process advancement including MAP-applied FIBCs and compliance with UN/electrostatic standards, have practical benchmarking value. When introducing AI vision, the manufacturer can establish defect standards and lot data structures, and can refer to a strategy that integrates certifications and clean processes, targeting highly regulated markets such as food and pharmaceuticals.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                18. AI 투자 붐, 메모리 시장 '혼란'… 일본 스타트업들 성장 기회 포착
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>HBM(고대역폭 메모리), GPU 공급난, 메모리 공급망 리스크, 스마트팩토리 AI 인프라, 부품 멀티소싱 전략, AI 투자, 메모리 반도체, 공급망 관리</span><br><span class='lang-en'>hbm memory, gpu lead times, memory supply chain risk, edge ai inference, capacity planning, ai_investment, memory_chip_shortage, supply_chain_disruption</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.g-enews.com/view.php?ud=2025112018275689000c8c1c064d_1" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.g-enews.com/view.php?ud=2025112018275689000c8c1c064d_1
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI 투자 급증으로 HBM 중심의 메모리·GPU 공급망 병목이 심화되어 가격 변동성과 리드타임이 확대, 스마트폰/PC와의 수요 충돌로 산업용 확보 난이도가 커질 전망입니다. 제조사는 멀티소싱·LTA·수요예측(FC) 동기화와 대체 메모리(DDR5/GDDR6/HBM3e) 사전 인증, 안전재고 재산정·출시 일정 버퍼링, 모델 경량화(양자화·프루닝)로 HBM 의존도 축소 등 실행을 서둘러야 합니다. 아울러 일본 AI 스타트업과의 파트너십을 포함한 생태계 연계를 통해 공정 최적화와 AMR/AGV 기술 내재화 기회를 모색하세요.</span>
+                    <span class="lang-en">The rapid surge in AI investment is intensifying bottlenecks in the HBM-centric memory and GPU supply chain, leading to increased price volatility and expanded lead times. With demand conflicts arising from smartphones/PCs, securing supplies for industrial use is expected to become more difficult. Manufacturers must quickly implement measures such as multi-sourcing, LTA, and demand forecasting (FC) synchronization; pre-certification of alternative memory (DDR5/GDDR6/HBM3e); recalculating safety stock and buffering release schedules; and reducing HBM dependence through model lightweighting (quantization/pruning). Additionally, explore opportunities for process optimization and internalizing AMR/AGV technologies through ecosystem linkages, including partnerships with Japanese AI startups.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">AI 투자 붐으로 HBM 등 메모리 수요가 폭증하며 GPU·메모리 조달이 병목화되고 가격 변동성이 커지고 있습니다. 이는 스마트팩토리의 AI 설비 업그레이드, 엣지 추론 장치, 비전 검사 시스템 등 제조 AX 인프라 계획에 직접적인 영향을 줍니다. 제조사는 멀티소싱과 대체 메모리 사전 인증, 리드타임 기반 단계적 롤아웃, 장기공급계약 검토로 조달 리스크를 완화하고, 모델 경량화·엣지/클라우드 혼합으로 HBM 의존도를 낮춰야 합니다. 클라우드 보안 이슈를 고려한 데이터 거버넌스 강화와, 일본 LLM·자율주행 스타트업과의 협력 가능성 탐색도 전략적으로 유효합니다.</span>
+                    <span class="lang-en">With the AI investment boom, memory demand, including HBM, is skyrocketing, leading to bottlenecking in GPU and memory procurement and increased price volatility. This directly impacts manufacturing AX infrastructure plans, such as AI equipment upgrades in smart factories, edge inference devices, and vision inspection systems. Manufacturers should mitigate procurement risks through multi-sourcing, pre-certification of alternative memory, lead-time based phased rollout, and review of long-term supply contracts, while also reducing HBM dependency through model lightweighting and an edge/cloud hybrid approach. Strengthening data governance, considering cloud security issues, and exploring possibilities of cooperation with Japanese LLM and autonomous driving startups are also strategically effective.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                19. &quot;엔비디아 족쇄 채우지 마라&quot;…백악관, 국방수권법에 ‘AI칩 중국 수출제...
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>AI 칩 공급망, 수출통제(NDAA), GPU 조달 전략, 하이브리드 클라우드 AI, 중국 시장 리스크, AI칩 수출규제, 엔비디아, 반도체 공급망</span><br><span class='lang-en'>ai compute capacity planning, gpu procurement, export controls, hybrid cloud for ai, china exposure, ai_chip_export_control, semiconductor_supply_chain, manufacturing_ai_infrastructure</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://biz.sbs.co.kr/article_hub/20000273592?division=NAVER" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://biz.sbs.co.kr/article_hub/20000273592?division=NAVER
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">AI 칩 수출 규제 불확실성은 스마트팩토리·품질관리·예지보전 등 제조 AI 추진 일정과 비용에 직접적 리스크를 주므로, GPU/가속기 공급망 다변화(AMD·Intel·클라우드 예약 + 온프레 혼합), CSP와의 용량·가격·SLA 선확보, 모델 경량화·양자화로 GPU 의존도 축소가 필요합니다. 중국 사업은 모델 배치·업데이트와 데이터 경로의 수출통제 준수를 강화하고, MS·AWS 등 정책 변화와 미국 내 우선공급 가능성을 모니터링해 투자 타이밍과 지역별 인프라 전략을 재조정하십시오.</span>
+                    <span class="lang-en">Uncertainty regarding AI chip export regulations directly poses a risk to the schedule and costs of manufacturing AI initiatives such as smart factories, quality control, and predictive maintenance. Therefore, diversification of GPU/accelerator supply chains (AMD, Intel, cloud reservations + on-premise mix), proactive securing of capacity, pricing, and SLAs with CSPs, and reduction of GPU dependency through model lightweighting and quantization are necessary. For China operations, strengthen compliance with export controls for model deployment/updates and data pathways, and monitor policy changes from MS, AWS, etc., and the possibility of priority supply within the US to readjust investment timing and regional infrastructure strategies.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">백악관이 NDAA에 AI 칩 대중국 수출제한 조항 제외를 압박한다는 소식은 AI 연산자원 수급과 비용의 변동성을 키울 수 있습니다. 제조업은 GPU 조달 다변화(엔비디아 대체·클라우드/온프레 믹스), 용량 사전예약, 추론 중심 최적화로 TCO를 낮추고, 중국 사업이 있는 경우 수출통제 준수를 위한 모델 배치·데이터 흐름 점검이 필요합니다. CSP와의 협상에서는 용량 보장·가격 안정화 조항을 요구하고, 정책 시나리오에 따른 학습/추론 계획과 투자 타이밍을 재조정하는 것이 실천적 대응입니다.</span>
+                    <span class="lang-en">The news that the White House is pressing for the exclusion of AI chip export restriction provisions to China from the NDAA could increase the volatility of AI computational resource supply and demand and costs. The manufacturing sector needs to lower TCO by diversifying GPU procurement (Nvidia alternatives, cloud/on-premise mix), pre-booking capacity, and optimizing for inference-centric operations. If there are operations in China, it's necessary to review model deployment and data flow to ensure compliance with export controls. In negotiations with CSPs, demand provisions for capacity assurance and price stabilization, and re-adjusting training/inference plans and investment timing according to policy scenarios is a practical response.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                20. 조선-해양산업 AI 기술 개발 힘모은다
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.5/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.0%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>조선 산업용 AI, 스마트 야드, 컴퓨터 비전 검사, 예지보전, 공정 스케줄링 최적화, 조선산업 AI, 산학연 협력, 제조 특화 AI</span><br><span class='lang-en'>shipbuilding ai, smart shipyard, computer vision inspection, predictive maintenance, digital twin scheduling, shipbuilding_ai, industry_academia_collaboration, manufacturing_specialized_ai</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.donga.com/news/Economy/article/all/20251120/132810523/2" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.donga.com/news/Economy/article/all/20251120/132810523/2
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">과기정통부·산업부 주도의 산학연 컨소시엄(HD한국조선해양·HD현대중공업·HD현대로보틱스-UNIST·울산대)은 조선·해양 특화 AI의 표준·데이터 생태계 정비를 가속화할 신호입니다. 단기 우선 적용 분야는 비전 기반 용접/도장/표면 검사, 야드 내 AMR/AGV 자율물류, 안전 모니터링, 설비 예지보전, 도크/공정 스케줄링이며, 제조사는 KPI 정의→데이터 수집·라벨링 체계 구축→OT/IT 연계·엣지 MLOps 기반 마련→안전·보안 거버넌스 선제 정립과 컨소시엄 파일럿 참여로 정책·표준 연계 이점을 극대화할 수 있습니다.</span>
+                    <span class="lang-en">The industry-academia-research consortium led by the Ministry of Science and ICT (MSIT) and the Ministry of Trade, Industry and Energy (MOTIE) (HD Korea Shipbuilding & Offshore Engineering, HD Hyundai Heavy Industries, HD Hyundai Robotics - UNIST, University of Ulsan) is a signal that will accelerate the establishment of a standard and data ecosystem for AI specialized in shipbuilding and offshore engineering. The short-term priority application areas are vision-based welding/painting/surface inspection, AMR/AGV autonomous logistics within the yard, safety monitoring, equipment predictive maintenance, and dock/process scheduling; manufacturers can maximize the benefits of policy and standard integration by defining KPIs, establishing data collection and labeling systems, integrating OT/IT and building an edge MLOps foundation, proactively establishing safety and security governance, and participating in consortium pilots.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">조선·해양 특화 AI 개발을 위해 정부-산학연-대기업이 컨소시엄을 구성했다는 소식입니다. 이는 조선소 ‘스마트 야드’ 전환을 가속화할 신호로, 품질검사, 자율물류, 안전, 예지보전, 스케줄링 등 핵심 현장 과제가 주요 적용 분야가 될 전망입니다. 제조사는 KPI 기반 우선과제 선정, 데이터 라벨링·거버넌스 정비, OT/IT-엣지 MLOps 인프라 준비, 컨소시엄 연계 파일럿 참여를 통해 초기 성과와 표준 선점 기회를 노릴 수 있습니다.</span>
+                    <span class="lang-en">It's news that the government, industry-academia-research institutions, and large corporations have formed a consortium for the development of AI specialized in shipbuilding and marine industries. This is a signal that will accelerate the transformation of shipyards into 'smart yards', and key operational tasks such as quality inspection, autonomous logistics, safety, predictive maintenance, and scheduling are expected to be major application areas. Manufacturers can aim for early achievements and opportunities to preempt standards by selecting priority tasks based on KPIs, establishing data labeling and governance, preparing OT/IT-edge MLOps infrastructure, and participating in consortium-linked pilot projects.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                21. Real-Time Transformation for Healthcare & Manufacturing
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.2/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>실시간 이벤트 처리, 예지보전, 작업자 안전 모니터링, 공급망 가시성, ERP/MES 통합, 예측정비, 실시간공급망, 작업자안전모니터링</span><br><span class='lang-en'>event-driven architecture, predictive maintenance, worker safety iot, real-time supply chain visibility, streaming analytics, predictive_maintenance, real_time_supply_chain, event_driven_applications</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.softura.com/wp-content/uploads/2025/11/Vantiq_Web_1.pdf" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.softura.com/wp-content/uploads/2025/11/Vantiq_Web_1.pdf
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">본 자료는 제조 AX 관점에서 실시간 이벤트 기반(EDA) 아키텍처로 센서/PLC/SCADA와 MES/ERP를 연계해 예지보전, 작업자 안전, 실시간 공급망 가시성을 구현하는 접근을 제시합니다. JumpStart Assessment로 우선순위를 정하고 스트리밍 이상탐지→CMMS 자동지시, 웨어러블·RTLS 기반 경보, RFID/WIP 추적을 적용하며 KPI(OEE, MTBF/MTTR, 스크랩률, 알람→조치 <10초)를 파일럿에서 명확히 설정·모니터링해 단계 확장하는 것이 핵심입니다. 단, 제시된 정량 효과는 홍보성 수치이므로 PoC에서 데이터 품질·지연시간·알람 피로도를 검증해야 합니다.</span>
+                    <span class="lang-en">This document presents an approach to implement predictive maintenance, worker safety, and real-time supply chain visibility by linking sensors/PLCs/SCADA with MES/ERP through a real-time event-driven (EDA) architecture from the perspective of Manufacturing AX. Prioritizing with a JumpStart Assessment, and then applying streaming anomaly detection → automatic CMMS instructions, wearable and RTLS-based alerts, and RFID/WIP tracking, while clearly setting and monitoring KPIs (OEE, MTBF/MTTR, scrap rate, alarm→action <10 seconds) in the pilot, is key to phased expansion. However, the quantitative effects presented are promotional figures, so data quality, latency, and alarm fatigue must be verified in the PoC.</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">이 자료는 실시간 이벤트 기반 애플리케이션을 통해 제조 현장의 예지보전, 작업자 안전, 공급망 가시성을 강화하는 방향성을 제시합니다. 구체적인 구현 설명은 부족하지만, 스트리밍 분석과 ERP/MES/PLM 통합, 엣지-클라우드 분산 처리, 우선순위화(Use Case Scoring/Blueprint) 등 실행 프레임을 시사합니다. 파일럿에서는 중요 설비/현장부터 시작해 이벤트 택소니미 정의, CMMS 연계 자동화, KPI(스크랩률, MTBF/MTTR, 리드타임, 대응시간) 설정·검증을 권장합니다. 마케팅 성격이 강하므로 실제 ROI, 데이터·지연 요구사항, 운영전환 계획을 PoC에서 반드시 검증하는 것이 바람직합니다.</span>
+                    <span class="lang-en">This document presents an approach to enhance predictive maintenance, worker safety, and supply chain visibility on manufacturing floors through real-time event-driven applications. While specific implementation details are lacking, it suggests an execution framework including streaming analytics, ERP/MES/PLM integration, edge-cloud distributed processing, and prioritization (Use Case Scoring/Blueprint). For the pilot, it recommends starting with critical equipment/sites to define event taxonomy, automate CMMS linkage, and set/verify KPIs (scrap rate, MTBF/MTTR, lead time, response time). As it is highly marketing-oriented, it is advisable to thoroughly verify actual ROI, data and latency requirements, and the operational transition plan during the PoC.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div style="border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; background: white;">
+            <h3 style="color: #0066cc; margin-bottom: 10px;">
+                22. Prioritisation ‘paradox’ emerging around adoption of gen AI, research shows - Marketing Week
+            </h3>
+            
+            <div style="margin: 10px 0;">
+                <span style="background: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px;">
+                Average: 6.2/10
+                </span>
+                <span style="background: #17a2b8; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Confidence: 99.8%
+                </span>
+                <span style="background: #6f42c1; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                Consistency: 0.7
+                </span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">키워드:</span><span class="lang-en">Keywords:</span></strong><br>
+                <span class='lang-ko'>제조 AI 성숙도, 데이터/클라우드 인프라, 스케일링(파일럿→상용), OT-IT 통합·MLOps, 생성형 AI 활용, AI 성숙도, 마케팅 효율성, 기술 인프라</span><br><span class='lang-en'>ai maturity model, data infrastructure, scaling pilots, mlops, genai in manufacturing, ai maturity, efficiency gains, technology infrastructure</span>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">소스:</span><span class="lang-en">Source:</span></strong> 
+                <a href="https://www.marketingweek.com/prioritisation-paradox-adoption-gen-ai/" target="_blank" style="color: #0066cc; text-decoration: none;">
+                https://www.marketingweek.com/prioritisation-paradox-adoption-gen-ai/
+                </a>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">통합 인사이트:</span><span class="lang-en">Consolidated Insight:</span></strong>
+                <div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <span class="lang-ko">연구는 AI 성숙도 격차를 보여주며, 후발 기업의 최대 장애물은 기술 인프라(81%)인 반면 선도 기업은 이를 넘어 전략적 임팩트에 집중하고(마케팅 평균 효율 +22%), 이를 제조에도 적용할 수 있습니다. 제조 AX는 개별 PoC가 아닌 전사 프로그램으로 설계하고 OEE·수율·MAPE·재고회전 등 KPI에 기반해 라인/공정 10~20% 개선 가설을 세워 검증·확장해야 합니다. 이를 위해 데이터 파이프라인·표준 데이터 모델·MLOps·OT/IT 통합을 우선 구축하고, ROI 가설·대조군·스케일 경로를 포함한 pilot-to-factory 플레이북과 수익/고객경험에 직결되는 생성형 AI 유스케이스(제품 검색·구성추천, 서비스 부품 추천, 작업 표준서 자동화)를 우선순위화하십시오.</span>
+                    <span class="lang-en">The research shows an AI maturity gap; while the biggest obstacle for laggard companies is technical infrastructure (81%), leading companies move beyond this to focus on strategic impact (average marketing efficiency +22%), and this can be applied to manufacturing as well. Manufacturing AX should be designed as an enterprise-wide program rather than individual PoCs, and based on KPIs such as OEE, yield, MAPE, and inventory turnover, a hypothesis for 10-20% improvement in lines/processes should be established, validated, and expanded. To achieve this, prioritize building data pipelines, standard data models, MLOps, and OT/IT integration, along with a pilot-to-factory playbook that includes ROI hypotheses, control groups, and scaling paths, and prioritize generative AI use cases directly linked to revenue/customer experience (product search and configuration recommendation, service parts recommendation, work instruction automation).</span>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <strong><span class="lang-ko">요약:</span><span class="lang-en">Summary:</span></strong>
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                    <span class="lang-ko">기사는 AI 선도 기업과 후발 기업 간 성숙도 격차와 그에 따른 효율 성과(평균 22% 개선)를 제시하며, 후발 기업의 핵심 장애물이 인프라와 확장임을 강조합니다. 제조업에 적용하면, 파일럿을 조기 폐기하지 않기 위한 스케일 경로 설계, 데이터·MLOps 기반 선행, 전략적 임팩트 중심의 유스케이스 포트폴리오가 핵심입니다. KPI를 OEE/수율/계획정확도 등으로 재정의하고, 전사 거버넌스·변화관리와 연계한 AX 추진이 실질 가치를 높입니다.</span>
+                    <span class="lang-en">The article highlights the maturity gap between AI leading and lagging companies, presenting the resulting efficiency gains (an average 22% improvement), and emphasizes that infrastructure and scalability are the key obstacles for lagging companies. When applied to manufacturing, key elements include designing a scale path to avoid early termination of pilots, a data and MLOps-driven proactive approach, and a strategic impact-focused use case portfolio. Redefining KPIs such as OEE/yield/planning accuracy and driving AX in conjunction with enterprise governance and change management will increase real value.</span>
+                </div>
+            </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #e9ecef; border-radius: 8px;">
+                    <p style="margin: 0; color: #666;">
+                        <span class="lang-ko">
+                            생성 및 포스팅 시간: 2025년 11월 21일 07시 44분
+                        </span>
+                        <span class="lang-en">
+                            Generated and posted at: 2025-11-21 07:44
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <script>
+                function switchLanguage(lang) {
+                    // 언어 버튼 상태 변경
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.getElementById('btn-' + lang).classList.add('active');
+                    
+                    // body 클래스 변경으로 언어 콘텐츠 토글
+                    document.body.className = lang === 'en' ? 'language-en' : '';
+                    
+                    // 로컬 스토리지에 선택된 언어 설정 저장
+                    localStorage.setItem('selectedLanguage', lang);
+                }
+                
+                // 페이지 로드 시 저장된 언어 설정 복원
+                document.addEventListener('DOMContentLoaded', function() {
+                    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+                    switchLanguage(savedLang);
+                });
+            </script>
+        </body>
+        </html>
+        
